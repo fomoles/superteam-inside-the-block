@@ -9,7 +9,7 @@ import base64
 from pathlib import Path
 
 from . import plan as P
-from .probe import BASE_FEE, LEVELS, build_probe, derive_payer
+from .probe import BASE_FEE, DATA_LIMIT, LEVELS, build_probe, derive_payer
 from .rpc import Rpc
 from .run import GROUPS, PAYER_FLOOR, PAYER_TARGET, load_keypair
 from .spend import LAMPORTS_PER_SOL, SpendLedger
@@ -61,7 +61,8 @@ async def preflight(rpc: Rpc, keypair_path: str, ledger_path: str, cap_sol: floa
     sim = (await rpc.call("simulateTransaction", [base64.b64encode(bytes(tx)).decode(),
                                                   {"encoding": "base64", "sigVerify": True, "commitment": "confirmed"}]))["value"]
     if sim.get("err") is None:
-        print(f"simulate    probe OK, {sim.get('unitsConsumed')} CU (limit {LEVELS['MID'].cu_limit})")
+        print(f"simulate    probe OK, {sim.get('unitsConsumed')} CU (limit {LEVELS['MID'].cu_limit}), "
+              f"loaded-data limit {DATA_LIMIT or 'none'}")
     elif m == 0:
         print(f"simulate    probe not checkable yet: {sim['err']} (the key holds no SOL)")
     else:

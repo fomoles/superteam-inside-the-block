@@ -4,6 +4,9 @@ A probe is a legacy transaction with exactly three instructions:
   1. ComputeBudget.SetComputeUnitLimit(limit)
   2. ComputeBudget.SetComputeUnitPrice(price_micro_lamports)
   3. System.Transfer(payer -> payer, tag lamports)
+and, from run 2 on ($ITB_DATA_LIMIT > 0), a first ComputeBudget.SetLoadedAccountsDataSizeLimit(bytes).
+Without it the cost model charges the default 64 MiB allowance (16,384 CU) to every probe, which is why the
+run-1 ratio arm could not tell "fee per CU price" from "total fee" (REPORT 5, critique round 5).
 The self-transfer moves no money; its lamport amount is a *tag* that encodes
 (pair id, role), so every probe is identifiable from the chain alone.
 Its only writable account is the payer, so two probes conflict iff they share
@@ -13,9 +16,10 @@ A Memo instruction was rejected as the tag carrier: a 20-byte memo needs >4,700 
 from __future__ import annotations
 
 import hashlib
+import os
 from dataclasses import dataclass
 
-from solders.compute_budget import set_compute_unit_limit, set_compute_unit_price
+from solders.compute_budget import set_compute_unit_limit, set_compute_unit_price, set_loaded_accounts_data_size_limit
 from solders.hash import Hash
 from solders.keypair import Keypair
 from solders.message import Message
@@ -24,6 +28,7 @@ from solders.transaction import Transaction
 
 BASE_FEE = 5000  # lamports per signature
 PROBE_CU_USED = 450
+DATA_LIMIT = int(os.environ.get("ITB_DATA_LIMIT", "0"))  # bytes; 0 = no instruction (run 1)
 
 
 @dataclass(frozen=True)
@@ -62,8 +67,10 @@ def decode_tag(tag: int) -> tuple[int, int]:
     return tag // 4, tag % 4
 
 
-def build_probe(payer: Keypair, blockhash: str, level: FeeLevel, tag: int) -> Transaction:
-    ixs = [
+def build_probe(payer: Keypair, blockhash: str, level: FeeLevel, tag: int, data_limit: int | None = None) -> Transaction:
+    data_limit = DATA_LIMIT if data_limit is None else data_limit
+    ixs = [set_loaded_accounts_data_size_limit(data_limit)] if data_limit else []
+    ixs += [
         set_compute_unit_limit(level.cu_limit),
         set_compute_unit_price(level.cu_price),
         transfer(TransferParams(from_pubkey=payer.pubkey(), to_pubkey=payer.pubkey(), lamports=tag)),

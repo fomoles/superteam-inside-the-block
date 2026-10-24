@@ -28,7 +28,7 @@ from solders.transaction import Transaction
 
 from . import plan as P
 from .log import log
-from .probe import LEVELS, MAX_FEE, build_probe, derive_payer, encode_tag, BASE_FEE
+from .probe import DATA_LIMIT, LEVELS, MAX_FEE, build_probe, derive_payer, encode_tag, BASE_FEE
 from .rpc import Rpc
 from .schedule import WINDOW, SlotClock, leader_windows
 from .spend import LAMPORTS_PER_SOL, SpendCapExceeded, SpendLedger
@@ -207,7 +207,7 @@ class Runner:
     def _log_tx(self, p, role, level, payer_idx, tx, t_ns, status, t_planned) -> None:
         est_slot = self.clock.slot_at((t_ns or time.time_ns()) / 1e9 + self.a.clock_lag_ms / 1000)
         rec = {"pair_id": p.pair_id, "role": role, "level": level, "fee": LEVELS[level].fee,
-               "cu_limit": LEVELS[level].cu_limit, "cu_price": LEVELS[level].cu_price,
+               "cu_limit": LEVELS[level].cu_limit, "cu_price": LEVELS[level].cu_price, "data_limit": DATA_LIMIT,
                "payer": str(self.payers[payer_idx].pubkey()), "sig": str(tx.signatures[0]),
                "tag": encode_tag(p.pair_id, role), "window_slot": p.window_slot, "target": p.target,
                "path": p.path, "status": status, "t_send_ns": t_ns, "t_planned": t_planned,

@@ -1,0 +1,477 @@
+{
+ "chosen_utc": "2026-10-24T12:51:27Z",
+ "epoch": 1066,
+ "source": "cluster-2026-10-24T125127Z.json.gz",
+ "validators": [
+  {
+   "identity": "7QQGNm3ptwinipDCyaCF7jY5katgmFUu1ieP2f7nwLpE",
+   "vote": "8BMMDVM8Tb88a2Hx1VSZ1TKmH1rMHbVU7xVafMk9JrEW",
+   "stake": 1875000953466200,
+   "commission": 100,
+   "client": "Agave",
+   "version": "4.3.2",
+   "tpuQuic": "5.199.172.176:12002",
+   "group": "Agave 4.3.2"
+  },
+  {
+   "identity": "5Us18hLZPXJTS4QVuGSsUw137Dyd2tgBaem24Xsf5nBS",
+   "vote": "AzbQjKoLepbDS8C6hgkRY7UCRwbwZZ9HqdtnWyef9WjX",
+   "stake": 1207979324911175,
+   "commission": 100,
+   "client": "Agave",
+   "version": "4.3.2",
+   "tpuQuic": "185.189.44.172:12002",
+   "group": "Agave 4.3.2"
+  },
+  {
+   "identity": "rsbp8zMHbGCpLoRktmsjspYv77VcjxAzH1KxPCD9BiU",
+   "vote": "R4spmF6oFW6wMQHv9L3PCEKumkspN3nveQihWyDAdRy",
+   "stake": 209351602022456,
+   "commission": 5,
+   "client": "Agave",
+   "version": "4.3.2",
+   "tpuQuic": "209.250.251.15:8002",
+   "group": "Agave 4.3.2"
+  },
+  {
+   "identity": "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH",
+   "vote": "7MKUXUiiVeWFwLaNyw5exkujXnen5yB77hQa54KLD98h",
+   "stake": 191611600426104,
+   "commission": 5,
+   "client": "Agave",
+   "version": "4.3.2",
+   "tpuQuic": "67.213.112.229:8002",
+   "group": "Agave 4.3.2"
+  },
+  {
+   "identity": "9hQqNe3DQTiwhspatewA8EXhz12e6sq5UJVJ2qNRwnTf",
+   "vote": "2Y2opv8Kq8zFATg6ipqb2AjgCf18tkv1CLMLXQGif2NH",
+   "stake": 119776046493921,
+   "commission": 7,
+   "client": "Agave",
+   "version": "4.3.2",
+   "tpuQuic": "177.54.155.251:8002",
+   "group": "Agave 4.3.2"
+  },
+  {
+   "identity": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU",
+   "vote": "he1iusunGwqrNtafDtLdhsUQDFvo13z9sUa36PauBtk",
+   "stake": 16022777902436491,
+   "commission": 0,
+   "client": "JitoLabs",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.57.215:8002",
+   "group": "JitoLabs 4.3.2"
+  },
+  {
+   "identity": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL",
+   "vote": "8GbwASqdpw4dVcwbWUxbHXMrjyQx2aKkoBR5H1GJF8iD",
+   "stake": 10882510649488417,
+   "commission": 0,
+   "client": "JitoLabs",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.32.153:8002",
+   "group": "JitoLabs 4.3.2"
+  },
+  {
+   "identity": "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k",
+   "vote": "26pV97Ce83ZQ6Kz9XT4td8tdoUFPTng8Fb8gPyc53dJx",
+   "stake": 9213418487287036,
+   "commission": 7,
+   "client": "JitoLabs",
+   "version": "4.3.2",
+   "tpuQuic": "185.26.10.33:8022",
+   "group": "JitoLabs 4.3.2"
+  },
+  {
+   "identity": "5pPRHniefFjkiaArbGX3Y8NUysJmQ9tMZg3FrFGwHzSm",
+   "vote": "DdCNGDpP7qMgoAy6paFzhhak2EeyCZcgjH7ak5u5v28m",
+   "stake": 5967787194475229,
+   "commission": 5,
+   "client": "JitoLabs",
+   "version": "4.3.2",
+   "tpuQuic": "188.42.129.244:11228",
+   "group": "JitoLabs 4.3.2"
+  },
+  {
+   "identity": "GnC339vkyXRm1jRX69dt9mapPPu2LbzXfSDoxc91qta6",
+   "vote": "FKsC411dik9ktS6xPADxs4Fk2SCENvAiuccQHLAPndvk",
+   "stake": 4860226782139946,
+   "commission": 7,
+   "client": "JitoLabs",
+   "version": "4.3.2",
+   "tpuQuic": "23.109.158.124:11228",
+   "group": "JitoLabs 4.3.2"
+  },
+  {
+   "identity": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy",
+   "vote": "3N7s9zXMZ4QqvHQR15t5GNHyqc89KduzMP7423eWiD5g",
+   "stake": 12572396114967448,
+   "commission": 0,
+   "client": "AgaveBam",
+   "version": "4.3.2",
+   "tpuQuic": "208.91.105.55:5010",
+   "group": "AgaveBam 4.3.2"
+  },
+  {
+   "identity": "5Cchr1XGEg7dbBXByV5NY2ad8jfxAM7HA3x8D56rq9Ux",
+   "vote": "GHViLgbrJdZDPb6sphRbeuPNM9cmjsFuGWzrTF1sKF5n",
+   "stake": 5688479581092335,
+   "commission": 100,
+   "client": "AgaveBam",
+   "version": "4.3.2",
+   "tpuQuic": "63.254.180.13:5010",
+   "group": "AgaveBam 4.3.2"
+  },
+  {
+   "identity": "Fc6NNdS2j3EmrWbU6Uqt6wsKB5ef72NjaWfNxKYbULGD",
+   "vote": "2tucttroqFNXsrYeMBQ8LfzKNfgwT2rHBzAF6RzbbHEp",
+   "stake": 4279522244052893,
+   "commission": 5,
+   "client": "AgaveBam",
+   "version": "4.3.2",
+   "tpuQuic": "198.13.130.9:5010",
+   "group": "AgaveBam 4.3.2"
+  },
+  {
+   "identity": "5EhGYUyQNrxgUbuYF4vbL2SZDT6RMfhq3yjeyevvULeC",
+   "vote": "iZADA4YKVRJZJaDUV3j79DzyK4VJkK3DGTfvvqvbC1K",
+   "stake": 3598006067995900,
+   "commission": 100,
+   "client": "AgaveBam",
+   "version": "4.3.2",
+   "tpuQuic": "208.91.109.115:5010",
+   "group": "AgaveBam 4.3.2"
+  },
+  {
+   "identity": "krakeNd6ednDPEXxHAmoBs1qKVM8kLg79PvWF2mhXV1",
+   "vote": "KRAKEnMdmT4EfM8ykTFH6yLoCd5vNLcQvJwF66Y2dag",
+   "stake": 3406795155390842,
+   "commission": 10,
+   "client": "AgaveBam",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.61.195:5010",
+   "group": "AgaveBam 4.3.2"
+  },
+  {
+   "identity": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk",
+   "vote": "CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1",
+   "stake": 17096229984756250,
+   "commission": 7,
+   "client": "HarmonicAgave",
+   "version": "4.3.2",
+   "tpuQuic": "198.13.140.105:12341",
+   "group": "HarmonicAgave 4.3.2"
+  },
+  {
+   "identity": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4",
+   "vote": "51JBzSTU5rAM8gLAVQKgp4WoZerQcSqWC7BitBzgUNAm",
+   "stake": 9478407185464353,
+   "commission": 10,
+   "client": "HarmonicAgave",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.46.242:12291",
+   "group": "HarmonicAgave 4.3.2"
+  },
+  {
+   "identity": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f",
+   "vote": "3ZYJxzCeweSoh2Jj7oCgencFs9y27iKmXJeqYapje1cj",
+   "stake": 4120076636581583,
+   "commission": 100,
+   "client": "HarmonicAgave",
+   "version": "4.3.2",
+   "tpuQuic": "63.254.166.232:12324",
+   "group": "HarmonicAgave 4.3.2"
+  },
+  {
+   "identity": "FBKFWadXZJahGtFitAsBvbqh5968gLY7dMBBJUoUjeNi",
+   "vote": "AZoCYB4VgoM9DR9f1ZFcBn8xPSbtbqoxZnKJR7tkvEoX",
+   "stake": 4069699208289170,
+   "commission": 100,
+   "client": "HarmonicAgave",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.46.242:12326",
+   "group": "HarmonicAgave 4.3.2"
+  },
+  {
+   "identity": "BtsmiEEvnSuUnKxqXj2PZRYpPJAc7C34mGz8gtJ1DAaH",
+   "vote": "G9x1mqewTeVnXLmv3FamYD5tq1AdS395RHH3MLQPj6TY",
+   "stake": 4069463049720092,
+   "commission": 100,
+   "client": "HarmonicAgave",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.46.242:12315",
+   "group": "HarmonicAgave 4.3.2"
+  },
+  {
+   "identity": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4",
+   "vote": "9QU2QSxhb24FUX3Tu2FpczXjpK3VYrvRudywSZaM29mF",
+   "stake": 7782538803998724,
+   "commission": 7,
+   "client": "Firedancer",
+   "version": "26.10.4",
+   "tpuQuic": "104.204.143.114:9007",
+   "group": "Firedancer 26.10.4"
+  },
+  {
+   "identity": "9eGrDohdNTAo61DRHyfMuqKWXqYnA3i254Wiszxe8FoY",
+   "vote": "CvSb7wdQAFpHuSpTYTJnX5SYH4hCfQ9VuGnqrKaKwycB",
+   "stake": 7037301090908213,
+   "commission": 5,
+   "client": "Firedancer",
+   "version": "26.10.4",
+   "tpuQuic": "86.54.152.246:9007",
+   "group": "Firedancer 26.10.4"
+  },
+  {
+   "identity": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+   "vote": "3JD3jMmnR6g88qff2WZ3cMHJRjJMUk9yVZtmYTYeFrXf",
+   "stake": 6607875845254433,
+   "commission": 0,
+   "client": "Firedancer",
+   "version": "26.10.4",
+   "tpuQuic": "86.54.153.246:9007",
+   "group": "Firedancer 26.10.4"
+  },
+  {
+   "identity": "DNVZMSqeRH18Xa4MCTrb1MndNf3Npg4MEwqswo23eWkf",
+   "vote": "9Diao4uo6NpeMud7t5wvGnJ3WxDM7iaYxkGtJM36T4dy",
+   "stake": 1920191649840747,
+   "commission": 1,
+   "client": "Firedancer",
+   "version": "26.10.4",
+   "tpuQuic": "23.109.46.35:9007",
+   "group": "Firedancer 26.10.4"
+  },
+  {
+   "identity": "BFmqBsaGjeYA7gHpReKmnVkRyhqiMmHoR9ttv1crWmzy",
+   "vote": "2hK2uke7ssm7QuBzbrgxBs2aStmFmdKyC12yV2iwvvPm",
+   "stake": 831650069659602,
+   "commission": 0,
+   "client": "Firedancer",
+   "version": "26.10.4",
+   "tpuQuic": "137.239.202.126:9007",
+   "group": "Firedancer 26.10.4"
+  },
+  {
+   "identity": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b",
+   "vote": "CatzoSMUkTRidT5DwBxAC2pEtnwMBTpkCepHkFgZDiqb",
+   "stake": 9724045661416186,
+   "commission": 5,
+   "client": "HarmonicFiredancer",
+   "version": "26.10.4",
+   "tpuQuic": "198.13.140.105:12349",
+   "group": "HarmonicFiredancer 26.10.4"
+  },
+  {
+   "identity": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM",
+   "vote": "DumiCKHVqoCQKD8roLApzR5Fit8qGV5fVQsJV9sTZk4a",
+   "stake": 7003144982092443,
+   "commission": 0,
+   "client": "HarmonicFiredancer",
+   "version": "26.10.4",
+   "tpuQuic": "198.13.140.105:12351",
+   "group": "HarmonicFiredancer 26.10.4"
+  },
+  {
+   "identity": "87CcUxpyR72ZyfaZirj86mqkbk5uuU2EfnwTegVMLJL5",
+   "vote": "8Pep3GmYiijRALqrMKpez92cxvF4YPTzoZg83uXh14pW",
+   "stake": 3832139436460256,
+   "commission": 0,
+   "client": "HarmonicFiredancer",
+   "version": "26.10.4",
+   "tpuQuic": "64.130.45.196:9007",
+   "group": "HarmonicFiredancer 26.10.4"
+  },
+  {
+   "identity": "CQdLgwkmmHF8DE6t4sguXMTXWDxq3oLh3xfekDTmow12",
+   "vote": "2iWXwF2Q5W6o7yntV2mkbxncB4rYHnX61y3NU8a8EFMJ",
+   "stake": 2132216497626396,
+   "commission": 0,
+   "client": "HarmonicFiredancer",
+   "version": "26.10.4",
+   "tpuQuic": "198.13.140.105:9007",
+   "group": "HarmonicFiredancer 26.10.4"
+  },
+  {
+   "identity": "pSo1KZXgG1EGHch6pPmscfYhv3buXyaj2dR8WkVnkfc",
+   "vote": "34kE8AGJazhgrsovREiB2Uru1CuhN4gCznNAmVUxB9AB",
+   "stake": 1608462852104361,
+   "commission": 4,
+   "client": "HarmonicFiredancer",
+   "version": "26.10.4",
+   "tpuQuic": "198.13.140.105:9007",
+   "group": "HarmonicFiredancer 26.10.4"
+  },
+  {
+   "identity": "9jxgosAfHgHzwnxsHw4RAZYaLVokMbnYtmiZBreynGFP",
+   "vote": "HZKopZYvv8v6un2H6KUNVQCnK5zM9emKKezvqhTBSpEc",
+   "stake": 4477328987787841,
+   "commission": 100,
+   "client": "FireBAM",
+   "version": "26.10.4",
+   "tpuQuic": "198.13.141.173:5010",
+   "group": "FireBAM 26.10.4"
+  },
+  {
+   "identity": "A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2",
+   "vote": "J1to2NAwajc8hD6E6kujdQiPn1Bbt2mGKKZLY9kSQKdB",
+   "stake": 354370904523977,
+   "commission": 4,
+   "client": "FireBAM",
+   "version": "26.10.4",
+   "tpuQuic": "64.130.52.171:5010",
+   "group": "FireBAM 26.10.4"
+  },
+  {
+   "identity": "SSmBEooM7RkmyuXxuKgAhTvhQZ36Z3G2WsmLGJKoQLY",
+   "vote": "punK4RDD3pFbcum79ACHatYPLLE1hr5UNnQVUGNfeyP",
+   "stake": 303669652594504,
+   "commission": 5,
+   "client": "FireBAM",
+   "version": "26.10.4",
+   "tpuQuic": "64.130.51.255:5010",
+   "group": "FireBAM 26.10.4"
+  },
+  {
+   "identity": "PRGNnb8DxVcP2WjSHfVRGgc8SkA5u6dbMwoTVV1BGKN",
+   "vote": "VotESBSkLKU8vebS6wTR2rzWWJsLc6YThYS6tebPxXq",
+   "stake": 303660232456138,
+   "commission": 5,
+   "client": "FireBAM",
+   "version": "26.10.4",
+   "tpuQuic": "103.70.2.244:5010",
+   "group": "FireBAM 26.10.4"
+  },
+  {
+   "identity": "idCE5k2BtTpwXdwAC7Var1enT9reut9fWECcxQP7LY7",
+   "vote": "Cer1umMkC6cvRGKKLP3QwxsdxsgxmC1EhqMhB1mqVvYZ",
+   "stake": 210118639994162,
+   "commission": 5,
+   "client": "FireBAM",
+   "version": "26.10.4",
+   "tpuQuic": "64.130.51.255:5010",
+   "group": "FireBAM 26.10.4"
+  },
+  {
+   "identity": "ana2y2YvQ3ZPMwm6qhnN3nJoUSiT3qx5Pvetkq9xcfY",
+   "vote": "4AUED4uj6nSTuANzaAUnGBPJQRmhpDYDwoWJNkoUUBBW",
+   "stake": 2264600760735918,
+   "commission": 0,
+   "client": "Rakurai",
+   "version": "4.3.2",
+   "tpuQuic": "45.32.145.112:8002",
+   "group": "Rakurai 4.3.2"
+  },
+  {
+   "identity": "E3mDbFMr8yZcCAZx5wPUFCRmLX31u8Nnj4jPoPc54h3F",
+   "vote": "DierScgiTrz5AM7mddeJLHYNvafym3XhjjdM51AnKevU",
+   "stake": 887298052617446,
+   "commission": 5,
+   "client": "Rakurai",
+   "version": "4.3.2",
+   "tpuQuic": "51.89.11.197:8002",
+   "group": "Rakurai 4.3.2"
+  },
+  {
+   "identity": "7PdKhpKz7T39vZHFL1UfcYNDsLvay6hp4KPQq1aUckFf",
+   "vote": "7opSZGmevWhRDyLt5Wu38FZFjUyredGmMki4DNmxDnjd",
+   "stake": 769998097873249,
+   "commission": 5,
+   "client": "Rakurai",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.41.180:8002",
+   "group": "Rakurai 4.3.2"
+  },
+  {
+   "identity": "gUvo3g5LfH4Pd8qnG7T6MPEFa5bPr8LhDdxDahwYqis",
+   "vote": "685Njwvpn3t5a8cAfVj7R65AfCJ6XoBpca9qy15XFiTd",
+   "stake": 308697978592385,
+   "commission": 0,
+   "client": "Rakurai",
+   "version": "4.3.2",
+   "tpuQuic": "162.19.94.48:11228",
+   "group": "Rakurai 4.3.2"
+  },
+  {
+   "identity": "2dfgsiSaZ51QYPsECMYMG247PXxyKdwkV9wTHoQb8YEC",
+   "vote": "NDf9Pv6TAxTDPR6ud3djsd2Ux1WS2m2YfTw4qEmSnQH",
+   "stake": 292848982743515,
+   "commission": 5,
+   "client": "Rakurai",
+   "version": "4.3.2",
+   "tpuQuic": "64.130.42.87:8002",
+   "group": "Rakurai 4.3.2"
+  },
+  {
+   "identity": "FBbqKvwLfKGZrKrfSbPJz4ymQ7zMarhRyZtu1RBkSe89",
+   "vote": "H43AYFsvhNuALQieHpLXefp1ECgEBT6oVnS4EcTsC25C",
+   "stake": 1917688398119177,
+   "commission": 1,
+   "client": "Firedancer",
+   "version": "26.10.3",
+   "tpuQuic": "170.23.224.5:9007",
+   "group": "Firedancer 26.10.3"
+  },
+  {
+   "identity": "BRAZAtTTzR2Es8c98hJvcngerTEyRGSdgkHU59n4A6GT",
+   "vote": "STBRgoYTmMwukhcBVjGpg3A4R9HBsrWo82wJgiBukaW",
+   "stake": 151485993661512,
+   "commission": 5,
+   "client": "Firedancer",
+   "version": "26.10.3",
+   "tpuQuic": "103.88.233.109:9007",
+   "group": "Firedancer 26.10.3"
+  },
+  {
+   "identity": "sce2zXNjLpPMcSCATTrLiQhAAvHNNMKypTFVtg2H37U",
+   "vote": "9BSZriSFS8Yb835exZwTLN19Dqy9B43yvuMAAdL3nBvz",
+   "stake": 59024397009422,
+   "commission": 10,
+   "client": "Agave",
+   "version": "4.5.0-alpha.2",
+   "tpuQuic": "185.26.8.33:8003",
+   "group": "Agave 4.5.0-alpha.2"
+  },
+  {
+   "identity": "sce1oTWYVXv7a7Hy2skxREozs5nwkQ4wDT8XJSi5tgE",
+   "vote": "BRrgfW2AKKYYEGVU6j1mbnoQajHTRuUgXCAPPzFgcF9q",
+   "stake": 58977652005706,
+   "commission": 10,
+   "client": "Agave",
+   "version": "4.5.0-alpha.2",
+   "tpuQuic": "67.213.117.45:8003",
+   "group": "Agave 4.5.0-alpha.2"
+  },
+  {
+   "identity": "sce3TfT81rxYYcdbP1kBFMcTK3ZBc8hvHVeXD6WLSzE",
+   "vote": "6CscV2sTXdurJKwuJ6RZnPKca6pNhqAhN57ygKga2T7G",
+   "stake": 58635765146753,
+   "commission": 10,
+   "client": "Agave",
+   "version": "4.5.0-alpha.2",
+   "tpuQuic": "91.242.214.149:8003",
+   "group": "Agave 4.5.0-alpha.2"
+  },
+  {
+   "identity": "mds2fZEpJP688PqJHvfLxGyf2VFrcNkvjuUxNYCwjrq",
+   "vote": "5cJyfCLBfghRtoCuVJNreJgNCStqXLrhHmRhSRYtbgtr",
+   "stake": 57895685282354,
+   "commission": 10,
+   "client": "Agave",
+   "version": "4.5.0-alpha.2",
+   "tpuQuic": "64.130.33.190:8003",
+   "group": "Agave 4.5.0-alpha.2"
+  },
+  {
+   "identity": "mds1WWedpezW3qvgML4WgP341jZksYAy5SbMLwjP5KC",
+   "vote": "6zzAPhyFZgS6rdknHNZLcsoooZ744GtVmTDyfvRmN37Q",
+   "stake": 57793264330787,
+   "commission": 10,
+   "client": "Agave",
+   "version": "4.5.0-alpha.2",
+   "tpuQuic": "64.130.33.185:8003",
+   "group": "Agave 4.5.0-alpha.2"
+  }
+ ]
+}

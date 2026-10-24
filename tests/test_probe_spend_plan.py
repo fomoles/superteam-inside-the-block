@@ -38,6 +38,19 @@ def test_probe_shape_and_conflict_set():
     assert len(bytes(tx)) < 300
 
 
+def test_probe_v2_caps_loaded_data_first():
+    """Run 2: SetLoadedAccountsDataSizeLimit leads, the rest is the run-1 probe; 4 x 150 CU fits the 600 limit."""
+    kp = Keypair()
+    tx = build_probe(kp, BH, LEVELS["RA"], encode_tag(7, 1), data_limit=32_768)
+    msg = tx.message
+    assert len(msg.instructions) == 4
+    first = msg.instructions[0]
+    assert str(msg.account_keys[first.program_id_index]) == "ComputeBudget111111111111111111111111111111"
+    assert bytes(first.data) == b"\x04" + (32_768).to_bytes(4, "little")
+    assert 4 * 150 <= LEVELS["RA"].cu_limit
+    assert len(build_probe(kp, BH, LEVELS["RA"], 1, data_limit=0).message.instructions) == 3
+
+
 def test_derived_payers_are_deterministic_and_distinct():
     m = Keypair()
     a = [derive_payer(m, i).pubkey() for i in range(12)]
