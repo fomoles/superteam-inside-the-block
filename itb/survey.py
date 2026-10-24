@@ -21,6 +21,9 @@ WANTED_CLIENTS = [
     "Agave", "JitoLabs", "AgaveBam", "HarmonicAgave",
     "Firedancer", "HarmonicFiredancer", "FireBAM", "Rakurai",
 ]
+# Extra (client, version) groups beyond each client's dominant version, so the same client is also
+# compared across releases (survey 24.10.2026: these are the only other versions with voting stake).
+EXTRA_GROUPS = [("Firedancer", "26.10.3"), ("Agave", "4.5.0-alpha.2")]
 
 
 async def snapshot(rpc: Rpc) -> dict:
@@ -71,6 +74,9 @@ def pick_panel(rows: list[dict], per_client: int = 2) -> list[dict]:
             by_ver[r["version"]] += r["stake"]
         ver = max(by_ver, key=by_ver.get)
         panel += [dict(r, group=f"{client} {ver}") for r in cand if r["version"] == ver][:per_client]
+    for client, ver in EXTRA_GROUPS:
+        panel += [dict(r, group=f"{client} {ver}") for r in rows
+                  if r["client"] == client and r["version"] == ver and r["tpuQuic"]][:per_client]
     return panel
 
 

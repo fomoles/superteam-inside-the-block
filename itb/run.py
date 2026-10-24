@@ -62,7 +62,9 @@ class Runner:
         self.live = bool(args.live)
         self.clock = SlotClock(args.ws_url)
         self.blockhash: str | None = None
-        self.ledger = SpendLedger(Path(args.ledger), int(args.cap_sol * LAMPORTS_PER_SOL))
+        # Dry-runs book into their own ledger so they exercise the cap logic without eating the live budget.
+        ledger = Path(args.ledger) if self.live else outdir / "dry-ledger.json"
+        self.ledger = SpendLedger(ledger, int(args.cap_sol * LAMPORTS_PER_SOL))
         self.panel = json.loads(Path(args.panel).read_text())["validators"]
         self.by_id = {v["identity"]: v for v in self.panel}
         self.pairs_file = outdir / "pairs.jsonl"

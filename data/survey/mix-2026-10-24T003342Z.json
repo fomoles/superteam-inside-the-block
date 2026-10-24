@@ -1,0 +1,134 @@
+{
+ "taken_utc": "2026-10-24T00:33:42Z",
+ "epoch": 1066,
+ "validators": 664,
+ "client_mix": [
+  {
+   "client": "AgaveBam",
+   "version": "4.3.2",
+   "validators": 356,
+   "stake_share": 0.3557896488766925
+  },
+  {
+   "client": "JitoLabs",
+   "version": "4.3.2",
+   "validators": 144,
+   "stake_share": 0.22928984255732243
+  },
+  {
+   "client": "HarmonicAgave",
+   "version": "4.3.2",
+   "validators": 49,
+   "stake_share": 0.2161048228267731
+  },
+  {
+   "client": "HarmonicFiredancer",
+   "version": "26.10.4",
+   "validators": 37,
+   "stake_share": 0.08678138349571854
+  },
+  {
+   "client": "Firedancer",
+   "version": "26.10.4",
+   "validators": 18,
+   "stake_share": 0.0642390656638089
+  },
+  {
+   "client": "FireBAM",
+   "version": "26.10.4",
+   "validators": 14,
+   "stake_share": 0.0160847230583272
+  },
+  {
+   "client": "Rakurai",
+   "version": "4.3.2",
+   "validators": 9,
+   "stake_share": 0.011710757960099724
+  },
+  {
+   "client": "Agave",
+   "version": "4.3.2",
+   "validators": 12,
+   "stake_share": 0.009559149819918903
+  },
+  {
+   "client": "Firedancer",
+   "version": "26.10.3",
+   "validators": 2,
+   "stake_share": 0.0047368279835801365
+  },
+  {
+   "client": "Firedancer",
+   "version": "0.1.1",
+   "validators": 3,
+   "stake_share": 0.0008496571049180443
+  },
+  {
+   "client": "Raiku",
+   "version": "4.3.2",
+   "validators": 1,
+   "stake_share": 0.0008046136992797549
+  },
+  {
+   "client": "Agave",
+   "version": "4.5.0-alpha.2",
+   "validators": 6,
+   "stake_share": 0.0007992823571497845
+  },
+  {
+   "client": "Unknown(53031)",
+   "version": "4.3.2",
+   "validators": 1,
+   "stake_share": 0.000791596486464625
+  },
+  {
+   "client": "AgaveBam",
+   "version": "4.3.0",
+   "validators": 3,
+   "stake_share": 0.0006526664107836844
+  },
+  {
+   "client": "AgaveBam",
+   "version": "4.5.0-alpha.2",
+   "validators": 1,
+   "stake_share": 0.0005932528029249967
+  },
+  {
+   "client": "unknown",
+   "version": "unknown",
+   "validators": 1,
+   "stake_share": 0.0005366941691527199
+  },
+  {
+   "client": "Agave",
+   "version": "4.4.0-beta.1",
+   "validators": 2,
+   "stake_share": 0.00026990871974430936
+  },
+  {
+   "client": "Firedancer",
+   "version": "26.10.2",
+   "validators": 1,
+   "stake_share": 0.00025725313990115504
+  },
+  {
+   "client": "JitoLabs",
+   "version": "4.3.0-rc.1",
+   "validators": 2,
+   "stake_share": 0.00012350523571401994
+  },
+  {
+   "client": "JitoLabs",
+   "version": "4.3.0",
+   "validators": 1,
+   "stake_share": 2.1889147834731426e-05
+  },
+  {
+   "client": "Unknown(16)",
+   "version": "0.1.0",
+   "validators": 1,
+   "stake_share": 3.4584838907659603e-06
+  }
+ ],
+ "raw": "cluster-2026-10-24T003342Z.json.gz"
+}

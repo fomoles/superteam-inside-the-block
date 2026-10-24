@@ -1,0 +1,5 @@
+{"t_ns": 1792801986161872000, "mono_ns": 47362590321208, "event": "rpc", "method": "getClusterNodes", "url": "https://api.mainnet-beta.solana.com", "ms": 317.4}
+{"t_ns": 1792801986223215000, "mono_ns": 47362651663250, "event": "rpc", "method": "getVoteAccounts", "url": "https://api.mainnet-beta.solana.com", "ms": 61.0}
+{"t_ns": 1792801986258297000, "mono_ns": 47362686743375, "event": "rpc", "method": "getEpochInfo", "url": "https://api.mainnet-beta.solana.com", "ms": 34.9}
+{"t_ns": 1792801986395834000, "mono_ns": 47362824277416, "event": "survey", "validators": 664, "groups": 21, "raw": "data/survey/cluster-2026-10-24T003306Z.json.gz"}
+{"t_ns": 1792801986396542000, "mono_ns": 47362824984541, "event": "panel", "n": 16, "groups": ["Agave 4.3.2", "AgaveBam 4.3.2", "FireBAM 26.10.4", "Firedancer 26.10.4", "HarmonicAgave 4.3.2", "HarmonicFiredancer 26.10.4", "JitoLabs 4.3.2", "Rakurai 4.3.2"]}

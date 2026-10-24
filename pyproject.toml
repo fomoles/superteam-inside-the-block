@@ -13,11 +13,21 @@ dependencies = [
     "cryptography>=50.0.2",
     "httpx>=0.28.1",
     "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
     "pandas>=3.1.0",
     "scipy>=1.18.1",
     "solders>=0.29.0",
+    "tabulate>=0.10.0",
     "websockets>=17.3",
 ]
 
 [tool.uv]
 package = false
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
