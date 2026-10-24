@@ -9,6 +9,8 @@ answer with all clients pooled, and says which client groups drive each number:
 CIs: bootstrap over leader windows (all probes of one window move together). Same pair definition as itb.analyze.
 Run: PYTHONPATH=. uv run python scripts/live_analysis.py [data dir, default data]
 """
+import gzip
+import json
 import sys
 from pathlib import Path
 
@@ -16,6 +18,7 @@ import numpy as np
 import pandas as pd
 
 from itb.analyze import load_runs, pair_table
+from itb.survey import validators_table
 
 DATA = Path(sys.argv[1] if len(sys.argv) > 1 else "data")
 RNG = np.random.default_rng(20261024)
@@ -96,6 +99,14 @@ table("A7. Landing by send punctuality (TPU)", tpu, "late", "landed", "probes")
 off = T[T.landed & (T.block_leader != T.target)]
 print(f"\nLanded in a block of a different leader than the target: {len(off)} of {int(T.landed.sum())} "
       f"(by target group: {off.group.value_counts().to_dict()}; by path: {off.path.value_counts().to_dict()}).")
+snaps = sorted((DATA / "survey").glob("cluster-*.json.gz"))
+if snaps and len(off):
+    # a direct-TPU probe can only reach another leader through whatever sits behind the target's tpuQuic address
+    tip = {r["identity"]: (r["tpuQuic"] or "").rsplit(":", 1)[0] for r in validators_table(json.load(gzip.open(snaps[-1])))}
+    ot_ = off[off.path == "TPU"]
+    same = sum(tip.get(a) and tip.get(a) == tip.get(b) for a, b in zip(ot_.target, ot_.block_leader))
+    print(f"Of the {len(ot_)} direct-TPU probes among them, {same} landed with a leader that advertises the same tpuQuic IP "
+          f"as the target (shared front-end, see scripts/shared_tpu.py).")
 
 # ---- B. order inside a block
 D = pair_table(r)
