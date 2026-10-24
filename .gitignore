@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+*.tmp
+# keys never go in the repo
+*.key
+keys/
+id.json
+*keypair*.json
+data/_work/
+.env
