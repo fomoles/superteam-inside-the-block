@@ -1,0 +1,98 @@
+{"t_ns": 1792803105583806000, "mono_ns": 48482028039333, "event": "rpc", "method": "getSlot", "url": "https://solana-rpc.publicnode.com", "ms": 195.9}
+{"t_ns": 1792803105769638000, "mono_ns": 48482213868041, "event": "rpc", "method": "getEpochInfo", "url": "https://api.mainnet-beta.solana.com", "ms": 185.5}
+{"t_ns": 1792803115119534000, "mono_ns": 48491563596208, "event": "passive_plan", "validators": 20, "windows": 120, "slots": 480, "now": 460653356}
+{"t_ns": 1792803115231131000, "mono_ns": 48491675192250, "event": "passive_progress", "done": 50, "of": 480}
+{"t_ns": 1792803122116000000, "mono_ns": 48498559937458, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803123287764000, "mono_ns": 48499731680666, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803124347677000, "mono_ns": 48500791574250, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803125216568000, "mono_ns": 48501660450000, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803141565032000, "mono_ns": 48518008621291, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803142648026000, "mono_ns": 48519091595750, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803143685139000, "mono_ns": 48520128689750, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803144649880000, "mono_ns": 48521093413583, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803159356788000, "mono_ns": 48535800058875, "event": "passive_progress", "done": 100, "of": 480}
+{"t_ns": 1792803160728271000, "mono_ns": 48537171517083, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803161813340000, "mono_ns": 48538256566458, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803162788046000, "mono_ns": 48539231254333, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803164042673000, "mono_ns": 48540485859000, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803180170371000, "mono_ns": 48556613268666, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803181349708000, "mono_ns": 48557792584750, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803182282418000, "mono_ns": 48558725277291, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803183319651000, "mono_ns": 48559762491708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803199474762000, "mono_ns": 48575917313333, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803200475935000, "mono_ns": 48576918468416, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803201525235000, "mono_ns": 48577967749875, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803202538076000, "mono_ns": 48578980573458, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803214892026000, "mono_ns": 48591334302500, "event": "passive_progress", "done": 150, "of": 480}
+{"t_ns": 1792803217636678000, "mono_ns": 48594078904125, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803218775767000, "mono_ns": 48595217973083, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803219717923000, "mono_ns": 48596160112333, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803220702916000, "mono_ns": 48597145087291, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803233963135000, "mono_ns": 48610405069291, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803235136086000, "mono_ns": 48611577998583, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803236182443000, "mono_ns": 48612624337041, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803237050785000, "mono_ns": 48613492663625, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803251345712000, "mono_ns": 48627787335083, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803252458884000, "mono_ns": 48628900486541, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803253490329000, "mono_ns": 48629931912958, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803254404612000, "mono_ns": 48630846179916, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803272383039000, "mono_ns": 48648824284416, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803272706400000, "mono_ns": 48649147641250, "event": "passive_progress", "done": 200, "of": 480}
+{"t_ns": 1792803273375473000, "mono_ns": 48649816701250, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803274456806000, "mono_ns": 48650898014708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803276608837000, "mono_ns": 48653050007291, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803290513142000, "mono_ns": 48666954062708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803291530594000, "mono_ns": 48667971497000, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803292637741000, "mono_ns": 48669078625958, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803294670380000, "mono_ns": 48671111226666, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803310238461000, "mono_ns": 48686679029333, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803311085839000, "mono_ns": 48687526391041, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803312219968000, "mono_ns": 48688660500791, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803313731338000, "mono_ns": 48690171842708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803326992339000, "mono_ns": 48703432606916, "event": "passive_progress", "done": 250, "of": 480}
+{"t_ns": 1792803337785063000, "mono_ns": 48714225137666, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803349877429000, "mono_ns": 48726317286708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803351365087000, "mono_ns": 48727804918458, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803352406843000, "mono_ns": 48728846655708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803353352051000, "mono_ns": 48729791846250, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803369833609000, "mono_ns": 48746273110000, "event": "passive_progress", "done": 300, "of": 480}
+{"t_ns": 1792803370559199000, "mono_ns": 48746998686333, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803372201705000, "mono_ns": 48748641162833, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803374221795000, "mono_ns": 48750661216958, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803376174095000, "mono_ns": 48752613481750, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803405542377000, "mono_ns": 48781981237750, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803406549893000, "mono_ns": 48782988735916, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803407636592000, "mono_ns": 48784075414666, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803408642923000, "mono_ns": 48785081728250, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803421062498000, "mono_ns": 48797501080875, "event": "passive_progress", "done": 350, "of": 480}
+{"t_ns": 1792803425739114000, "mono_ns": 48802177613208, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803426653617000, "mono_ns": 48803092099916, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803427653530000, "mono_ns": 48804091994833, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803429342301000, "mono_ns": 48805780735333, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803441891665000, "mono_ns": 48818329874250, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803443217977000, "mono_ns": 48819656162958, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803443996724000, "mono_ns": 48820434895541, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803444932464000, "mono_ns": 48821370620083, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803461337751000, "mono_ns": 48837775612541, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803462389747000, "mono_ns": 48838827589541, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803463545091000, "mono_ns": 48839982913208, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803464481306000, "mono_ns": 48840919110375, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803474744815000, "mono_ns": 48851182436541, "event": "passive_progress", "done": 400, "of": 480}
+{"t_ns": 1792803480490304000, "mono_ns": 48856927822083, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803481623812000, "mono_ns": 48858061309791, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803482554175000, "mono_ns": 48858991657041, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803483552037000, "mono_ns": 48859989500625, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803500207219000, "mono_ns": 48876644383708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803501072497000, "mono_ns": 48877509646375, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803502080750000, "mono_ns": 48878517881041, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803503082150000, "mono_ns": 48879519263500, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803519171884000, "mono_ns": 48895608709083, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803519498347000, "mono_ns": 48895935167666, "event": "passive_progress", "done": 450, "of": 480}
+{"t_ns": 1792803520304928000, "mono_ns": 48896741733291, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803521355534000, "mono_ns": 48897792320833, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803522218865000, "mono_ns": 48898655635833, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803537542647000, "mono_ns": 48913979143708, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803538921259000, "mono_ns": 48915357731666, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803539604839000, "mono_ns": 48916041298083, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803540623515000, "mono_ns": 48917059956375, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
+{"t_ns": 1792803555134614000, "mono_ns": 48931570795375, "event": "rpc_retry", "method": "getBlock", "url": "https://api.mainnet-beta.solana.com", "attempt": 0, "error": "HTTP 429"}
