@@ -1,12 +1,12 @@
 # Submission text (draft — the owner submits; nothing here has been posted)
 
-**Link:** https://github.com/<owner>/superteam-inside-the-block  ← the owner fills this in after pushing
+**Link:** https://github.com/fomoles/superteam-inside-the-block  ← private now: make it public (Settings → Change visibility) before submitting
 
 **Tweet / short description (≤ 280 chars):**
 
-> How do Solana validators order txs after Alpenglow? 6600 probes sent straight to the leader, 1100 mainnet
-> windows, 10 clients: txs that wait together are fee-sorted; a cheaper later tx passes a pricier one 4 % of
-> the time. BAM sorts the window's head. `docker compose up`
+> How do Solana validators order txs after Alpenglow? 6600 probes straight to the leader, 1100 mainnet windows,
+> 10 clients: txs that wait together are fee-sorted, a cheaper later tx passes 4 % of the time. Jito sorts less,
+> FD 26.10.4 breaks ties late. `docker compose up`
 
 **Description field:**
 
@@ -24,9 +24,13 @@ Alpenglow (epoch 1066, 24.10.2026). Its main evidence comes from transactions we
   - **Result.** Pooled, the pricier second tx gets ahead 61 %, the equal-fee one 41 %, and the cheaper second
     one 4 %. One model fits every gap: txs that wait in the buffer together are fee-sorted, the rest keep
     arrival order.
-  - **Where clients differ.** On ties, Jito keeps arrival order (20 % overtaken) and Firedancer 26.10.4 puts
-    the later tx first (73 %).
-  - **What "fee" means.** All clients rank by fee per estimated cost, not by the cu_price field (85 %).
+  - **Two numbers per client** (exploratory). The share of pairs where the fee decides is +0.57 pooled and
+    0.60–0.69 for Firedancer, Harmonic and Agave-BAM. Jito is lower at +0.38: −0.28 [−0.44, −0.11]. Ties are
+    close to a coin flip, except in Firedancer 26.10.4, which gives them to the later arrival (1.00
+    [0.72, 1.00]).
+  - **What "fee" means.** The higher total fee beats the higher cu_price in 85 % of pairs.
+  - **Run 2 is pre-registered.** It has seven fixed checks, 47 validators and a repaired ratio arm. It is
+    committed before any of its probes and runs with one script.
 - **Passive layer:** ≈ 6200 real blocks. Across a whole block, fee and position are unrelated in every client.
   At the start of a leader's window, BAM front-ends sort by fee: Agave-BAM ρ −0.48, FireBAM −0.52, on every
   BAM node. Jito on the same Agave code is −0.09, and Harmonic is flat. This replicated on a hold-out sample,
@@ -37,8 +41,8 @@ Alpenglow (epoch 1066, 24.10.2026). Its main evidence comes from transactions we
   - The pre-registered per-client test gives no clean "fee priority" or "FIFO" verdict: five clients are
     "mixed / weak" and five lack data.
   - Two cross-section predictions failed (Firedancer 26.10.4, Agave).
-  - The FPI index and the RATIO arm had design flaws, which the report names.
-  - A 5-round critique log lists every mistake we found in our own work, including a post-Alpenglow v1
+  - The FPI index and the RATIO arm had design flaws, which the report names and run 2 fixes.
+  - A 6-round critique log lists every mistake we found in our own work, including a post-Alpenglow v1
     parsing trap that silently zeroes priority fees.
 
 Reproduce: `docker compose up` (≈ 15 min on public RPC, spends nothing). Every probe and block is keyed by

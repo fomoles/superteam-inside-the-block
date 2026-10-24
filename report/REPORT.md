@@ -18,14 +18,23 @@ Generated tables and figures: [results.md](results.md). Code and one-command rep
   - with equal fees, the second-sent one is ahead in **41 %**;
   - when the pricier tx is sent first, the cheaper one gets ahead in only **4 %**.
 
-  So the fee-priority index is +0.20 [+0.12, +0.28], and +0.15 for pairs that share no account. This fits one
-  simple rule in every client: *txs that wait in the leader's buffer together are sorted by fee; otherwise
-  arrival order is kept.* The pre-registered per-client test gives no client a clean "fee priority" or "FIFO"
-  verdict: 5 are "mixed / weak", and 5 have too few pairs. Two client differences stand out (exploratory):
-  - **ties.** Jito keeps arrival order for equal fees (only 20 % overtaken), while Firedancer 26.10.4 puts
-    the *later* one first (73 %);
-  - **what "fee" means.** Every client ranks by fee per *estimated* cost: the tx with the higher total fee but
-    the lower `cu_price` goes first in 85 % of pairs.
+  This fits one simple rule in every client: *txs that wait in the leader's buffer together are sorted by
+  fee; otherwise arrival order is kept.* The three arms pin down two numbers per client
+  ([figure](figures/sort_model.png), section 3.3):
+  - **how often the fee decides** (FDS = DISC − CONC): **+0.57** [+0.51, +0.62] pooled, +0.71 at a 0 ms gap.
+    Firedancer, Harmonic and Agave-BAM sit at 0.60–0.69. **Jito sorts by fee less often: 0.38**, −0.28
+    [−0.44, −0.11] below those four pooled;
+  - **how a fee tie is broken** (TAU): close to a coin flip (0.47–0.66) in the other clients with enough
+    pairs, but **Firedancer 26.10.4 puts the later arrival first: 1.00** [0.72, 1.00];
+  - **what "fee" means.** The tx with the higher total fee but the lower `cu_price` goes first in 85 % of
+    pairs, so `cu_price` is not the sort key.
+
+  These are **exploratory**: the model was found after looking at the data. The pre-registered test (FPI =
+  DISC − EQ, +0.20 [+0.12, +0.28] pooled) gives no client a clean "fee priority" or "FIFO" verdict: 5 are
+  "mixed / weak" and 5 have too few pairs. FPI turned out to mix the two numbers above (section 5).
+- **Run 2 is pre-registered and ready, not yet run** (section 3.4). It tests the model's claims as seven
+  fixed checks on new data: 47 validators, including 27 new ones, and probes that fix the ratio arm's
+  confound. On run 1, five of the seven hold, one cannot hold by design, and one has no data yet.
 - **Real blocks** (section 3.1). At the **start of a leader's window**, BAM front-ends put higher-fee txs
   first:
   - Agave-BAM: ρ −0.48 on 17 other validators, −0.49 in 179 live-run windows;
@@ -243,28 +252,42 @@ sent no more than 50 ms late.
 - **Fee-priority index** FPI = DISC − EQ: +0.20 [+0.12, +0.28]. It is +0.29 at dt 0, +0.25 when both are sent
   before the window (PRE) and +0.14 inside it (IN). Without a shared account (DISC_SEP − EQ_SEP) it is
   +0.15 [+0.05, +0.26]. So write-lock conflicts are not what drives it.
-- **One model fits all three arms.** Say a pair arrives together in the buffer with probability *s*, gets
-  fee-sorted then, and otherwise keeps its arrival order. Then DISC ≈ *s*, EQ ≈ *s*/2 (a coin flip on ties)
-  and CONC ≈ 0. The data match: at dt 0, DISC is 80 %, EQ 52 % and CONC 9 %. All three fall as the gap grows,
-  just as the share of pairs that wait together shrinks. **A cheaper tx sent after a pricier one almost never
-  gets ahead of it, in any client** (CONC 0–19 % per group).
-- **Ties are where clients differ.** For equal fees, the share where the second-sent tx goes first:
+- **One model fits all three arms.** A pair is either sorted by the scheduler's rule (probability *s*: both
+  txs waited in the buffer together) or kept in arrival order up to a small noise *e*. A fee tie under the
+  rule goes to the later arrival with probability τ. With one payer:
 
-  | client | 2nd-sent first | reading |
-  |---|---|---|
-  | Firedancer 26.10.4 | 73 % [62, 84] | later arrival placed first |
-  | Firedancer 26.10.3 | 55 % | |
-  | AgaveBam | 40 % | |
-  | HarmonicFiredancer | 40 % | |
-  | HarmonicAgave | 36 % | |
-  | Rakurai | 32 % | |
-  | Agave | 25 % | |
-  | FireBAM | 23 % | |
-  | Jito | 20 % [11, 30] | arrival order kept |
+  DISC = *s* + (1−*s*)*e*, CONC = (1−*s*)*e*, EQ = *s*τ + (1−*s*)*e*
 
-  That is why FPI ≈ 0 for Firedancer 26.10.4 while it does sort by fee: its EQ arm is already high. The
-  mirror index EQ − CONC is +0.67 [+0.48, +0.83] there, the largest of any client. **FPI alone understates
-  fee priority whenever ties are not broken by arrival order** (see section 5).
+  so **FDS = DISC − CONC** is the share of pairs where the fee, not arrival, decides, and
+  **TAU = (EQ − CONC) / FDS** is the tie rule (0 = earlier arrival first, 0.5 = coin, 1 = later first).
+  Pooled: FDS **+0.57** [+0.51, +0.62], TAU 0.64 [0.52, 0.78]. FDS falls with the gap, +0.71 / +0.51 / +0.44
+  at 0 / 30 / 150 ms, just as the share of pairs that wait together shrinks; TAU stays at 0.54–0.71.
+  **A cheaper tx sent after a pricier one almost never gets ahead of it, in any client** (CONC 0–19 % per
+  group). [data/results/sort_model.txt](../data/results/sort_model.txt) (`scripts/sort_model.py`) has every
+  table; CIs are window-bootstrap.
+- **Per client** (exploratory; groups with ≥ 10 DISC and ≥ 5 CONC pairs):
+
+  ![FDS and TAU per client](figures/sort_model.png)
+
+  | client | pairs DISC / CONC / EQ | FDS: fee decides | TAU: tie rule | reading |
+  |---|---|---|---|---|
+  | HarmonicFiredancer 26.10.4 | 42 / 35 / 31 | +0.69 [+0.55, +0.82] | 0.65 [0.38, 0.95] | fee-sorts, ties ≈ coin |
+  | HarmonicAgave 4.3.2 | 67 / 31 / 42 | +0.67 [+0.53, +0.80] | 0.66 [0.45, 0.92] | fee-sorts, ties ≈ coin |
+  | Firedancer 26.10.4 | 76 / 31 / 30 | +0.64 [+0.53, +0.76] | **1.00** [0.72, 1.00] | fee-sorts, **later arrival wins ties** |
+  | FireBAM 26.10.4 | 11 / 5 / 17 | +0.64 [+0.33, +1.00] | 0.37 [0.09, 0.87] | few pairs |
+  | AgaveBam 4.3.2 | 51 / 22 / 35 | +0.60 [+0.40, +0.76] | 0.62 [0.29, 1.00] | fee-sorts, ties ≈ coin |
+  | JitoLabs 4.3.2 | 54 / 33 / 34 | **+0.38** [+0.23, +0.53] | 0.47 [0.07, 1.00] | **fee decides less often** |
+  | Rakurai 4.3.2 | 13 / 9 / 12 | +0.38 [+0.14, +0.64] | 0.22 [0.00, 0.98] | few pairs |
+  | Firedancer 26.10.3 | 14 / 16 / 12 | +0.38 [+0.05, +0.67] | 1.00 [0.15, 1.00] | few pairs |
+  | Agave 4.3.2 | 11 / 10 / 14 | +0.26 [−0.11, +0.62] | 0.70 [0.00, 1.00] | few pairs |
+
+  Two contrasts clear zero. **Jito's FDS is 0.28 lower** than that of HarmonicAgave, HarmonicFiredancer,
+  Firedancer 26.10.4 and AgaveBam pooled: −0.28 [−0.44, −0.11]. Jito runs the same Agave scheduler, so a
+  plausible cause is its block-engine stage holding txs, which leaves fewer of our pairs waiting together;
+  we did not test that. **Firedancer 26.10.4's TAU is 0.42 higher** than that of all other groups pooled:
+  +0.42 [+0.11, +0.54]. That is why its FPI is ≈ 0 although it sorts by fee as often as anyone. **FPI = FDS ×
+  (1 − TAU) mixes the two numbers, and understates fee priority whenever ties are not broken by arrival
+  order** (section 5).
 - **The scheduler ranks by fee per *estimated* cost, not by the `cu_price` field.** RA has the higher
   `cu_price`, RB the higher total fee. RB goes first in **85 %** [80, 89] of pairs, and in 73–94 % in every
   client. The probes use 450 CU. Their estimated cost includes the default 64 MiB loaded-accounts allowance
@@ -274,7 +297,36 @@ sent no more than 50 ms late.
 **What it does not show.** We see only our own pairs. How the scheduler treats a full buffer of other txs is
 inferred, not observed. Per-client arms hold 3–76 usable pairs, enough for the pooled model but not for firm
 per-client claims. Unstaked QUIC senders get a small quota, so probes that never landed may have been dropped
-by QoS rather than by the scheduler.
+by QoS rather than by the scheduler. The model assumes the "sorted together" share *s* is the same for the
+DISC, CONC and EQ arms; that holds by design (the arms differ only in fee levels and are randomised within a
+window), but it is an assumption.
+
+### 3.4 Run 2: pre-registered, ready, not yet run
+
+The model above was found after looking at run 1, so on run 1 it is a hypothesis, not a result.
+[notes/preregistration-v2.md](../notes/preregistration-v2.md) (commit 3b49c8c, before any run-2 probe) turns it
+into seven checks for a new run. `scripts/live2.sh` runs it; it spends ≈ 0.04 SOL, and the owner of the key
+starts it.
+
+- **Panel v2**: 47 validators, the top 5 by stake in each group. That is 27 more than run 1, from a fresh
+  survey (`data/panel-v2.json`).
+- **Probes** add `SetLoadedAccountsDataSizeLimit(32768)` as the first instruction. Their estimated cost is then
+  ≈ 1,630 CU for RA and ≈ 7,030 CU for RB. RA wins on `cu_price` and on fee per estimated cost; RB wins only on
+  total fee. Simulated on mainnet: 4 instructions, 600 CU, within the 600-CU limit.
+- Everything else is unchanged.
+
+| id | claim | holds if | run 1 (exploratory) |
+|---|---|---|---|
+| C1 | the fee decides most pairs | pooled FDS lower CI > 0.30 | holds: +0.57 [+0.51, +0.62] |
+| C2 | a cheaper later tx almost never passes | CONC upper CI ≤ 0.10 | holds |
+| C3 | Jito sorts by fee less often | FDS(Jito) − FDS(4 fee-sorters pooled) upper CI < 0 | holds: −0.28 [−0.44, −0.11] |
+| C4 | Firedancer 26.10.4 gives ties to the later arrival | TAU lower CI > 0.5 | holds: 1.00 [0.72, 1.00] |
+| C5 | … more than the other clients | TAU difference lower CI > 0 | holds: +0.42 [+0.11, +0.54] |
+| C6 | with the cap, fee per cost beats total fee | RB-first share upper CI < −0.2 | fails, as the uncapped design predicts (+0.69) |
+| C7 | not a property of the 20 run-1 validators | FDS on new validators lower CI > 0.30 | no new validators yet |
+
+C6 is the sharpest test. The same two probes, plus one instruction that changes only the cost estimate,
+should flip from "RB first in 85 %" to "RA first". If the scheduler sorted by total fee, they would not flip.
 
 ## 4. Deviations from pre-registration
 
@@ -285,7 +337,8 @@ by QoS rather than by the scheduler.
 - **Run size.** The earlier report budgeted ≈ 350 windows; the run did 1100 (cap 0.08 SOL), because the owner
   funded more. The pre-registration fixed no sample size. The analysis code and the rules were not changed.
 - **Exploratory live tables**, added after seeing the live data: the mirror index EQ − CONC, tie-breaking per
-  client, RB-first per client, and the arm × gap breakdown. No verdict rests on them.
+  client, RB-first per client, the arm × gap breakdown, and the FDS / TAU model with its client contrasts
+  (`scripts/sort_model.py`). No run-1 verdict rests on them; they are the hypotheses of run 2 (section 3.4).
 - **Cross-section** (section 3.1) has its own pre-registration, committed before its fetch. It is reported in
   full, including the failed H1.
 
@@ -303,11 +356,12 @@ by QoS rather than by the scheduler.
   and without an explicit loaded-accounts-data limit, the default 64 MiB allowance alone is 16,384 CU. With
   that, RB has both the higher total fee and the higher fee per estimated cost unit. The arm still shows that
   the `cu_price` field is not the sort key (RB first in 85 %). Separating the two rules needs probes that set
-  `SetLoadedAccountsDataSizeLimit`, so `cu_limit` dominates the cost.
+  `SetLoadedAccountsDataSizeLimit`, so `cu_limit` dominates the cost. Run 2 does (section 3.4).
 - **FPI assumes that ties keep arrival order.** It subtracts the equal-fee overtake rate as "noise". A client
   that breaks ties for the later arrival (Firedancer 26.10.4: 73 %) gets FPI ≈ 0 even though it never lets a
   cheaper later tx pass a pricier one (CONC 0 %). The pre-registration should have used CONC as well. A
-  rule on both sides, DISC − CONC or EQ − CONC, does not depend on how ties are broken.
+  rule on both sides, DISC − CONC or EQ − CONC, does not depend on how ties are broken. Section 3.3 now
+  reports both numbers, FDS and TAU, and run 2 pre-registers them.
 - **Two panel validators do not make a client.** Firedancer 26.10.4's panel validators showed no head order;
   16 others show −0.28. The cross-section caught this. Without it the report would have called Firedancer
   26.10.4 "unordered".
@@ -320,10 +374,9 @@ by QoS rather than by the scheduler.
 
 ## 6. What is missing, and what it would take
 
-- **More pairs per client.** The pooled model is clear; per-client verdicts are not. Reaching ≥ 20 usable pairs
-  in every arm needs ≈ 2× the run for FireBAM, Agave and Rakurai (low landing or few windows). One run
-  of 1100 windows costs ≈ 0.04 SOL at these fees.
-- **A loaded-data-limited RATIO arm** (section 5), to separate total fee from fee per estimated cost unit.
+- **Run 2** (section 3.4) is the next step: designed, pre-registered and dry-run tested, not yet run. It adds
+  pairs for the thin groups (FireBAM, Agave, Rakurai), new validators per client, and the repaired ratio arm.
+  One run of 1100 windows costs ≈ 0.04 SOL at these fees.
 - **Admission vs ordering.** Unstaked senders get a small QUIC quota; a probe that never lands may have been
   dropped by QoS. Landing rates are reported per client, but the cause of a drop cannot be seen. A staked
   sender would remove that doubt.

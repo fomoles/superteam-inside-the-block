@@ -216,3 +216,31 @@ Full run: 1100 windows, 6600 probes, 5008 landed, 1410 usable pairs, 0.0389 SOL.
 - REPORT TL;DR, 3.1 (replication, backlog, cross-section, shared front-ends), 3.3 (full active layer),
   4 (deviations), 5 (RATIO, FPI-tie and panel lessons), 6 (what more would take).
 - `scripts/live_analysis.py`: tie-breaking, RB-first and mirror-index tables (exploratory).
+
+## Round 6: from "mixed" to two numbers per client, and a run that can prove them (2026-10-24, noon)
+
+### What a judge would attack
+1. **"The headline is still 'mixed / weak'. What does each client actually do?"** FPI was the wrong summary,
+   not the wrong data. The arms identify two numbers per client: FDS = DISC − CONC (how often the fee decides)
+   and TAU = (EQ − CONC) / FDS (how a tie is broken). FPI = FDS × (1 − TAU). **Applied:**
+   `scripts/sort_model.py` fits both with window-bootstrap CIs, by client, gap and phase. Firedancer 26.10.4
+   is FDS +0.64, TAU 1.00 [0.72, 1.00]: it fee-sorts as often as anyone but gives ties to the later arrival.
+   Jito is FDS +0.38, −0.28 [−0.44, −0.11] below the four other fee-sorters pooled.
+2. **"You found those after looking. That is a forking path."** Yes. **Applied:** they are labelled
+   exploratory everywhere, and turned into seven checks for a new run (notes/preregistration-v2.md),
+   committed (3b49c8c) before any run-2 probe. The run-1 values are printed next to each check, so the reader
+   sees what is being re-tested.
+3. **"Twenty validators; the per-client claims could be two operators' settings."** **Applied:** panel v2 has
+   the top 5 per group (47; 27 new) from a fresh survey. C7 tests FDS on the new validators only.
+4. **"The ratio arm is confounded, so drop it."** It can be repaired, which makes a sharper test. With
+   `SetLoadedAccountsDataSizeLimit(32768)` the cost estimate is ≈ 1,630 CU (RA) vs ≈ 7,030 CU (RB). RA then
+   wins on both `cu_price` and fee per cost; RB wins only on total fee. C6 predicts the order **flips** from
+   "RB first 85 %" to "RA first". **Applied:** the probe option is in `itb/probe.py` and logged per tx, with a
+   test. Read-only `simulateTransaction` on mainnet: 4 instructions, 600 CU, within the limit; preflight and
+   a 2-minute dry run of panel v2 pass.
+5. **"Is the model even right? *s* could differ between arms."** The arms differ only in fee levels and are
+   randomised within a window, so the share that waits together is the same by design. The CONC rate also
+   gives the noise term directly. This is stated as an assumption in REPORT 3.3.
+
+### Not done, and why
+- Run 2 itself. It spends real SOL; only the key owner starts it (`scripts/live2.sh`, ≈ 0.04 SOL).
