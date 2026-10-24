@@ -152,3 +152,27 @@ v1 parser fix. Numbers: `report/results.md` and `data/results/robustness_head.tx
 ### Applied
 - `scripts/robustness_head.py` plus its output in `data/results/robustness_head.txt` (items 1, 3, 4).
 - REPORT.md section 3.1: "exploratory" label, placebo, per-validator values, the bundle and arrival limits.
+
+## Round 4: the passive finding under attack, and the first live data (2026-10-24, night)
+
+The owner funded a key (0.116 SOL) and started the 3-hour live run (`scripts/live.sh`, cap 0.08 SOL).
+Passive blocks were extended towards 20 windows per validator (896 blocks so far; paused during the live run so
+the public RPC quota goes to it).
+
+### What a judge would attack
+1. **"You found it in the data you then reported."** The head-of-window statistic was added after seeing
+   blocks (round 2). **Applied:** `scripts/replication_head.py` re-computes it on blocks fetched *after* the
+   finding was committed (hold-out, not in 133c919). The three strong groups replicate: AgaveBam −0.57 → −0.56,
+   FireBAM −0.41 → −0.38, Firedancer 26.10.3 −0.29 → −0.26; Agave 4.3.2 −0.15 → −0.17. Two groups move:
+   Rakurai ≈ 0 → −0.14 and Harmonic-Firedancer −0.03 → −0.10, so for them the discovery sample was not
+   representative and no claim is made. Output: `data/results/replication_head.txt`.
+2. **"Bots just aim at every slot start."** If so, the head order would be equally strong in all four blocks
+   of a window. **Applied:** `scripts/backlog_head.py`. In the three strong groups the order is stronger in
+   the window's 1st block than in blocks 2–4 by ≈ 0.23 (CIs exclude 0), but blocks 2–4 are still negative
+   (AgaveBam −0.31, FireBAM −0.18). This fits "the leader drains a backlog in priority order, and the backlog
+   is biggest when its window opens", and it does not rule out a smaller slot-start effect.
+   Output: `data/results/backlog_head.txt`.
+3. **Landing of unstaked probes.** Early live data (first 90 pairs): 43 of 156 direct-TPU sends landed (28 %),
+   21 pairs fully. 0 of 24 RPC-path sends landed, although public RPC accepted all of them (`maxRetries 0`,
+   `skipPreflight`). So the RPC arm measures "public RPC does not forward unstaked txs reliably", not order.
+   Per-arm landing and the final numbers: see the live analysis below.
