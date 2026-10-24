@@ -45,7 +45,7 @@ def diff_ci(first, rest, n=2000):
 
 
 R = {}
-for b in load_blocks(Path("data/passive")):
+for b in load_blocks(Path("data")):  # passive panel blocks + blocks of the live run's probed windows
     g = P.get(b.get("leader"))
     if g is None:
         continue

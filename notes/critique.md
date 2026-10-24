@@ -172,7 +172,9 @@ the public RPC quota goes to it).
    (AgaveBam −0.31, FireBAM −0.18). This fits "the leader drains a backlog in priority order, and the backlog
    is biggest when its window opens", and it does not rule out a smaller slot-start effect.
    Output: `data/results/backlog_head.txt`.
-3. **Landing of unstaked probes.** Early live data (first 90 pairs): 43 of 156 direct-TPU sends landed (28 %),
-   21 pairs fully. 0 of 24 RPC-path sends landed, although public RPC accepted all of them (`maxRetries 0`,
-   `skipPreflight`). So the RPC arm measures "public RPC does not forward unstaked txs reliably", not order.
-   Per-arm landing and the final numbers: see the live analysis below.
+3. **Landing of unstaked probes.** A quick status check on the first 90 pairs said 43 of 156 direct-TPU sends
+   landed (28 %) and 0 of 24 RPC-path sends. **That was wrong, and the RPC claim drawn from it is withdrawn.**
+   The quick check asked a load-balanced public RPC with `searchTransactionHistory: false` minutes after the
+   sends; `itb collect` (history search, then the block itself) on a copy of the first 60 windows finds 76 % of
+   the direct-TPU probes and 30 of 30 RPC-path probes in blocks. Lesson: landing is read from blocks, never
+   from a status cache. Final per-arm landing: see the live analysis below.

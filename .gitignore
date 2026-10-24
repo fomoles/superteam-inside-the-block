@@ -9,3 +9,6 @@ id.json
 *keypair*.json
 data/_work/
 .env
+# blocks of every probed live window (~120 KB each, thousands per run): the per-block table is data/results/passive_blocks.csv
+# and any block can be refetched with `itb collect`; the blocks that hold our probes are committed with `git add -f`
+data/runs/*/blocks/
