@@ -1,4 +1,47 @@
-# Web research: how Solana leaders order transactions inside a block
+# Research notes
+
+Three sources, merged: (A) our own mainnet measurements on 24.10.2026,
+(B) the one public competing repo, (C) web/source research (section C is the
+literature sweep, each claim tagged [P] primary / [S] secondary / UNVERIFIED).
+
+## A. Own measurements on mainnet, 24.10.2026 (epoch 1066, after Alpenglow)
+
+- Software: solana-core 4.3.2 on the public RPC. Slots ≈ 210 ms (direct measurement 210.3 ms/slot;
+  getRecentPerformanceSamples ≈ 281 slots / 60 s). Leader windows = 4 consecutive slots ≈ 840 ms.
+- Blocks contain **0 vote transactions** (Alpenglow moved votes off-chain) and mix tx versions 1, 0, legacy.
+  `getBlock` needs `maxSupportedTransactionVersion: 1`, otherwise -32015.
+- `meta` carries `costUnits` and `computeUnitsConsumed`; v1 txs carry
+  `transactionConfig {computeUnitLimit, priorityFee (total lamports), loadedAccountsDataSizeLimit, heapSize}`.
+- Block `rewards` include a `Fee` reward to the leader's identity → the producing leader can be verified from
+  the block itself, without trusting the leader schedule.
+- `getClusterNodes` exposes `clientId` + `version` (3911 nodes). Biggest groups: Agave 4.3.2 (1251),
+  JitoLabs 4.3.2 (859), AgaveBam 4.3.2 (356), Agave 4.3.0 (343), HarmonicAgave 4.3.2 (92),
+  Firedancer 26.10.4 (69), HarmonicFiredancer 26.10.4 (43), FireBAM 26.10.4 (14), Rakurai 4.3.2 (12).
+- Probe tx (SetComputeUnitLimit + SetComputeUnitPrice + self-transfer): 450 CU in simulateTransaction.
+  A 20-byte Memo needs > 4,700 CU → rejected as tag carrier; the tag is the self-transfer lamport amount.
+- `getFeeForMessage` = 5005 for limit 5000 × price 1000 µL → fee = 5000 + ceil(price·limit/1e6). Matches itb/probe.py.
+- Direct QUIC (ALPN `solana-tpu`, self-signed Ed25519 cert) handshakes to leader TPUs succeed from a home
+  connection in Ukraine: HarmonicAgave 117 ms, JitoLabs 82–83 ms, HarmonicFiredancer 110 ms.
+
+## B. Competing submission: github.com/zdfgu113/inside-the-block (read 24.10.2026)
+
+What it does: 52 bursts × 4 txs sent *in parallel* through 2 public RPCs from ONE payer, fee levels
+0/1k/10k/100k µL/CU at CU limit 2000; 135 same-block pairs. Reports AgaveBam 78 % "fee-first",
+Harmonic ≈ 50 %, Firedancer 65 %.
+
+Why its conclusions are weak (each one is something our design fixes):
+1. Parallel send → arrival order unknown → "send-first ≈ 50 %" cannot distinguish FIFO from fee ordering.
+2. No control arms: no equal-fee pairs (noise floor), no "fee and order agree" pairs.
+3. One payer → every pair conflicts (write-lock on the payer); conflict vs non-conflict is not separable.
+4. RPC path → txs land in other leaders' blocks; blocks had to be re-attributed after the fact; the strict
+   on-target subset is only 40 pairs.
+5. Pairs from the same block treated as independent → confidence intervals too narrow.
+6. `docker compose` does not run the analysis.
+Useful pitfalls it documents: getLeaderSchedule takes a slot not an epoch; public RPC rejects requests
+without a browser-like User-Agent; getBlock `transactionDetails: "signatures"` drops meta.
+
+## C. Literature and source sweep (subagent, 24.10.2026)
+
 
 Date of research: 2026-10-24. Scope: Q1-Q7 from the brief. Q8 (github.com/zdfgu113/inside-the-block) skipped on purpose.
 Legend: [P] = primary source (source code or official page). [S] = secondary (blog, news, search summary). UNVERIFIED = not confirmed from a primary source.
