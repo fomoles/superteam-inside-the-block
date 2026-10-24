@@ -35,7 +35,9 @@ Output goes to `report/results.md`, `report/figures/` and `data/results/*.csv`.
 Without Docker: `make all` (needs [uv](https://docs.astral.sh/uv/)). Tests: `make test` or
 `docker compose --profile test run --rm test`.
 
-Public RPC is rate-limited, so the run paces heavy calls and takes about 15 min. With your own endpoint,
+By default it uses two public endpoints that need no sign-up (`api.mainnet-beta.solana.com` and
+`solana-rpc.publicnode.com`) and rotates between them. Public RPC is rate-limited, so the run paces heavy
+calls and takes about 15 min. With your own endpoint,
 set `ITB_RPC_URLS=https://…` and `ITB_WS_URL=wss://…`, plus `ITB_RPC_HEAVY_INTERVAL_S=0`. Free tiers that
 need a sign-up include Helius, Triton and QuickNode; any of them works, and none is required.
 

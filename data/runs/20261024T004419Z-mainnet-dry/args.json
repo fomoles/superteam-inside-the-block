@@ -1,0 +1,14 @@
+{
+ "network": "mainnet",
+ "panel": "data/panel.json",
+ "cmd": "run",
+ "live": false,
+ "yes_spend": false,
+ "cap_sol": 0.05,
+ "ledger": "data/spend-ledger.json",
+ "minutes": 5.0,
+ "max_windows": 400,
+ "seed": 20261024,
+ "clock_lag_ms": 0.0,
+ "ws_url": "wss://api.mainnet-beta.solana.com"
+}

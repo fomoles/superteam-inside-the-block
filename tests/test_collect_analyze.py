@@ -67,7 +67,7 @@ def _synthetic(rule: str, windows=60, seed=0):
             for role, i in ((1, i1), (2, i2)):
                 sig = f"{pid}-{role}"
                 txs.append({"run": "r", "pair_id": pid, "role": role, "sig": sig, "live": True, "status": "sent_tpu",
-                            "t_send_ns": 1, "est_leader_slot_at_send": 4 * w + 0.5, "window_slot": 4 * w})
+                            "t_send_ns": 1, "t_planned": 1e-9, "est_leader_slot_at_send": 4 * w + 0.5, "window_slot": 4 * w})
                 landed.append({"run": "r", "sig": sig, "pair_id": pid, "role": role, "landed_slot": 4 * w,
                                "err": None, "index": i, "block_leader": "V", "block_n_tx": 100})
             pid += 1
@@ -89,3 +89,10 @@ def test_analysis_separates_fee_priority_from_fifo(monkeypatch):
 def test_holm():
     adj = A.holm({"a": 0.01, "b": 0.04, "c": 0.03})
     assert adj["a"] == 0.03 and np.isclose(adj["c"], 0.06) and np.isclose(adj["b"], 0.06)
+
+
+def test_late_sends_are_not_usable():
+    r = _synthetic("fifo", windows=2)
+    r["txs"].loc[0, "t_planned"] = -1.0  # sent 1 s after its planned time
+    df = A.pair_table(r)
+    assert not df.set_index("pair_id").loc[0, "usable"] and df.usable.sum() == len(df) - 1

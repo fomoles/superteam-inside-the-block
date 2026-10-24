@@ -63,3 +63,13 @@ never used as the primary evidence.
 - Arrival time at the leader is estimated from our send time + measured RTT/2, not observed.
 - Effects of the leader's own QoS (unstaked sender quota) on *which* txs are admitted, vs how admitted txs are ordered.
 - Behaviour of other leaders' clients beyond the panel; one client version per group.
+
+## Amendments (made before any live data existed)
+
+- **A1, 24.10.2026, after the first mainnet dry-run.**
+  - **What the dry-run showed.** Of 234 planned sends, a few left up to 856 ms after their planned time. The
+    likely cause is waiting on the QUIC handshake or a busy event loop.
+  - **Why it matters.** A late send changes both `dt` and the phase, and that change is not recorded in the arm.
+  - **The rule.** A pair counts as *usable* only if both of its txs left within 50 ms of plan
+    (`MAX_LATE_MS` in `itb/analyze.py`). Excluded pairs are counted in the report.
+  - **Status.** This rule was fixed before any live tx was sent, so it cannot be tuned to the results.

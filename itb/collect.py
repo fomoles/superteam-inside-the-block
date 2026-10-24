@@ -157,7 +157,7 @@ async def collect_run(rpc: Rpc, rundir: Path, passive: bool = True, concurrency:
 
 
 async def collect_passive(rpc: Rpc, panel: list[dict], per_validator: int, outdir: Path,
-                          concurrency: int = 2) -> None:
+                          concurrency: int = 4) -> None:
     """Blocks from the most recent *past* leader windows of every panel validator (current epoch).
 
     Needs no money and no waiting: the leader schedule is public and recent blocks are served by RPC.

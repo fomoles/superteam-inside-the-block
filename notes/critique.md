@@ -49,12 +49,16 @@ Read against the code in `itb/`, a partial passive dataset (268 blocks) and the 
    correlation can't (item 4); (b) prove the active pipeline end-to-end on mainnet *except the send* (dry-run:
    real leader windows, real QUIC handshakes to the real TPUs, logged send times); (c) an exact cost and a
    one-line command for the owner.
-2. **The dry-run exposed a real timing bug.** The send-time estimate sat a median **−3.9 slots** before the
-   target window, and only 28 % of sends were inside [−1.5, 4). The cause was in the slot clock: the slot length
+2. **The dry-run exposed a real timing bug.** In the first 36 sends, the estimated slot at send sat a median
+   **−3.9 slots** before the target window, and only 28 % were inside [−1.5, 4). Over all 234 sends the median
+   aim was fine (TPU, IN: +0.65 slots, target +0.5…+2.4; PRE: −1.57, target −1.2), but the tails reached
+   −12.8 slots, and some sends left up to **856 ms after plan**. One cause was in the slot clock: the slot length
    came from the *median gap* between websocket notifications. The gaps arrive in uneven bursts (deciles 16…397 ms), so
    the median was 201 ms against a true 210.7 ms (a least-squares fit over 40 s, 190 notifications). A 5 % slope
    error, extrapolated, moves the aim by whole slots. Under v1 the PRE/IN phases would have been mislabeled in live
    runs, and the money spent. **Fix:** least-squares slope over the 400-notification buffer, then re-measure.
+   A second cause is that a send can wait behind the QUIC handshake or a busy event loop. **Fix:**
+   pre-registered amendment A1: pairs sent > 50 ms after plan are not usable, and their share is reported.
 3. **`verify` didn't check our own probes.** It re-checked random positions in stored blocks, but not that each
    landed probe sits at the stored index, and that index is the number the whole result rests on. **Fix:** every
    landed probe's signature is checked at its stored index against `getBlock` (finalized).
@@ -74,6 +78,27 @@ Read against the code in `itb/`, a partial passive dataset (268 blocks) and the 
 7. **Many descriptive numbers, no correction.** 9 groups × 5 passive statistics. The report labels passive
    numbers as descriptive, gives CIs and draws no per-group verdict from them. Only the pre-registered active
    H1 gets Holm.
+8. **The biggest find of this round: a parser bug, found by chasing item 5.** About 60 % of passive txs had
+   price 0. Most of them were **v1 transactions**: 11,456 v1 rows had no price and only 135 had one. v1 txs
+   carry their compute budget in `transactionConfig` (`computeUnitLimit` and `priorityFee`, a *total* in
+   lamports), not in ComputeBudget instructions, so the parser read them as "no priority fee". The positive
+   head ρ of item 4 was largely this artifact: zero-priced v1 txs were mostly real paying txs. **Fix:** read
+   `transactionConfig` and convert the total into the equivalent µL/CU (`priorityFee·10⁶ / computeUnitLimit`).
+   Added a regression test, deleted the affected blocks and collected them again. Every passive number from
+   before this fix is discarded.
+9. **Dry-run 2 (after the clock fix), 25 windows, 150 planned sends.**
+
+   | path, phase | aim, median (dry-run 1 → 2) | range in dry-run 2 | sends > 50 ms late (1 → 2) |
+   |---|---|---|---|
+   | TPU, IN | +0.65 → +1.84 | −0.09 … +4.27 | 2/90 → 0/52 |
+   | TPU, PRE | −1.57 → −0.74 | −1.80 … +1.25 | 17/120 → 4/68 |
+   | RPC, IN | −1.93 → +1.56 | +0.88 … +2.27 | 0 → 0 |
+   | RPC, PRE | −3.56 → −1.18 | −1.57 … +0.54 | 0 → 0 |
+
+   Aim is in slots relative to the window start; the target is −1.2 for PRE and +0.5…+2.4 for IN. The tails
+   of −8 to −13 slots are gone. Late sends dropped from 8 % to 2.7 %, and they cluster: all 4 late sends of dry-run 2 fall in one
+   window (19 in 4 windows in dry-run 1), starting with that window's first send. A slow connection to one
+   leader delays a whole window. A1 drops such pairs; the window clustering is reported.
 
 ### Applied
 - `itb/schedule.py`: regression slot length (item 2).
@@ -81,3 +106,6 @@ Read against the code in `itb/`, a partial passive dataset (268 blocks) and the 
 - `itb/analyze.py`: head-of-block and head-of-first-block rank tests, plus a timing figure that works without
   landed data (item 4).
 - Analysis report labels small groups (item 6), see round 3.
+- `itb/collect.py`: v1 `transactionConfig` parsing plus a test (item 8); passive blocks collected again.
+- `itb/rpc.py`: rotation between two no-sign-up public endpoints, each paced separately (halves the 429 waits).
+- `notes/preregistration.md` amendment A1 and `itb/analyze.py`: late sends are not usable (item 2).

@@ -29,6 +29,7 @@ from .probe import LEVELS
 B = 5000
 SEED = 1
 MIN_PAIRS = 20
+MAX_LATE_MS = 50  # amendment A1, see notes/preregistration.md
 HEAD = 64  # txs at the start of a block used for the 'head' rank test
 
 
@@ -116,15 +117,18 @@ def pair_table(r: dict) -> pd.DataFrame:
     lt = L.set_index("sig")
     T = T[T.live].copy()
     T = T.join(lt[["landed_slot", "index", "block_leader", "err"]], on="sig")
+    T["late_ms"] = (T.t_send_ns / 1e9 - T.t_planned) * 1000
     first = T[T.role == 1].set_index(["run", "pair_id"])
     second = T[T.role == 2].set_index(["run", "pair_id"])
-    df = P.set_index(["run", "pair_id"]).join(first[["landed_slot", "index", "block_leader", "status"]].add_suffix("_1"))
-    df = df.join(second[["landed_slot", "index", "block_leader", "status"]].add_suffix("_2")).reset_index()
+    df = P.set_index(["run", "pair_id"]).join(first[["landed_slot", "index", "block_leader", "status", "late_ms"]].add_suffix("_1"))
+    df = df.join(second[["landed_slot", "index", "block_leader", "status", "late_ms"]].add_suffix("_2")).reset_index()
     df["landed_1"] = df.landed_slot_1.notna()
     df["landed_2"] = df.landed_slot_2.notna()
     df["same_block"] = df.landed_1 & df.landed_2 & (df.landed_slot_1 == df.landed_slot_2)
     df["on_target"] = df.block_leader_1 == df.target
-    df["usable"] = df.same_block & df.on_target
+    df["late_ms"] = df[["late_ms_1", "late_ms_2"]].max(axis=1)
+    # amendment A1 (before live data): a pair sent > MAX_LATE_MS after plan has unknown phase/dt -> not usable
+    df["usable"] = df.same_block & df.on_target & (df.late_ms <= MAX_LATE_MS)
     df["overtake"] = np.where(df.usable, (df.index_2 < df.index_1).astype(float), np.nan)
     df["window_key"] = df.run + ":" + df.window_slot.astype(str)
     df["slot_in_window"] = df.landed_slot_1 - df.window_slot
@@ -246,6 +250,7 @@ def timing_table(r: dict) -> pd.DataFrame:
         return T
     T = T[T.t_send_ns.notna()].copy()
     T["aim_error_slots"] = T.est_leader_slot_at_send - T.window_slot
+    T["late_ms"] = (T.t_send_ns / 1e9 - T.t_planned) * 1000
     P = r["pairs"]
     if "phase" not in T and not P.empty:
         T = T.merge(P[["run", "pair_id", "phase"]], on=["run", "pair_id"], how="left")
@@ -423,6 +428,11 @@ def _write_results(path, mix, r, pairs, S, landing, PS, pb, T, made, blocks) -> 
         e = T.aim_error_slots
         L += [f"{len(T)} sends. Estimated slot at send relative to window start: median {e.median():.2f}, "
               f"5–95 % [{e.quantile(.05):.2f}, {e.quantile(.95):.2f}] slots. "
-              f"Share inside [−1.5, 4): {((e >= -1.5) & (e < 4)).mean():.0%}.", ""]
+              f"Share inside [−1.5, 4): {((e >= -1.5) & (e < 4)).mean():.0%}. "
+              f"Sent > {MAX_LATE_MS} ms after plan (pair excluded, amendment A1): {(T.late_ms > MAX_LATE_MS).mean():.1%}.", ""]
+        if "phase" in T:
+            L += ["Aim error by phase and path (slots; PRE targets −1.2, IN targets +0.5…+2.4):", "",
+                  T.groupby(["phase", "path"]).aim_error_slots.describe()[["count", "25%", "50%", "75%"]]
+                  .reset_index().to_markdown(index=False, floatfmt=".2f"), ""]
     L += ["## Figures", ""] + [f"![{m}](figures/{m})" for m in made]
     path.write_text("\n".join(L) + "\n")

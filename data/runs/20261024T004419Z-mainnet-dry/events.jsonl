@@ -1,0 +1,41 @@
+{"t_ns": 1792802659350664000, "mono_ns": 48035802890791, "event": "run_start", "live": false, "cap_lamports": 50000000, "booked": 0, "max_windows": 400, "minutes": 5.0, "panel": 20, "out": "data/runs/20261024T004419Z-mainnet-dry"}
+{"t_ns": 1792802664484607000, "mono_ns": 48040936742333, "event": "rpc", "method": "getClusterNodes", "url": "https://api.mainnet-beta.solana.com", "ms": 306.9}
+{"t_ns": 1792802664486270000, "mono_ns": 48040938404541, "event": "panel_refresh", "changed_client_or_version": ["A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2"]}
+{"t_ns": 1792802664747114000, "mono_ns": 48041199244000, "event": "rpc", "method": "getEpochInfo", "url": "https://api.mainnet-beta.solana.com", "ms": 59.8}
+{"t_ns": 1792802684247942000, "mono_ns": 48060699722333, "event": "windows_loaded", "n": 187, "from_slot": 460651291}
+{"t_ns": 1792802692462558000, "mono_ns": 48068914191083, "event": "tpu_open", "identity": "5Cchr1XGEg7dbBXByV5NY2ad8jfxAM7HA3x8D56rq9Ux", "addr": "63.254.180.13:5010", "handshake_ms": 162.9, "rtt_ms": 158.5}
+{"t_ns": 1792802702724433000, "mono_ns": 48079175882875, "event": "tpu_open", "identity": "9jxgosAfHgHzwnxsHw4RAZYaLVokMbnYtmiZBreynGFP", "addr": "198.13.141.173:5010", "handshake_ms": 84.8, "rtt_ms": 144.9}
+{"t_ns": 1792802707830785000, "mono_ns": 48084282143666, "event": "tpu_open", "identity": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL", "addr": "64.130.32.153:8002", "handshake_ms": 111.7, "rtt_ms": 67.4}
+{"t_ns": 1792802713504137000, "mono_ns": 48089955393833, "event": "tpu_open", "identity": "9eGrDohdNTAo61DRHyfMuqKWXqYnA3i254Wiszxe8FoY", "addr": "86.54.152.246:9007", "handshake_ms": 71.4, "rtt_ms": 42.2}
+{"t_ns": 1792802724997337000, "mono_ns": 48101448387041, "event": "tpu_open", "identity": "7QQGNm3ptwinipDCyaCF7jY5katgmFUu1ieP2f7nwLpE", "addr": "5.199.172.176:12002", "handshake_ms": 281.9, "rtt_ms": 37.5}
+{"t_ns": 1792802742742764000, "mono_ns": 48119193497375, "event": "tpu_open", "identity": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM", "addr": "198.13.140.105:12351", "handshake_ms": 66.3, "rtt_ms": 81.4}
+{"t_ns": 1792802742875803000, "mono_ns": 48119326532958, "event": "tpu_open", "identity": "9jxgosAfHgHzwnxsHw4RAZYaLVokMbnYtmiZBreynGFP", "addr": "198.13.141.173:5010", "handshake_ms": 132.6, "rtt_ms": 39.7}
+{"t_ns": 1792802747047594000, "mono_ns": 48123498249041, "event": "tpu_open", "identity": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk", "addr": "198.13.140.105:12341", "handshake_ms": 68.0, "rtt_ms": 39.3}
+{"t_ns": 1792802749513543000, "mono_ns": 48125964154041, "event": "tpu_open", "identity": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL", "addr": "64.130.32.153:8002", "handshake_ms": 46.5, "rtt_ms": 35.9}
+{"t_ns": 1792802752508647000, "mono_ns": 48128959204541, "event": "tpu_open", "identity": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM", "addr": "198.13.140.105:12351", "handshake_ms": 62.6, "rtt_ms": 48.3}
+{"t_ns": 1792802770689554000, "mono_ns": 48147139785500, "event": "tpu_open", "identity": "5Cchr1XGEg7dbBXByV5NY2ad8jfxAM7HA3x8D56rq9Ux", "addr": "63.254.180.13:5010", "handshake_ms": 152.9, "rtt_ms": 159.2}
+{"t_ns": 1792802773403199000, "mono_ns": 48149853381958, "event": "tpu_open", "identity": "9jxgosAfHgHzwnxsHw4RAZYaLVokMbnYtmiZBreynGFP", "addr": "198.13.141.173:5010", "handshake_ms": 32.6, "rtt_ms": 54.2}
+{"t_ns": 1792802775535481000, "mono_ns": 48151985626208, "event": "tpu_open", "identity": "5Cchr1XGEg7dbBXByV5NY2ad8jfxAM7HA3x8D56rq9Ux", "addr": "63.254.180.13:5010", "handshake_ms": 165.6, "rtt_ms": 185.8}
+{"t_ns": 1792802778831858000, "mono_ns": 48155281943916, "event": "tpu_open", "identity": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM", "addr": "198.13.140.105:12351", "handshake_ms": 114.2, "rtt_ms": 39.5}
+{"t_ns": 1792802782669196000, "mono_ns": 48159119212875, "event": "tpu_open", "identity": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4", "addr": "64.130.46.242:12291", "handshake_ms": 53.8, "rtt_ms": 35.0}
+{"t_ns": 1792802783350843000, "mono_ns": 48159800848416, "event": "tpu_open", "identity": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL", "addr": "64.130.32.153:8002", "handshake_ms": 40.7, "rtt_ms": 46.0}
+{"t_ns": 1792802788955147000, "mono_ns": 48165405051916, "event": "tpu_open", "identity": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL", "addr": "64.130.32.153:8002", "handshake_ms": 28.9, "rtt_ms": 48.8}
+{"t_ns": 1792802803098742000, "mono_ns": 48179548393916, "event": "tpu_open", "identity": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk", "addr": "198.13.140.105:12341", "handshake_ms": 96.6, "rtt_ms": 43.2}
+{"t_ns": 1792802816328428000, "mono_ns": 48192777842333, "event": "tpu_open", "identity": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4", "addr": "104.204.143.114:9007", "handshake_ms": 97.0, "rtt_ms": 33.0}
+{"t_ns": 1792802840572097000, "mono_ns": 48217021076791, "event": "tpu_open", "identity": "ana2y2YvQ3ZPMwm6qhnN3nJoUSiT3qx5Pvetkq9xcfY", "addr": "45.32.145.112:8002", "handshake_ms": 44.2, "rtt_ms": 55.8}
+{"t_ns": 1792802847609271000, "mono_ns": 48224058125208, "event": "tpu_open", "identity": "7QQGNm3ptwinipDCyaCF7jY5katgmFUu1ieP2f7nwLpE", "addr": "5.199.172.176:12002", "handshake_ms": 78.2, "rtt_ms": 62.9}
+{"t_ns": 1792802857683988000, "mono_ns": 48234132661833, "event": "tpu_open", "identity": "Awes4Tr6TX8JDzEhCZY2QVNimT6iD1zWHzf1vNyGvpLM", "addr": "198.13.140.105:12351", "handshake_ms": 183.1, "rtt_ms": 51.2}
+{"t_ns": 1792802870443852000, "mono_ns": 48246892297291, "event": "tpu_open", "identity": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy", "addr": "208.91.105.55:5010", "handshake_ms": 97.3, "rtt_ms": 124.5}
+{"t_ns": 1792802880489084000, "mono_ns": 48256937349333, "event": "tpu_open", "identity": "E3mDbFMr8yZcCAZx5wPUFCRmLX31u8Nnj4jPoPc54h3F", "addr": "51.89.11.197:8002", "handshake_ms": 43.3, "rtt_ms": 40.9}
+{"t_ns": 1792802891203338000, "mono_ns": 48267651411166, "event": "tpu_open", "identity": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU", "addr": "64.130.57.215:8002", "handshake_ms": 26.6, "rtt_ms": 48.9}
+{"t_ns": 1792802895176053000, "mono_ns": 48271624054958, "event": "tpu_open", "identity": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk", "addr": "198.13.140.105:12341", "handshake_ms": 73.1, "rtt_ms": 40.3}
+{"t_ns": 1792802905885826000, "mono_ns": 48282333636625, "event": "tpu_open", "identity": "9jxgosAfHgHzwnxsHw4RAZYaLVokMbnYtmiZBreynGFP", "addr": "198.13.141.173:5010", "handshake_ms": 83.6, "rtt_ms": 74.8}
+{"t_ns": 1792802915897107000, "mono_ns": 48292344738166, "event": "tpu_open", "identity": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy", "addr": "208.91.105.55:5010", "handshake_ms": 113.7, "rtt_ms": 135.1}
+{"t_ns": 1792802918063618000, "mono_ns": 48294511210500, "event": "tpu_open", "identity": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b", "addr": "198.13.140.105:12349", "handshake_ms": 66.7, "rtt_ms": 39.3}
+{"t_ns": 1792802932649969000, "mono_ns": 48309097300000, "event": "tpu_open", "identity": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4", "addr": "104.204.143.114:9007", "handshake_ms": 255.1, "rtt_ms": 52.8}
+{"t_ns": 1792802932957151000, "mono_ns": 48309404476291, "event": "tpu_open", "identity": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU", "addr": "64.130.57.215:8002", "handshake_ms": 27.7, "rtt_ms": 51.2}
+{"t_ns": 1792802937803602000, "mono_ns": 48314250841125, "event": "tpu_open", "identity": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy", "addr": "208.91.105.55:5010", "handshake_ms": 116.6, "rtt_ms": 95.9}
+{"t_ns": 1792802945177829000, "mono_ns": 48321624935833, "event": "tpu_open", "identity": "9eGrDohdNTAo61DRHyfMuqKWXqYnA3i254Wiszxe8FoY", "addr": "86.54.152.246:9007", "handshake_ms": 90.2, "rtt_ms": 43.4}
+{"t_ns": 1792802956257725000, "mono_ns": 48332704632583, "event": "tpu_open", "identity": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU", "addr": "64.130.57.215:8002", "handshake_ms": 45.3, "rtt_ms": 53.8}
+{"t_ns": 1792802975630459000, "mono_ns": 48352077020500, "event": "tpu_open", "identity": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4", "addr": "104.204.143.114:9007", "handshake_ms": 210.2, "rtt_ms": 90.9}
+{"t_ns": 1792802978633075000, "mono_ns": 48355079582375, "event": "run_end", "windows_started": 39, "windows_done": 39, "booked": 1788067}

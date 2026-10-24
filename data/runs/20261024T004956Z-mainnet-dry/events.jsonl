@@ -1,0 +1,26 @@
+{"t_ns": 1792802996552287000, "mono_ns": 48372998474583, "event": "run_start", "live": false, "cap_lamports": 50000000, "booked": 0, "max_windows": 400, "minutes": 3.0, "panel": 20, "out": "data/runs/20261024T004956Z-mainnet-dry"}
+{"t_ns": 1792803001290556000, "mono_ns": 48377736658333, "event": "rpc", "method": "getClusterNodes", "url": "https://api.mainnet-beta.solana.com", "ms": 453.4}
+{"t_ns": 1792803001291496000, "mono_ns": 48377737597083, "event": "panel_refresh", "changed_client_or_version": ["A4hyMd3FyvUJSRafDUSwtLLaQcxRP4r1BRC9w2AJ1to2"]}
+{"t_ns": 1792803001561437000, "mono_ns": 48378007534166, "event": "rpc", "method": "getEpochInfo", "url": "https://api.mainnet-beta.solana.com", "ms": 68.8}
+{"t_ns": 1792803020920416000, "mono_ns": 48397366165750, "event": "windows_loaded", "n": 183, "from_slot": 460652873}
+{"t_ns": 1792803025768571000, "mono_ns": 48402214234500, "event": "tpu_open", "identity": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b", "addr": "198.13.140.105:12349", "handshake_ms": 95.1, "rtt_ms": 40.6}
+{"t_ns": 1792803058734174000, "mono_ns": 48435179246208, "event": "tpu_open", "identity": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy", "addr": "208.91.105.55:5010", "handshake_ms": 117.4, "rtt_ms": 126.0}
+{"t_ns": 1792803072134225000, "mono_ns": 48448579058041, "event": "tpu_open", "identity": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4", "addr": "64.130.46.242:12291", "handshake_ms": 63.9, "rtt_ms": 34.6}
+{"t_ns": 1792803074135632000, "mono_ns": 48450580429041, "event": "tpu_open", "identity": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4", "addr": "104.204.143.114:9007", "handshake_ms": 48.0, "rtt_ms": 31.9}
+{"t_ns": 1792803080399693000, "mono_ns": 48456844377166, "event": "tpu_open", "identity": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL", "addr": "64.130.32.153:8002", "handshake_ms": 38.0, "rtt_ms": 49.8}
+{"t_ns": 1792803082018248000, "mono_ns": 48458462903958, "event": "tpu_open", "identity": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk", "addr": "198.13.140.105:12341", "handshake_ms": 75.2, "rtt_ms": 40.0}
+{"t_ns": 1792803093457727000, "mono_ns": 48469902177375, "event": "tpu_open", "identity": "9jxgosAfHgHzwnxsHw4RAZYaLVokMbnYtmiZBreynGFP", "addr": "198.13.141.173:5010", "handshake_ms": 55.7, "rtt_ms": 55.1}
+{"t_ns": 1792803099857051000, "mono_ns": 48476301387541, "event": "tpu_open", "identity": "7QQGNm3ptwinipDCyaCF7jY5katgmFUu1ieP2f7nwLpE", "addr": "5.199.172.176:12002", "handshake_ms": 83.8, "rtt_ms": 61.9}
+{"t_ns": 1792803102310620000, "mono_ns": 48478754912291, "event": "tpu_open", "identity": "Fd7btgySsrjuo25CJCj7oE7VPMyezDhnx7pZkj2v69Nk", "addr": "198.13.140.105:12341", "handshake_ms": 63.8, "rtt_ms": 64.2}
+{"t_ns": 1792803109723016000, "mono_ns": 48486167175083, "event": "tpu_open", "identity": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b", "addr": "198.13.140.105:12349", "handshake_ms": 84.9, "rtt_ms": 39.6}
+{"t_ns": 1792803111389764000, "mono_ns": 48487833892791, "event": "tpu_open", "identity": "CAo1dCGYrB6NhHh5xb1cGjUiu86iyCfMTENxgHumSve4", "addr": "64.130.46.242:12291", "handshake_ms": 91.9, "rtt_ms": 36.0}
+{"t_ns": 1792803118984395000, "mono_ns": 48495428388833, "event": "tpu_open", "identity": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b", "addr": "198.13.140.105:12349", "handshake_ms": 74.0, "rtt_ms": 56.0}
+{"t_ns": 1792803138392653000, "mono_ns": 48514836299416, "event": "tpu_open", "identity": "9eGrDohdNTAo61DRHyfMuqKWXqYnA3i254Wiszxe8FoY", "addr": "86.54.152.246:9007", "handshake_ms": 74.7, "rtt_ms": 41.6}
+{"t_ns": 1792803140729391000, "mono_ns": 48517172994666, "event": "tpu_open", "identity": "DRpbCBMxVnDK7maPM5tGv6MvB3v1sRMC86PZ8okm21hy", "addr": "208.91.105.55:5010", "handshake_ms": 97.8, "rtt_ms": 95.4}
+{"t_ns": 1792803145588613000, "mono_ns": 48522032129375, "event": "tpu_open", "identity": "5Cchr1XGEg7dbBXByV5NY2ad8jfxAM7HA3x8D56rq9Ux", "addr": "63.254.180.13:5010", "handshake_ms": 149.2, "rtt_ms": 147.9}
+{"t_ns": 1792803154661014000, "mono_ns": 48531104368000, "event": "tpu_open", "identity": "FBbqKvwLfKGZrKrfSbPJz4ymQ7zMarhRyZtu1RBkSe89", "addr": "170.23.224.5:9007", "handshake_ms": 257.6, "rtt_ms": 119.6}
+{"t_ns": 1792803156032427000, "mono_ns": 48532475756625, "event": "tpu_open", "identity": "EvnRmnMrd69kFdbLMxWkTn1icZ7DCceRhvmb2SJXqDo4", "addr": "104.204.143.114:9007", "handshake_ms": 126.7, "rtt_ms": 41.7}
+{"t_ns": 1792803173265201000, "mono_ns": 48549708222708, "event": "tpu_open", "identity": "HEL1USMZKAL2odpNBj2oCjffnFGaYwmbGmyewGv1e2TU", "addr": "64.130.57.215:8002", "handshake_ms": 34.6, "rtt_ms": 28.9}
+{"t_ns": 1792803181314957000, "mono_ns": 48557757833875, "event": "tpu_open", "identity": "E1r4Psq84tHfQ6aPTvvDka4U3u8zPVD7gEUrH25RdxHL", "addr": "64.130.32.153:8002", "handshake_ms": 31.6, "rtt_ms": 45.1}
+{"t_ns": 1792803184243041000, "mono_ns": 48560685865333, "event": "tpu_open", "identity": "JUPiTERrZqgf1jUyR7dSkhMx4Kn2qJyekWsg3LT1h4b", "addr": "198.13.140.105:12349", "handshake_ms": 66.0, "rtt_ms": 40.0}
+{"t_ns": 1792803187043819000, "mono_ns": 48563486593833, "event": "run_end", "windows_started": 25, "windows_done": 25, "booked": 1177846}

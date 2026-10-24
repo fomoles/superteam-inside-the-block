@@ -14,7 +14,8 @@ import httpx
 
 from .log import log
 
-DEFAULT_MAINNET = ["https://api.mainnet-beta.solana.com"]
+# Two public mainnet endpoints that need no sign-up (checked 24.10.2026); calls rotate between them.
+DEFAULT_MAINNET = ["https://api.mainnet-beta.solana.com", "https://solana-rpc.publicnode.com"]
 DEFAULT_DEVNET = ["https://api.devnet.solana.com"]
 # Public RPC tiers drop requests without a browser-like User-Agent.
 HEADERS = {"content-type": "application/json", "user-agent": "Mozilla/5.0 inside-the-block/1.0"}
@@ -44,8 +45,9 @@ class Rpc:
         # Public endpoints rate-limit heavy methods hard (getBlock: HTTP 429 after a few calls),
         # so heavy calls are paced; a private RPC can set ITB_RPC_HEAVY_INTERVAL_S=0.
         self.heavy_interval = float(os.environ.get("ITB_RPC_HEAVY_INTERVAL_S", "1.0"))
-        self._heavy_lock = asyncio.Lock()
-        self._heavy_last = 0.0
+        self._heavy_lock = {u: asyncio.Lock() for u in urls}
+        self._heavy_last = {u: 0.0 for u in urls}
+        self._rr = 0
         self.client = httpx.AsyncClient(timeout=timeout, headers=HEADERS, http2=False)
         self._id = 0
 
@@ -55,14 +57,15 @@ class Rpc:
     async def call(self, method: str, params: list | None = None, *, quiet: bool = False):
         last: Exception | None = None
         retry_after = 0.0
+        self._rr += 1
         for attempt in range(self.retries):
-            if method in HEAVY:
-                async with self._heavy_lock:
-                    wait = self._heavy_last + self.heavy_interval - time.monotonic()
+            url = self.urls[(self._rr + attempt) % len(self.urls)]
+            if method in HEAVY:  # paced per endpoint
+                async with self._heavy_lock[url]:
+                    wait = self._heavy_last[url] + self.heavy_interval - time.monotonic()
                     if wait > 0:
                         await asyncio.sleep(wait)
-                    self._heavy_last = time.monotonic()
-            url = self.urls[attempt % len(self.urls)]
+                    self._heavy_last[url] = time.monotonic()
             self._id += 1
             t0 = time.perf_counter()
             try:
