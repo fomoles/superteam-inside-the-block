@@ -109,3 +109,46 @@ Read against the code in `itb/`, a partial passive dataset (268 blocks) and the 
 - `itb/collect.py`: v1 `transactionConfig` parsing plus a test (item 8); passive blocks collected again.
 - `itb/rpc.py`: rotation between two no-sign-up public endpoints, each paced separately (halves the 429 waits).
 - `notes/preregistration.md` amendment A1 and `itb/analyze.py`: late sends are not usable (item 2).
+
+## Round 3: a skeptical judge reads the final passive results (2026-10-24)
+
+Data: 480 slots (475 blocks) from 20 validators, 6 recent leader windows each, collected again after the
+v1 parser fix. Numbers: `report/results.md` and `data/results/robustness_head.txt`
+(`scripts/robustness_head.py`).
+
+### What the data now say
+- Whole-block rank ρ(position, µL/CU) is ≈ 0 in every group (−0.08 … +0.02).
+- At the **head of the window's first block** it is clearly negative (higher fee → earlier) for
+  **AgaveBam −0.57 [−0.64, −0.49], FireBAM −0.41 [−0.55, −0.26], Firedancer 26.10.3 −0.29 [−0.41, −0.19]**,
+  weaker for Jito −0.16 and Agave 4.3.2 −0.15, and ≈ 0 for Firedancer 26.10.4, both Harmonic groups and
+  Rakurai.
+
+### What a judge would attack
+1. **"Head ρ is just who arrives first."** Senders paying high fees are also the ones who aim at the slot
+   start. Passive data cannot separate a sorted buffer from fee-correlated arrival. *This is the core limit
+   and the reason the active design exists.* Mitigation: a middle-of-block placebo window (txs 128–191). If
+   the head were just "early, sophisticated traffic", the effect would not stop abruptly. It does: middle ρ is
+   −0.08 … +0.02 for the three strong groups. This makes a buffer drain at slot start the more likely
+   reading, but does not prove it.
+2. **Small samples.** 6 windows × 2 validators = up to 12 first blocks per group, in ≈ 6.5 hours. The
+   bootstrap CIs are by block. The robustness script (which also needs ≥ 256 txs per block) keeps only 2–12
+   blocks per group, and Rakurai drops out. **Applied:** the report calls the head result *exploratory* and
+   gives no per-group verdict from it.
+3. **Client or operator?** In the three strong groups both validators agree (AgaveBam −0.51/−0.56, FireBAM
+   −0.47/−0.56, Firedancer 26.10.3 −0.41/−0.30). In Firedancer 26.10.4 they disagree (+0.26 vs −0.11), so
+   there the operator, not the client, may drive it. **Applied:** per-validator values are published.
+4. **Zero-price txs.** With price-0 txs dropped, the head ρ stays negative in the three strong groups
+   (−0.31, −0.43, −0.56). It also turns clearly negative for Agave 4.3.2 (−0.46) and 4.5 (−0.30): there, many
+   unpriced txs sit early in the head and mask a fee order among priced ones. **Applied:** reported as a
+   second row, not merged.
+5. **Bundles.** Jito-tip txs are excluded, but BAM bundles that pay no Jito tip account are not detectable
+   and may sit at the head. The two BAM groups being the strongest fits a "sorted auction batch first"
+   reading, and also a bundle artifact. *Not separable here*; stated as a limit.
+6. **Harmonic ≈ 0.** Harmonic blocks are built by external builders, so their order reflects the
+   winning builder's choices, not the validator's scheduler. No claim is made.
+7. **Multiplicity.** 10 groups × 3 head statistics. Nothing passive is Holm-corrected, because nothing
+   passive is a verdict. Only pre-registered active H1 gets the correction.
+
+### Applied
+- `scripts/robustness_head.py` plus its output in `data/results/robustness_head.txt` (items 1, 3, 4).
+- REPORT.md section 3.1: "exploratory" label, placebo, per-validator values, the bundle and arrival limits.

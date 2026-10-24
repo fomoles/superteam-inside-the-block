@@ -4,9 +4,9 @@
 
 **Tweet / short description (≤ 280 chars):**
 
-> How do Solana validators order txs after Alpenglow? 20 mainnet validators, 10 client versions, real blocks
-> + a direct-to-leader probe design with controlled fee, send gap and write-lock conflict. One command:
-> `docker compose up`. {{SHORT_FINDING}}
+> How do Solana validators order txs after Alpenglow? 20 mainnet validators, 10 clients, 475 blocks:
+> fee order shows only at the leader window's start (BAM, Firedancer 26.10.3), not across the block.
+> Direct-to-leader probe design, one `docker compose up`.
 
 **Description field:**
 
@@ -16,7 +16,7 @@ after Alpenglow (epoch 1066, 24.10.2026).
 - **Panel:** 20 validators in 10 client/version groups, taken from gossip `clientId` + `version`: Agave
   4.3.2 and 4.5-alpha, Jito, Agave-BAM, Harmonic-Agave, Rakurai, Firedancer 26.10.3 and 26.10.4,
   Harmonic-Firedancer, FireBAM.
-- **Passive layer:** {{N_BLOCKS}} blocks from these validators' own leader windows. {{LONG_FINDING}}
+- **Passive layer:** 475 blocks from these validators' own leader windows. Across whole blocks fee and position are unrelated for every client (ρ ≈ 0). At the start of the leader's window, Agave-BAM (ρ −0.57), FireBAM (−0.41) and Firedancer 26.10.3 (−0.29) put higher-fee txs clearly first, while Firedancer 26.10.4, Harmonic and Rakurai do not. A middle-of-block placebo is ≈ 0. This is exploratory and correlational, and the report says why.
 - **Active design:** pairs of probe txs sent over QUIC straight to the target leader's TPU, so they land
   in its block or nowhere. Arms separate the fee rule, the arrival order, the noise floor, write-lock
   conflicts and per-CU vs total fee. The send gap (0/30/150 ms) and the phase (buffered before the window

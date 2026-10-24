@@ -1,0 +1,10 @@
+group | blocks | head | middle | tail | head, price>0 | top-10% fee enrichment in head | head per validator
+Agave 4.3.2 | 5 | -0.07 | +0.08 | -0.05 | -0.46 | x1.72 | 5Us1…:-0.05 7QQG…:-0.08
+Agave 4.5.0-alpha.2 | 6 | -0.06 | -0.17 | +0.08 | -0.30 | x3.17 | sce2…:-0.04 sce1…:-0.10
+AgaveBam 4.3.2 | 9 | -0.54 | +0.02 | -0.01 | -0.31 | x3.13 | 5Cch…:-0.51 DRpb…:-0.56
+FireBAM 26.10.4 | 7 | -0.51 | -0.08 | -0.06 | -0.43 | x1.55 | A4hy…:-0.47 9jxg…:-0.56
+Firedancer 26.10.3 | 9 | -0.34 | -0.07 | +0.10 | -0.56 | x2.81 | BRAZ…:-0.41 FBbq…:-0.30
+Firedancer 26.10.4 | 12 | +0.08 | -0.07 | +0.02 | -0.03 | x1.71 | EvnR…:+0.26 9eGr…:-0.11
+HarmonicAgave 4.3.2 | 10 | -0.02 | -0.12 | -0.02 | -0.22 | x1.48 | CAo1…:+0.03 Fd7b…:-0.05
+HarmonicFiredancer 26.10.4 | 9 | -0.01 | -0.29 | -0.11 | -0.21 | x1.13 | Awes…:-0.04 JUPi…:+0.04
+JitoLabs 4.3.2 | 2 | -0.15 | -0.13 | +0.01 | -0.26 | x1.61 | E1r4…:-0.15

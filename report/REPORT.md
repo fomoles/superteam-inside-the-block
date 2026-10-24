@@ -8,9 +8,12 @@ Generated tables and figures: [results.md](results.md). Code and one-command rep
 
 - **The question** is which rule a validator uses to order transactions inside its block: priority fee,
   arrival time, or something else, and how strictly, for each validator client.
-- **The answer this repo can give today** comes from {{N_BLOCKS}} real mainnet blocks of **20 validators in 10
+- **The answer this repo can give today** comes from 475 real mainnet blocks of **20 validators in 10
   client/version groups** (Agave, Agave 4.5 alpha, Jito, Agave-BAM, Harmonic-Agave, Rakurai, Firedancer
-  26.10.3 and 26.10.4, Harmonic-Firedancer, FireBAM). {{TLDR_PASSIVE}}
+  26.10.3 and 26.10.4, Harmonic-Firedancer, FireBAM). Across a whole block, fee and position are unrelated (rank correlation ≈ 0 in every group). At the
+  **start of a leader's window**, three clients put higher-fee txs clearly first: **Agave-BAM, FireBAM and
+  Firedancer 26.10.3**. Jito and Agave do so weakly. Firedancer 26.10.4, both Harmonic groups and Rakurai show
+  no fee order there. This is exploratory and correlational (section 3.1).
 - **The answer this repo is built to give** comes from self-sent probe pairs with controlled fee, send gap,
   phase and write-lock conflict, aimed straight at one leader's TPU. The pipeline runs on mainnet end to end:
   real leader windows, real QUIC handshakes to 16+ distinct leaders, sends timed to the millisecond. The one
@@ -57,9 +60,46 @@ Full description: [README → Design](../README.md#design). Pre-registered rules
 
 ## 3. Results
 
-### 3.1 Passive layer: {{N_BLOCKS}} blocks from the panel's own leader windows
+### 3.1 Passive layer: 475 blocks from the panel's own leader windows
 
-{{PASSIVE_SECTION}}
+Every block of 6 recent leader windows of each of the 20 validators (480 slots, 5 skipped, 18:09–00:51
+UTC 23–24.10.2026). Jito-tip txs and failed txs are excluded. ρ is the Spearman rank correlation between
+position and priority fee per CU; **ρ < 0 means higher fee → earlier**. CIs: bootstrap by block.
+
+| group | whole block | first 64 txs, any block | first 64 txs, window's 1st block |
+|---|---|---|---|
+| AgaveBam 4.3.2 | −0.08 [−0.10, −0.06] | −0.36 [−0.42, −0.31] | **−0.57 [−0.64, −0.49]** |
+| FireBAM 26.10.4 | −0.04 [−0.07, −0.01] | −0.26 [−0.33, −0.19] | **−0.41 [−0.55, −0.26]** |
+| Firedancer 26.10.3 | −0.04 [−0.06, −0.02] | −0.10 [−0.15, −0.05] | **−0.29 [−0.41, −0.19]** |
+| JitoLabs 4.3.2 | +0.00 [−0.02, 0.03] | −0.06 [−0.11, −0.01] | −0.16 [−0.25, −0.08] |
+| Agave 4.3.2 | −0.02 [−0.05, 0.02] | −0.08 [−0.13, −0.03] | −0.15 [−0.27, −0.04] |
+| Agave 4.5.0-alpha.2 | −0.04 [−0.09, −0.00] | −0.09 [−0.16, −0.04] | −0.10 [−0.23, 0.03] |
+| HarmonicAgave 4.3.2 | −0.01 [−0.04, 0.03] | −0.09 [−0.12, −0.06] | −0.03 [−0.12, 0.05] |
+| HarmonicFiredancer 26.10.4 | −0.04 [−0.08, −0.01] | −0.11 [−0.18, −0.05] | −0.03 [−0.18, 0.12] |
+| Rakurai 4.3.2 | +0.02 [−0.01, 0.05] | −0.02 [−0.07, 0.02] | −0.01 [−0.14, 0.10] |
+| Firedancer 26.10.4 | −0.02 [−0.06, 0.01] | −0.01 [−0.08, 0.06] | +0.08 [−0.06, 0.23] |
+
+**How to read it.** After Alpenglow, blocks are built while they stream. A scheduler that keeps its buffer
+sorted by priority shows that order only where it drains a backlog: at the start of the leader's window.
+Later txs are placed roughly as they arrive, so whole-block correlations are ≈ 0 for every client, including
+those that do sort. A whole-block correlation, the usual first analysis, would conclude "no fee ordering
+anywhere".
+
+**Robustness** (critique round 3; `scripts/robustness_head.py`, output in
+[data/results/robustness_head.txt](../data/results/robustness_head.txt)):
+- *Placebo:* the same statistic on txs 128–191 of the same blocks is ≈ 0 (−0.08 … +0.02) for the three
+  strong groups. The effect is specific to the head.
+- *Both validators agree* in the strong groups (AgaveBam −0.51 / −0.56, FireBAM −0.47 / −0.56,
+  Firedancer 26.10.3 −0.41 / −0.30). In Firedancer 26.10.4 they don't (+0.26 / −0.11).
+- *Unpriced txs:* dropping price-0 txs keeps the strong groups negative and makes Agave 4.3.2 clearly
+  negative too (−0.46): many unpriced txs sit early in Agave's head and mask a fee order among priced ones.
+- *Top-fee txs* (block's top 10 %) are 1.5–3.2× over-represented in the head of every group.
+
+**What it does not show.** Other senders' arrival times are unknown. High-fee bots may simply aim at the slot
+start, and that alone would give the same head pattern. BAM bundles without a Jito tip cannot be excluded.
+Up to 12 first blocks per group were sampled over ≈ 6.5 hours. The head tests were added after seeing data
+(**exploratory**), and no group gets a verdict from them. The controlled active layer is what would separate
+"sorted buffer" from "early high-fee arrival".
 
 ### 3.2 Timing layer: can the pipeline hit a 4-slot window from Ukraine?
 
