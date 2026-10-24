@@ -1,6 +1,6 @@
-# Submission text (draft — the owner submits; nothing here has been posted)
+# Submission text (submitted on Superteam Earn on 24.10.2026; editable until the deadline)
 
-**Link:** https://github.com/fomoles/superteam-inside-the-block  ← private now: make it public (Settings → Change visibility) before submitting
+**Link:** https://github.com/fomoles/superteam-inside-the-block
 
 **Tweet / short description (≤ 280 chars):**
 
