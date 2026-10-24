@@ -46,8 +46,8 @@ async def leader_windows(rpc: Rpc, identities: list[str], from_slot: int, horizo
 class SlotClock:
     """Estimates wall-clock start of slots from a websocket slot stream.
 
-    t(slot) = t_ref + (slot - slot_ref) * slot_ms, with slot_ms the median
-    inter-notification gap over the last 200 notifications. Note: this is the
+    t(slot) = t_ref + (slot - slot_ref) * slot_ms, with slot_ms the least-squares
+    slope of arrival time on slot over the last 400 notifications. Note: this is the
     time *the RPC node tells us* about the slot, so it lags the leader's actual
     slot start by the RPC's shred-propagation + our network latency. The lag is
     an unknown constant offset that the live data calibrates (`landed slot
@@ -96,9 +96,14 @@ class SlotClock:
     def _fit(self) -> None:
         if len(self.obs) < 10:
             return
-        pts = list(self.obs)
-        rates = [(t2 - t1) / (s2 - s1) for (s1, t1), (s2, t2) in zip(pts, pts[1:]) if s2 > s1]
-        self.slot_ms = 1000 * statistics.median(rates)
+        # Least-squares slope over the whole buffer (~80 s). Notifications arrive in uneven bursts, so the
+        # median gap is biased low (201 vs 210.7 ms measured 24.10.2026), which shifts aims by whole slots.
+        ss = [s for s, _ in self.obs]
+        ts = [t for _, t in self.obs]
+        ms, mt = statistics.fmean(ss), statistics.fmean(ts)
+        var = sum((s - ms) ** 2 for s in ss)
+        if var > 0:
+            self.slot_ms = 1000 * sum((s - ms) * (t - mt) for s, t in zip(ss, ts)) / var
 
     def current_slot(self) -> int:
         return self.obs[-1][0]

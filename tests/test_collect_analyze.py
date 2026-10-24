@@ -35,6 +35,17 @@ def test_slim_block_parses_budget_writable_and_leader():
     assert (b["cu_limit"], b["cu_price"], sorted(b["writable"])) == (6000, 10**6, ["ACC", "P2"])
 
 
+def test_slim_block_reads_v1_transaction_config():
+    """v1 (post-Alpenglow) txs put the budget in message.transactionConfig; priorityFee is total lamports."""
+    tx = _tx("s3", "P3", 0, 0, 5300)
+    tx["version"] = 1
+    tx["transaction"]["message"]["instructions"] = []
+    tx["transaction"]["message"]["transactionConfig"] = {"computeUnitLimit": 750, "priorityFee": 300, "heapSize": None}
+    s = slim_block(11, {"blockhash": "h", "parentSlot": 10, "rewards": [], "transactions": [tx]})
+    t = s["txs"][0]
+    assert (t["cu_limit"], t["cu_price"]) == (750, 400_000)
+
+
 def _synthetic(rule: str, windows=60, seed=0):
     """Fake live data for one group. rule='fee': higher fee always first; 'fifo': arrival order with 10% noise."""
     rng = random.Random(seed)

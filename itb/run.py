@@ -74,6 +74,7 @@ class Runner:
         for g in range(GROUPS):
             self.free_groups.put_nowait(g)
         self.windows_done = 0
+        self.per_group = {v["group"]: 0 for v in self.panel}
         self.stop = False
         if self.live:
             self.master = load_keypair(args.keypair)
@@ -252,7 +253,11 @@ class Runner:
             if not cand:
                 await asyncio.sleep(0.5)
                 continue
-            slot, ident = cand[0]
+            # Balance groups: among windows starting in the next ~10 s, take the one whose client group
+            # has had the fewest windows so far (small-stake groups lead rarely; don't let big ones dominate).
+            soon = [c for c in cand if c[0] < cand[0][0] + 48]
+            slot, ident = min(soon, key=lambda c: (self.per_group[self.by_id[c[1]]["group"]], c[0]))
+            self.per_group[self.by_id[ident]["group"]] += 1
             wait = self.clock.slot_start(slot) - time.time() - LEAD_S - 0.5
             group = await self.free_groups.get()
             if wait > 0:

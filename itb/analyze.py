@@ -29,6 +29,7 @@ from .probe import LEVELS
 B = 5000
 SEED = 1
 MIN_PAIRS = 20
+HEAD = 64  # txs at the start of a block used for the 'head' rank test
 
 
 def _jsonl(p: Path) -> list[dict]:
@@ -199,6 +200,9 @@ def passive_table(blocks: list[dict], groups: dict[str, str]) -> tuple[pd.DataFr
         pos = np.array([t["i"] for t in txs])
         price = np.array([t["cu_price"] or 0 for t in txs], dtype=float)
         rho = stats.spearmanr(pos, price).statistic if np.ptp(price) > 0 else np.nan
+        # The head of the block: if a scheduler drains a buffered backlog in priority order, it shows here first.
+        hp = price[np.argsort(pos)][:HEAD]
+        rho_head = stats.spearmanr(np.arange(len(hp)), hp).statistic if np.ptp(hp) > 0 else np.nan
         # pairwise concordance on a sample of pairs with different price
         conc = {True: [0, 0], False: [0, 0]}
         ws = [set(t["writable"]) - {"ComputeBudget111111111111111111111111111111"} for t in txs]
@@ -212,7 +216,8 @@ def passive_table(blocks: list[dict], groups: dict[str, str]) -> tuple[pd.DataFr
             conc[shared][1] += 1
         rows.append({"group": g, "slot": b["slot"], "leader": b["leader"], "n_tx": n, "n_used": len(txs),
                      "jito_share": 1 - len([t for t in b["txs"] if not t["jito_tip"]]) / n,
-                     "spearman_pos_price": rho,
+                     "spearman_pos_price": rho, "spearman_head": rho_head,
+                     "spearman_head_s0": rho_head if b["slot"] % 4 == 0 else np.nan,
                      "conc_shared": conc[True][0] / conc[True][1] if conc[True][1] else np.nan,
                      "n_shared": conc[True][1],
                      "conc_indep": conc[False][0] / conc[False][1] if conc[False][1] else np.nan,
@@ -225,7 +230,7 @@ def passive_summary(pb: pd.DataFrame) -> pd.DataFrame:
     for g, d in pb.groupby("group"):
         d = d.assign(window_key=d.slot // 4)
         r = {"group": g, "blocks": len(d), "validators": d.leader.nunique(), "median_tx": int(d.n_tx.median())}
-        for col in ("spearman_pos_price", "conc_shared", "conc_indep"):
+        for col in ("spearman_pos_price", "spearman_head", "spearman_head_s0", "conc_shared", "conc_indep"):
             dd = d.dropna(subset=[col])
             if len(dd) >= 3:
                 e, lo, hi, _ = cluster_boot(dd, lambda x, c=col: float(x[c].mean()), n=2000)
@@ -241,6 +246,9 @@ def timing_table(r: dict) -> pd.DataFrame:
         return T
     T = T[T.t_send_ns.notna()].copy()
     T["aim_error_slots"] = T.est_leader_slot_at_send - T.window_slot
+    P = r["pairs"]
+    if "phase" not in T and not P.empty:
+        T = T.merge(P[["run", "pair_id", "phase"]], on=["run", "pair_id"], how="left")
     return T
 
 
@@ -321,7 +329,7 @@ def figures(outdir: Path, mix: dict | None, S: pd.DataFrame, pairs: pd.DataFrame
         made.append("passive_conflict.png")
     if not T.empty:
         fig, ax = plt.subplots(figsize=(6, 3.2))
-        for ph, d in T.merge(pairs[["run", "pair_id", "phase"]], on=["run", "pair_id"], how="left").groupby("phase"):
+        for ph, d in T.groupby(T.get("phase", pd.Series("all", index=T.index)).fillna("?")):
             ax.hist(d.aim_error_slots.clip(-4, 8), bins=48, alpha=0.6, label=ph)
         for x in (0, 4):
             ax.axvline(x, color="k", lw=0.7)
@@ -397,11 +405,15 @@ def _write_results(path, mix, r, pairs, S, landing, PS, pb, T, made, blocks) -> 
     if PS.empty:
         L += ["No blocks collected.", ""]
     else:
-        L += ["| group | validators | blocks | median txs/block | Spearman(position, µL/CU) | P(fee order) conflicting | P(fee order) independent |",
-              "|---|---|---|---|---|---|---|"]
+        L += [f"| group | validators | blocks | median txs/block | Spearman(position, µL/CU) | same, first {HEAD} txs | "
+              f"same, first {HEAD} txs of the window's 1st block | P(fee order) conflicting | P(fee order) independent |",
+              "|---|---|---|---|---|---|---|---|---|"]
         for x in PS.to_dict("records"):
-            L.append(f"| {x['group']} | {x['validators']} | {x['blocks']} | {x['median_tx']} | "
+            small = " (small: <2 validators or <20 blocks)" if x["validators"] < 2 or x["blocks"] < 20 else ""
+            L.append(f"| {x['group']}{small} | {x['validators']} | {x['blocks']} | {x['median_tx']} | "
                      f"{_fmt_ci(x.get('spearman_pos_price'), x.get('spearman_pos_price_ci'))} | "
+                     f"{_fmt_ci(x.get('spearman_head'), x.get('spearman_head_ci'))} | "
+                     f"{_fmt_ci(x.get('spearman_head_s0'), x.get('spearman_head_s0_ci'))} | "
                      f"{_fmt_ci(x.get('conc_shared'), x.get('conc_shared_ci'))} | {_fmt_ci(x.get('conc_indep'), x.get('conc_indep_ci'))} |")
         L.append("")
     L += ["## Timing layer: did sends hit the target window?", ""]

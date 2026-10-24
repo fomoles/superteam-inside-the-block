@@ -1,0 +1,45 @@
+# One command reproduces the whole pipeline on mainnet, spending nothing:
+#   docker compose up
+# = fresh cluster survey -> passive blocks of the panel's recent leader windows -> 3-minute dry-run
+#   (plans and times probe pairs, sends nothing) -> collect -> analyze -> verify against the chain.
+# Results: report/results.md, report/figures/, data/results/*.csv
+#
+# Live probes (spends real SOL, capped): see README "Running live".
+#   ITB_KEYPAIR_FILE=/abs/path/to/keypair.json docker compose --profile live run --rm live
+services:
+  itb:
+    build: .
+    command: ["all"]
+    environment:
+      ITB_RPC_URLS: ${ITB_RPC_URLS:-}
+      ITB_WS_URL: ${ITB_WS_URL:-}
+      ITB_DRY_MINUTES: ${ITB_DRY_MINUTES:-3}
+      ITB_PASSIVE_WINDOWS: ${ITB_PASSIVE_WINDOWS:-6}
+      ITB_RPC_HEAVY_INTERVAL_S: ${ITB_RPC_HEAVY_INTERVAL_S:-1.0}
+    volumes:
+      - ./data:/app/data
+      - ./report:/app/report
+
+  test:
+    build: .
+    entrypoint: ["python", "-m", "pytest", "-q", "tests"]
+    command: []
+    profiles: ["test"]
+
+  live:
+    build: .
+    profiles: ["live"]
+    command: ["run", "--live", "--yes-spend", "--minutes", "${ITB_MINUTES:-60}", "--max-windows", "${ITB_MAX_WINDOWS:-350}"]
+    environment:
+      ITB_KEYPAIR: /run/secrets/itb_keypair
+      ITB_CAP_SOL: ${ITB_CAP_SOL:-0.05}
+      ITB_RPC_URLS: ${ITB_RPC_URLS:-}
+      ITB_WS_URL: ${ITB_WS_URL:-}
+      ITB_CLOCK_LAG_MS: ${ITB_CLOCK_LAG_MS:-0}
+    secrets: [itb_keypair]
+    volumes:
+      - ./data:/app/data
+
+secrets:
+  itb_keypair:
+    file: ${ITB_KEYPAIR_FILE:-/dev/null}

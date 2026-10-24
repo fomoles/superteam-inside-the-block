@@ -46,9 +46,13 @@ def _cb_params(tx: dict) -> tuple[int | None, int | None]:
             limit = struct.unpack("<I", raw[1:5])[0]
         elif raw[:1] == b"\x03" and len(raw) >= 9:
             price = struct.unpack("<Q", raw[1:9])[0]
+    # v1 txs carry the budget in the message's transactionConfig instead of ComputeBudget instructions, and
+    # the priority fee there is a total in lamports: converted to the equivalent µL/CU price.
     cfg = tx["transaction"].get("transactionConfig") or msg.get("transactionConfig")
     if cfg:
-        limit = cfg.get("computeUnitLimit", limit)
+        limit = cfg.get("computeUnitLimit") or limit
+        if cfg.get("priorityFee") is not None and limit:
+            price = cfg["priorityFee"] * 1_000_000 // limit
     return limit, price
 
 
