@@ -169,7 +169,9 @@ the public RPC quota goes to it).
 2. **"Bots just aim at every slot start."** If so, the head order would be equally strong in all four blocks
    of a window. **Applied:** `scripts/backlog_head.py`. In the three strong groups the order is stronger in
    the window's 1st block than in blocks 2–4 by ≈ 0.23 (CIs exclude 0), but blocks 2–4 are still negative
-   (AgaveBam −0.31, FireBAM −0.18). This fits "the leader drains a backlog in priority order, and the backlog
+   (AgaveBam −0.31, FireBAM −0.18). *Final, with the live-run windows added:* the difference is −0.15
+   (AgaveBam), −0.18 (FireBAM), −0.16 (Firedancer 26.10.3), −0.20 (Jito), all CIs excluding 0; ≈ 0 for
+   Firedancer 26.10.4 and both Harmonic groups. This fits "the leader drains a backlog in priority order, and the backlog
    is biggest when its window opens", and it does not rule out a smaller slot-start effect.
    Output: `data/results/backlog_head.txt`.
 3. **Landing of unstaked probes.** A quick status check on the first 90 pairs said 43 of 156 direct-TPU sends
@@ -177,4 +179,40 @@ the public RPC quota goes to it).
    The quick check asked a load-balanced public RPC with `searchTransactionHistory: false` minutes after the
    sends; `itb collect` (history search, then the block itself) on a copy of the first 60 windows finds 76 % of
    the direct-TPU probes and 30 of 30 RPC-path probes in blocks. Lesson: landing is read from blocks, never
-   from a status cache. Final per-arm landing: see the live analysis below.
+   from a status cache. Final landing (full run, 6600 probes): direct TPU 72 % [69, 74], RPC 100 %
+   (but 60 % of RPC probes land with another leader); by front-end from 28 % (FireBAM) to 99 % (Harmonic).
+
+## Round 5: a skeptical judge reads the full live run and the cross-section (2026-10-24, morning)
+
+Full run: 1100 windows, 6600 probes, 5008 landed, 1410 usable pairs, 0.0389 SOL. Pre-registered cross-section:
+239 blocks of 110 non-panel validators. Report: REPORT 3.1 and 3.3.
+
+### What a judge would attack
+1. **"Your pre-registered test found nothing."** True for verdicts: no client reaches "fee priority" or
+   "FIFO"; five are "mixed / weak", five lack data. **Applied:** the verdicts are printed as they are, and the
+   pooled analysis is labelled exploratory. It earns its place because one simple model, "fee-sorted when
+   waiting together, arrival order otherwise", fits all three arms at every gap (DISC .80/.51/.46,
+   EQ .52/.36/.26, CONC .09/.00/.02 at dt 0/30/150 ms). The verdict rule had no way to express that.
+2. **"FPI is the wrong index."** It is, for some clients. FPI subtracts equal-fee overtakes as noise, which
+   assumes ties keep arrival order. Firedancer 26.10.4 breaks ties for the *later* tx (73 %), so FPI ≈ 0
+   while CONC is 0 % and EQ − CONC is +0.67. **Applied:** the mirror index EQ − CONC and the per-client tie
+   table are reported next to FPI, as exploratory, and the gap is named as a design lesson (REPORT 5). A
+   repeat should pre-register DISC − CONC.
+3. **"The RATIO arm is confounded."** The probes set no loaded-accounts-data limit. So the scheduler's
+   estimated cost includes a default 64 MiB allowance (16,384 CU), and RB wins on fee per estimated cost as well
+   as on total fee. **Applied:** the claim is cut to what the arm shows: `cu_price` is not the sort key (RB
+   first in 85 %, 73–94 % in every client). A repeat should set `SetLoadedAccountsDataSizeLimit`.
+4. **"Two validators per client is an operator study."** The cross-section answered it for the head order.
+   Agave-BAM (17 validators) is −0.48 and FireBAM (10) is −0.52. Every BAM node with 3 sampled validators is at
+   −0.43 to −0.60. Jito is −0.09 on the same Agave code. Harmonic is flat. **But H1 failed for 2 of 7 groups.**
+   Firedancer 26.10.4 is −0.28 across 16 validators, while its panel pair was ≈ 0. Agave is +0.01 against the
+   panel's −0.17. Both failures are reported as failed, and the TL;DR no longer calls Firedancer 26.10.4
+   "no fee order".
+5. **"Probes landing in other leaders' blocks are a bug."** 596 of 603 such TPU probes went to a leader that
+   advertises the target's tpuQuic IP. That is a finding about shared front-ends, not a targeting error, and
+   only on-target pairs are usable.
+
+### Applied
+- REPORT TL;DR, 3.1 (replication, backlog, cross-section, shared front-ends), 3.3 (full active layer),
+  4 (deviations), 5 (RATIO, FPI-tie and panel lessons), 6 (what more would take).
+- `scripts/live_analysis.py`: tie-breaking, RB-first and mirror-index tables (exploratory).

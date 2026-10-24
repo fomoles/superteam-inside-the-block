@@ -1,0 +1,1440 @@
+{
+ "now": 460740193,
+ "snapshot": "cluster-2026-10-24T003342Z.json.gz",
+ "plan": [
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "vahMVcSS3v6uwyFormV7FDAUbQSHwmy6vUedp1P7L42",
+   "ip": "63.254.167.199",
+   "slot": 460721216
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "vahMVcSS3v6uwyFormV7FDAUbQSHwmy6vUedp1P7L42",
+   "ip": "63.254.167.199",
+   "slot": 460730972
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "5essVpBYvocZkQnkrWsMDfRPwtp4BeihJRaweKLR4dRn",
+   "ip": "63.254.167.199",
+   "slot": 460737488
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "5essVpBYvocZkQnkrWsMDfRPwtp4BeihJRaweKLR4dRn",
+   "ip": "63.254.167.199",
+   "slot": 460738648
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "76rcGHdPvgs8G1XrzCXUTWtwgT59AFDvpB4VbTS2TBBJ",
+   "ip": "63.254.167.199",
+   "slot": 460738972
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "76rcGHdPvgs8G1XrzCXUTWtwgT59AFDvpB4VbTS2TBBJ",
+   "ip": "63.254.167.199",
+   "slot": 460739724
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "2UBhtRuyr9nvWsUnrbWrvJiYWEU8TVBD4PLYQJKiRa9H",
+   "ip": "198.13.141.173",
+   "slot": 460730008
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "2UBhtRuyr9nvWsUnrbWrvJiYWEU8TVBD4PLYQJKiRa9H",
+   "ip": "198.13.141.173",
+   "slot": 460737036
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "2AKKnirWVZMhnzuwqpizw9SwfZjGpRFLx2zCCNtPWpbc",
+   "ip": "103.70.2.244",
+   "slot": 460698396
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "2AKKnirWVZMhnzuwqpizw9SwfZjGpRFLx2zCCNtPWpbc",
+   "ip": "103.70.2.244",
+   "slot": 460739420
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "3RXKQBRv7xKTQeNdLSPhCiD4QcUfxEQ12rtgUkMf5LnS",
+   "ip": "88.216.192.50",
+   "slot": 460731224
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "3RXKQBRv7xKTQeNdLSPhCiD4QcUfxEQ12rtgUkMf5LnS",
+   "ip": "88.216.192.50",
+   "slot": 460739192
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "WUNoB9YQXmXXRcJsjY1G8PfVag5aAfnyGmFd6YwJVwp",
+   "ip": "103.70.2.244",
+   "slot": 460738872
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "WUNoB9YQXmXXRcJsjY1G8PfVag5aAfnyGmFd6YwJVwp",
+   "ip": "103.70.2.244",
+   "slot": 460739264
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "9gFxqsXbFyrKXUkqpAatonn47uYZ7sEZSnMxhzQoXrUJ",
+   "ip": "88.216.192.50",
+   "slot": 460725308
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "9gFxqsXbFyrKXUkqpAatonn47uYZ7sEZSnMxhzQoXrUJ",
+   "ip": "88.216.192.50",
+   "slot": 460727676
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "CVGwNaC1FaG95hRBHUuieDLyQU2hJuGhPduu2cMyHnw6",
+   "ip": "208.91.109.115",
+   "slot": 460677036
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "CVGwNaC1FaG95hRBHUuieDLyQU2hJuGhPduu2cMyHnw6",
+   "ip": "208.91.109.115",
+   "slot": 460718692
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "radM7PKUpZwJ9bYPAJ7V8FXHeUmH1zim6iaXUKkftP9",
+   "ip": "198.13.130.9",
+   "slot": 460737200
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "radM7PKUpZwJ9bYPAJ7V8FXHeUmH1zim6iaXUKkftP9",
+   "ip": "198.13.130.9",
+   "slot": 460737276
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "odcvDWH5wHVKz9XtmGGxTj5ZsmawTjCCty3nyBKDGzS",
+   "ip": "103.70.2.244",
+   "slot": 460738256
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "odcvDWH5wHVKz9XtmGGxTj5ZsmawTjCCty3nyBKDGzS",
+   "ip": "103.70.2.244",
+   "slot": 460739468
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "Ee8dX3qtwrDRnxYK6NGQfmMeKT3Qpp2QZHpxiAiw23W9",
+   "ip": "64.130.54.221",
+   "slot": 460712708
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "Ee8dX3qtwrDRnxYK6NGQfmMeKT3Qpp2QZHpxiAiw23W9",
+   "ip": "64.130.54.221",
+   "slot": 460716532
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "GWJyUxzcVwRRtpLuLiu1mpiUQsZ4onYFAYfCjQnuLmz5",
+   "ip": "198.13.141.173",
+   "slot": 460719492
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "GWJyUxzcVwRRtpLuLiu1mpiUQsZ4onYFAYfCjQnuLmz5",
+   "ip": "198.13.141.173",
+   "slot": 460737136
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "5d9Mdc2Zk8as8GL1AxQeXxv5htBBvC5bjfmsXC7UUWwG",
+   "ip": "208.91.109.115",
+   "slot": 460724052
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "5d9Mdc2Zk8as8GL1AxQeXxv5htBBvC5bjfmsXC7UUWwG",
+   "ip": "208.91.109.115",
+   "slot": 460738436
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "fhsM2sxME8cHrrk3qvtMsRRDv5AoLFja7NjNnHeYZxe",
+   "ip": "198.13.141.173",
+   "slot": 460697052
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "fhsM2sxME8cHrrk3qvtMsRRDv5AoLFja7NjNnHeYZxe",
+   "ip": "198.13.141.173",
+   "slot": 460709688
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "hy1oMaD3ViyJ8i6w1xjP79zAWBBaRd1zWdTW8zYXnwu",
+   "ip": "198.13.130.9",
+   "slot": 460735708
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "hy1oMaD3ViyJ8i6w1xjP79zAWBBaRd1zWdTW8zYXnwu",
+   "ip": "198.13.130.9",
+   "slot": 460736084
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "jntr1vkzvSujfckGR6ANmFmirVoPBMNr5XJGKP5uDQA",
+   "ip": "208.91.109.115",
+   "slot": 460608868
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "jntr1vkzvSujfckGR6ANmFmirVoPBMNr5XJGKP5uDQA",
+   "ip": "208.91.109.115",
+   "slot": 460619092
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "7y5VhV4fkz6r4zUmH2UiwPjLwXzPL1PcV28or5NWkWRL",
+   "ip": "198.13.140.105",
+   "slot": 460738156
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "7y5VhV4fkz6r4zUmH2UiwPjLwXzPL1PcV28or5NWkWRL",
+   "ip": "198.13.140.105",
+   "slot": 460738644
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "EfPYQ4BUMiKa6736qqrtnCBGkUSRDGSr1WvtyUgWHuyp",
+   "ip": "64.130.46.11",
+   "slot": 460730844
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "EfPYQ4BUMiKa6736qqrtnCBGkUSRDGSr1WvtyUgWHuyp",
+   "ip": "64.130.46.11",
+   "slot": 460738932
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "BSVckjdW2f8kcXPGcrPPtV9kUDBZ8w8PjrrGVnxgEdwq",
+   "ip": "88.216.192.50",
+   "slot": 460739000
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "BSVckjdW2f8kcXPGcrPPtV9kUDBZ8w8PjrrGVnxgEdwq",
+   "ip": "88.216.192.50",
+   "slot": 460739996
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "7qGNnXKW1e3DsqEaSxwxMdBTFsrK73XtWTmkGitRyMQc",
+   "ip": "198.13.130.9",
+   "slot": 460736604
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "7qGNnXKW1e3DsqEaSxwxMdBTFsrK73XtWTmkGitRyMQc",
+   "ip": "198.13.130.9",
+   "slot": 460738476
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9",
+   "ip": "64.130.54.221",
+   "slot": 460737604
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "HLnodbYkL5PFA8hjAZDkm5pGzV7eLTvcs671AW2L6St9",
+   "ip": "64.130.54.221",
+   "slot": 460740024
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "DidkDYa64DEMx97P4iahDwsWtgUTnLiEhHSMUbQGihi5",
+   "ip": "64.130.51.255",
+   "slot": 460733156
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "DidkDYa64DEMx97P4iahDwsWtgUTnLiEhHSMUbQGihi5",
+   "ip": "64.130.51.255",
+   "slot": 460733172
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "7HMHSdQkjDwz9Q5zAhEy83uzW3XHJchjdpMYapKXcKt5",
+   "ip": "64.130.51.255",
+   "slot": 460681472
+  },
+  {
+   "group": "AgaveBam 4.3.2",
+   "identity": "7HMHSdQkjDwz9Q5zAhEy83uzW3XHJchjdpMYapKXcKt5",
+   "ip": "64.130.51.255",
+   "slot": 460692576
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "7RtC1QgiNVLANGRTEKxASz4bRiMYyf2hUVLs1XGuJ6Gr",
+   "ip": "146.0.249.83",
+   "slot": 460712420
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "7RtC1QgiNVLANGRTEKxASz4bRiMYyf2hUVLs1XGuJ6Gr",
+   "ip": "146.0.249.83",
+   "slot": 460726500
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "Df16xM2XWzTXEGYxFBXtwXRhCdE6hwBbxS162TyS4r65",
+   "ip": "170.23.153.115",
+   "slot": 460737648
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "Df16xM2XWzTXEGYxFBXtwXRhCdE6hwBbxS162TyS4r65",
+   "ip": "170.23.153.115",
+   "slot": 460739296
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "Gv9gguvrAkgQtB5g5a3Un7trcHCxLYsk8vSojLmQMsWV",
+   "ip": "208.91.110.230",
+   "slot": 460736804
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "Gv9gguvrAkgQtB5g5a3Un7trcHCxLYsk8vSojLmQMsWV",
+   "ip": "208.91.110.230",
+   "slot": 460737904
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "7S22CYpfBRV1p8cTqWXFD4HwfqfNx3hAhfpdj8E2bYvJ",
+   "ip": "84.32.49.239",
+   "slot": 460730928
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "7S22CYpfBRV1p8cTqWXFD4HwfqfNx3hAhfpdj8E2bYvJ",
+   "ip": "84.32.49.239",
+   "slot": 460736980
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "8tjFeSApQ85ThoQXT28acfF2KUfQr3TvTdirSkzNnYC7",
+   "ip": "148.113.199.156",
+   "slot": 460739036
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "8tjFeSApQ85ThoQXT28acfF2KUfQr3TvTdirSkzNnYC7",
+   "ip": "148.113.199.156",
+   "slot": 460739756
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "99rG5AhkVagxJ7y8NpMAmy1h1u9GhT3h1Cimu2X3cwaJ",
+   "ip": "67.213.127.81",
+   "slot": 460727968
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "99rG5AhkVagxJ7y8NpMAmy1h1u9GhT3h1Cimu2X3cwaJ",
+   "ip": "67.213.127.81",
+   "slot": 460735852
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "3YVoK8UN62dyiPZnGBzBTkGdwsVmmK1MpRoLcxNRs9BE",
+   "ip": "135.125.142.235",
+   "slot": 460732328
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "3YVoK8UN62dyiPZnGBzBTkGdwsVmmK1MpRoLcxNRs9BE",
+   "ip": "135.125.142.235",
+   "slot": 460734228
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "1ggyZGbYtEo1WrV1kmXfnvhPeSPxrYAXoDBeApnszLT",
+   "ip": "155.138.145.139",
+   "slot": 460722504
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "1ggyZGbYtEo1WrV1kmXfnvhPeSPxrYAXoDBeApnszLT",
+   "ip": "155.138.145.139",
+   "slot": 460724232
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "DnQBmTJyLbBMgJYQLJDqJz25AJModNkyexL5LdVRGnG4",
+   "ip": "185.191.117.114",
+   "slot": 460713304
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "DnQBmTJyLbBMgJYQLJDqJz25AJModNkyexL5LdVRGnG4",
+   "ip": "185.191.117.114",
+   "slot": 460719436
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "privaEdSEmnMPGPoQACUkcDGkFBbTArVvsEGd7C5wUM",
+   "ip": "64.130.40.170",
+   "slot": 460734504
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "privaEdSEmnMPGPoQACUkcDGkFBbTArVvsEGd7C5wUM",
+   "ip": "64.130.40.170",
+   "slot": 460735464
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "ABREU5YkQcfpDZymoQ97iGUgQcfgjctWUUxEMfumiPdV",
+   "ip": "162.43.190.141",
+   "slot": 460540648
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "ABREU5YkQcfpDZymoQ97iGUgQcfgjctWUUxEMfumiPdV",
+   "ip": "162.43.190.141",
+   "slot": 460587484
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "ACvL73V4GNnxPVfZ7K89jCrYurLyzpEuE9qirjvh2Xmi",
+   "ip": "188.42.130.84",
+   "slot": 460738224
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "ACvL73V4GNnxPVfZ7K89jCrYurLyzpEuE9qirjvh2Xmi",
+   "ip": "188.42.130.84",
+   "slot": 460738368
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "EdFUcP2f6j9iBg5BqsgJn3WDr1JieiKCo41hZ5Zrsk6w",
+   "ip": "8.221.136.213",
+   "slot": 460739172
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "EdFUcP2f6j9iBg5BqsgJn3WDr1JieiKCo41hZ5Zrsk6w",
+   "ip": "8.221.136.213",
+   "slot": 460739940
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "FoXyHJXdQGK2eHoTjSAzHq4hzxWdJvpGgyzrtPS9eAk",
+   "ip": "177.54.147.76",
+   "slot": 460671900
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "FoXyHJXdQGK2eHoTjSAzHq4hzxWdJvpGgyzrtPS9eAk",
+   "ip": "177.54.147.76",
+   "slot": 460725236
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "D4KUs6wFY8qh7H1euCoCCpRMh6841cskzzfNcjmGBt6e",
+   "ip": "170.23.153.113",
+   "slot": 460597400
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "D4KUs6wFY8qh7H1euCoCCpRMh6841cskzzfNcjmGBt6e",
+   "ip": "170.23.153.113",
+   "slot": 460607540
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "2oHUYyW2PU9VJh4XBs5TbGgzdernunvGqyKth3kxW4ns",
+   "ip": "74.63.225.151",
+   "slot": 460735172
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "2oHUYyW2PU9VJh4XBs5TbGgzdernunvGqyKth3kxW4ns",
+   "ip": "74.63.225.151",
+   "slot": 460738208
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k",
+   "ip": "185.26.10.33",
+   "slot": 460739776
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "C8Bey3LKVJHVqN6xPTeW8WJfUgFQAeGNBpT4Rp99JP1k",
+   "ip": "185.26.10.33",
+   "slot": 460740028
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "7cVfgArCheMR6Cs4t6vz5rfnqd56vZq4ndaBrY5xkxXy",
+   "ip": "64.130.42.70",
+   "slot": 460736364
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "7cVfgArCheMR6Cs4t6vz5rfnqd56vZq4ndaBrY5xkxXy",
+   "ip": "64.130.42.70",
+   "slot": 460737020
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "EQhTjikb1L2jvxsCaSW2o2TuRXh4Do6HzBEWCxpeM44W",
+   "ip": "70.34.247.7",
+   "slot": 460723640
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "EQhTjikb1L2jvxsCaSW2o2TuRXh4Do6HzBEWCxpeM44W",
+   "ip": "70.34.247.7",
+   "slot": 460732496
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "5ghoFEVrsXeAPB6SUmBpZ2xq3KvHEjNMeSaBnxEBXkHV",
+   "ip": "104.204.143.34",
+   "slot": 460713720
+  },
+  {
+   "group": "JitoLabs 4.3.2",
+   "identity": "5ghoFEVrsXeAPB6SUmBpZ2xq3KvHEjNMeSaBnxEBXkHV",
+   "ip": "104.204.143.34",
+   "slot": 460732080
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "HE2REn7YRhFEghuctv3y1dUEK9aWhw8QQSUpRiHd819r",
+   "ip": "198.13.130.10",
+   "slot": 460735240
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "HE2REn7YRhFEghuctv3y1dUEK9aWhw8QQSUpRiHd819r",
+   "ip": "198.13.130.10",
+   "slot": 460738840
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i",
+   "ip": "64.130.46.242",
+   "slot": 460739580
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "9UM8wQ8F5oMiRcP5YdqD6Lr4krpBWCD8LtgQYoisJd9i",
+   "ip": "64.130.46.242",
+   "slot": 460739632
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "C1ocKDYMCm2ooWptMMnpd5VEB2Nx4UMJgRuYofysyzcA",
+   "ip": "64.130.45.196",
+   "slot": 460732340
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "C1ocKDYMCm2ooWptMMnpd5VEB2Nx4UMJgRuYofysyzcA",
+   "ip": "64.130.45.196",
+   "slot": 460735112
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "F6kVwubXEfZZo6e4Kozrtg7WoWk5wTRmrC8pwoxSLa7S",
+   "ip": "64.130.45.196",
+   "slot": 460690032
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "F6kVwubXEfZZo6e4Kozrtg7WoWk5wTRmrC8pwoxSLa7S",
+   "ip": "64.130.45.196",
+   "slot": 460699644
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "AurseT3W3tk1dATBWAXtWR6oubBgECqintfcvP74teU3",
+   "ip": "198.13.140.105",
+   "slot": 460722364
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "AurseT3W3tk1dATBWAXtWR6oubBgECqintfcvP74teU3",
+   "ip": "198.13.140.105",
+   "slot": 460736780
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f",
+   "ip": "63.254.166.232",
+   "slot": 460739224
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "EkvdKhULbMFqjKBKotAzGi3kwMvMpYNDKJXXQQmi6C1f",
+   "ip": "63.254.166.232",
+   "slot": 460739800
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "AG1PsJMQcutNUX64RD3bAhW7NpxWeFkqkgGizBznYFKW",
+   "ip": "63.254.166.232",
+   "slot": 460661160
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "AG1PsJMQcutNUX64RD3bAhW7NpxWeFkqkgGizBznYFKW",
+   "ip": "63.254.166.232",
+   "slot": 460673688
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "FzQqaDStQQHs52YKeCnDovwSqvyZBCgs2kJcmvoFZwaS",
+   "ip": "198.13.130.10",
+   "slot": 460738136
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "FzQqaDStQQHs52YKeCnDovwSqvyZBCgs2kJcmvoFZwaS",
+   "ip": "198.13.130.10",
+   "slot": 460739436
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "9W3QTgBhkU4Bwg6cwnDJo6eGZ9BtZafSdu1Lo9JmWws7",
+   "ip": "198.13.140.105",
+   "slot": 460738332
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "9W3QTgBhkU4Bwg6cwnDJo6eGZ9BtZafSdu1Lo9JmWws7",
+   "ip": "198.13.140.105",
+   "slot": 460739784
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW",
+   "ip": "64.130.45.196",
+   "slot": 460739988
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "3psxMyr7rQzywVp1MXKd1XFmFz33NjydzCoJx9t2sMQW",
+   "ip": "64.130.45.196",
+   "slot": 460740044
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "CRNyGD7xNPThLjNviGdxoAiHpQXZKx3UeyCfrxnmTi8r",
+   "ip": "198.13.140.105",
+   "slot": 460649932
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "CRNyGD7xNPThLjNviGdxoAiHpQXZKx3UeyCfrxnmTi8r",
+   "ip": "198.13.140.105",
+   "slot": 460662064
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "3tzpLMWRkWucvTRWU5PjgKzN1iwJuV69yCCjmuuo4gTk",
+   "ip": "63.254.166.232",
+   "slot": 460723540
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "3tzpLMWRkWucvTRWU5PjgKzN1iwJuV69yCCjmuuo4gTk",
+   "ip": "63.254.166.232",
+   "slot": 460734076
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "AicQr2zCWBLiBwt2r6o7iTemmtyE7q5pTKyuuupbXEQA",
+   "ip": "64.130.45.196",
+   "slot": 460738092
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "AicQr2zCWBLiBwt2r6o7iTemmtyE7q5pTKyuuupbXEQA",
+   "ip": "64.130.45.196",
+   "slot": 460738364
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "Stakex4B2tpDHPWGvV1dninfiaYCGdakgTknpzPitLh",
+   "ip": "198.13.140.105",
+   "slot": 460732768
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "Stakex4B2tpDHPWGvV1dninfiaYCGdakgTknpzPitLh",
+   "ip": "198.13.140.105",
+   "slot": 460736988
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ",
+   "ip": "198.13.140.105",
+   "slot": 460738444
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "DcTPJqPNrTLv3te1c9ctA9H194x6DsaPA4ChuSEv7KPZ",
+   "ip": "198.13.140.105",
+   "slot": 460739444
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo",
+   "ip": "63.254.166.232",
+   "slot": 460738376
+  },
+  {
+   "group": "HarmonicAgave 4.3.2",
+   "identity": "HTeRsa3gm3CGrizMoCrtWj4uBZ1NKYcGqh8jfBu2u3Jo",
+   "ip": "63.254.166.232",
+   "slot": 460739068
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "TopjgY7N1fJdnW89S9fX6t7LF61nspgXGL1NpgAKhDG",
+   "ip": "198.13.140.105",
+   "slot": 460634208
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "TopjgY7N1fJdnW89S9fX6t7LF61nspgXGL1NpgAKhDG",
+   "ip": "198.13.140.105",
+   "slot": 460642272
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "6yFGGAgYpBxgYPuHW4rv7hJmhKrUiXKyHkpVGaYtKrwE",
+   "ip": "198.13.140.105",
+   "slot": 460735216
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "6yFGGAgYpBxgYPuHW4rv7hJmhKrUiXKyHkpVGaYtKrwE",
+   "ip": "198.13.140.105",
+   "slot": 460737300
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM",
+   "ip": "64.130.45.196",
+   "slot": 460737384
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "6YY2VS44RP1sBosdEsvSaiw7gETDNx3tmg5mM5wHpTqM",
+   "ip": "64.130.45.196",
+   "slot": 460739804
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "GZ4U21pYmFkCk6ZNTHRzfVEZZXauyZLKDmuuuKGwvp5H",
+   "ip": "198.13.140.105",
+   "slot": 460737776
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "GZ4U21pYmFkCk6ZNTHRzfVEZZXauyZLKDmuuuKGwvp5H",
+   "ip": "198.13.140.105",
+   "slot": 460737816
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "8vk6QpG93JSaQCSgnycBsv5qmfQBk4qC9FjNA35E5JhU",
+   "ip": "63.254.166.232",
+   "slot": 460724760
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "8vk6QpG93JSaQCSgnycBsv5qmfQBk4qC9FjNA35E5JhU",
+   "ip": "63.254.166.232",
+   "slot": 460725932
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "43Am3PKFeo9cACpqYL5Sk95rpVdxLw3Mc22PqRqZXEW2",
+   "ip": "198.13.140.105",
+   "slot": 460719616
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "43Am3PKFeo9cACpqYL5Sk95rpVdxLw3Mc22PqRqZXEW2",
+   "ip": "198.13.140.105",
+   "slot": 460730224
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "ALp2GdA1eJV8vZHMHazCtTxNXe3BLUSco9LDASgjDs8R",
+   "ip": "63.254.166.232",
+   "slot": 460728208
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "ALp2GdA1eJV8vZHMHazCtTxNXe3BLUSco9LDASgjDs8R",
+   "ip": "63.254.166.232",
+   "slot": 460729964
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "TREEir31FswHK7JZBS5oFQteS72dobi6inpmQha88dA",
+   "ip": "198.13.140.105",
+   "slot": 460736620
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "TREEir31FswHK7JZBS5oFQteS72dobi6inpmQha88dA",
+   "ip": "198.13.140.105",
+   "slot": 460739728
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "HnrXmm65CyvmSyvwEMjmyHzYjAyhHiHEJ7s1pf6BxTYA",
+   "ip": "198.13.140.105",
+   "slot": 460699188
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "HnrXmm65CyvmSyvwEMjmyHzYjAyhHiHEJ7s1pf6BxTYA",
+   "ip": "198.13.140.105",
+   "slot": 460736696
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "revtecFsGSRCdF29atQvchSXrjwBesA9vSisD4fyH5K",
+   "ip": "198.13.140.105",
+   "slot": 460708824
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "revtecFsGSRCdF29atQvchSXrjwBesA9vSisD4fyH5K",
+   "ip": "198.13.140.105",
+   "slot": 460729988
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "FwnWx7x99rGwLmipzz8ii15NqcHkKRo2oS1Y7j6LivgZ",
+   "ip": "63.254.166.232",
+   "slot": 460719520
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "FwnWx7x99rGwLmipzz8ii15NqcHkKRo2oS1Y7j6LivgZ",
+   "ip": "63.254.166.232",
+   "slot": 460720808
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "73hojLdq1vZDSxeVQEqVFJ4iwLngdvEJPEpEHkSdv6BZ",
+   "ip": "198.13.140.105",
+   "slot": 460733796
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "73hojLdq1vZDSxeVQEqVFJ4iwLngdvEJPEpEHkSdv6BZ",
+   "ip": "198.13.140.105",
+   "slot": 460735108
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "2mMGsb5uy1Q4Dvezr8HK2E8SJoChcb2X7b61tJPaVHHd",
+   "ip": "63.254.166.232",
+   "slot": 460738952
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "2mMGsb5uy1Q4Dvezr8HK2E8SJoChcb2X7b61tJPaVHHd",
+   "ip": "63.254.166.232",
+   "slot": 460739252
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "juigBT2qetpYpf1iwgjaiWTjryKkY3uUTVAnRFKkqY6",
+   "ip": "64.130.45.196",
+   "slot": 460724984
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "juigBT2qetpYpf1iwgjaiWTjryKkY3uUTVAnRFKkqY6",
+   "ip": "64.130.45.196",
+   "slot": 460735824
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "AbvfvRfKHDpytbQqE8Y4jQrt262akV3RnA1RqMxQxg1x",
+   "ip": "198.13.140.111",
+   "slot": 460731832
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "AbvfvRfKHDpytbQqE8Y4jQrt262akV3RnA1RqMxQxg1x",
+   "ip": "198.13.140.111",
+   "slot": 460736964
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "EJsJx7Smt3jBheNF2ReTxq3HXh9Aczt6PHK12B5tkJk8",
+   "ip": "198.13.140.111",
+   "slot": 460739620
+  },
+  {
+   "group": "HarmonicFiredancer 26.10.4",
+   "identity": "EJsJx7Smt3jBheNF2ReTxq3HXh9Aczt6PHK12B5tkJk8",
+   "ip": "198.13.140.111",
+   "slot": 460739720
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "puffinQSvKFriPbyE5atyx1ptfnyytovbzxybr1jsyy",
+   "ip": "70.40.184.125",
+   "slot": 460693532
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "puffinQSvKFriPbyE5atyx1ptfnyytovbzxybr1jsyy",
+   "ip": "70.40.184.125",
+   "slot": 460709936
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "pebb1eQXvcuQfXkeyYjdoBVufKHwdKGL3G37GUts8Db",
+   "ip": "45.139.132.52",
+   "slot": 460709416
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "pebb1eQXvcuQfXkeyYjdoBVufKHwdKGL3G37GUts8Db",
+   "ip": "45.139.132.52",
+   "slot": 460726260
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "4SNKY7GCp7ohY4AawND5Cc2D71sWMWN3Uifo854yvtks",
+   "ip": "64.130.37.141",
+   "slot": 460739476
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "4SNKY7GCp7ohY4AawND5Cc2D71sWMWN3Uifo854yvtks",
+   "ip": "64.130.37.141",
+   "slot": 460739536
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "BFmqBsaGjeYA7gHpReKmnVkRyhqiMmHoR9ttv1crWmzy",
+   "ip": "137.239.202.126",
+   "slot": 460735344
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "BFmqBsaGjeYA7gHpReKmnVkRyhqiMmHoR9ttv1crWmzy",
+   "ip": "137.239.202.126",
+   "slot": 460737316
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "VQwCCSfW3o5NDx7n5FBr9SoYiLXVgetstHvaWBvv2YH",
+   "ip": "86.54.153.251",
+   "slot": 460739684
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "VQwCCSfW3o5NDx7n5FBr9SoYiLXVgetstHvaWBvv2YH",
+   "ip": "86.54.153.251",
+   "slot": 460739700
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "Lake8NXDThihebhxS3Js7mFnj9fthmus93zEdsFNrsL",
+   "ip": "84.32.70.12",
+   "slot": 460727488
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "Lake8NXDThihebhxS3Js7mFnj9fthmus93zEdsFNrsL",
+   "ip": "84.32.70.12",
+   "slot": 460733112
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX",
+   "ip": "88.216.197.108",
+   "slot": 460733752
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "D2RV1q6FgePVVjrMa7AMzVbvvAeg5oS7TAV7qdNKSDsX",
+   "ip": "88.216.197.108",
+   "slot": 460733892
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "6DTkuiey2RgMaBPC32dx2YpRKoNVfL19WdwBYih5SkVw",
+   "ip": "64.130.44.108",
+   "slot": 460719940
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "6DTkuiey2RgMaBPC32dx2YpRKoNVfL19WdwBYih5SkVw",
+   "ip": "64.130.44.108",
+   "slot": 460737588
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "EKgSCR3ahdypkxXcBY43ZNxdmyZqPkKNPey3rwKjqbz7",
+   "ip": "86.54.153.244",
+   "slot": 460581004
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "HW4zorvt6xDwhU36RqjcWNwU8YMj9tiqnAafBKW4cqV",
+   "ip": "84.32.103.226",
+   "slot": 460733592
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "HW4zorvt6xDwhU36RqjcWNwU8YMj9tiqnAafBKW4cqV",
+   "ip": "84.32.103.226",
+   "slot": 460738580
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+   "ip": "86.54.153.246",
+   "slot": 460740032
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "JD549HsbJHeEKKUrKgg4Fj2iyv2RGjsV7NTZjZUrHybB",
+   "ip": "86.54.153.246",
+   "slot": 460740116
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "SWD1LwTcEtpCRL683CT4HYDaGgMyMZ9LpSa5Foarsq4",
+   "ip": "195.12.227.235",
+   "slot": 460708588
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "SWD1LwTcEtpCRL683CT4HYDaGgMyMZ9LpSa5Foarsq4",
+   "ip": "195.12.227.235",
+   "slot": 460713052
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "9WzPWqKSqbE5PT9hMsmCDFjzpurAXEYCE9qrpVWp28KR",
+   "ip": "84.32.103.81",
+   "slot": 460718784
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "9WzPWqKSqbE5PT9hMsmCDFjzpurAXEYCE9qrpVWp28KR",
+   "ip": "84.32.103.81",
+   "slot": 460734248
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "4VRs6A9zBRXz6MLcmQGsBiSoWE2JjHrmw7LintC3T4Nv",
+   "ip": "64.130.63.145",
+   "slot": 460734396
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "4VRs6A9zBRXz6MLcmQGsBiSoWE2JjHrmw7LintC3T4Nv",
+   "ip": "64.130.63.145",
+   "slot": 460734444
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "RNXnAJV1DeBt6Lytjz4wYzvS3d6bhsfidS5Np4ovwZz",
+   "ip": "195.12.227.249",
+   "slot": 460735400
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "RNXnAJV1DeBt6Lytjz4wYzvS3d6bhsfidS5Np4ovwZz",
+   "ip": "195.12.227.249",
+   "slot": 460735420
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "DNVZMSqeRH18Xa4MCTrb1MndNf3Npg4MEwqswo23eWkf",
+   "ip": "23.109.46.35",
+   "slot": 460738488
+  },
+  {
+   "group": "Firedancer 26.10.4",
+   "identity": "DNVZMSqeRH18Xa4MCTrb1MndNf3Npg4MEwqswo23eWkf",
+   "ip": "23.109.46.35",
+   "slot": 460738628
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "Ey3DkEVbfBxfWmkTsG7Hqj7jshYf5Zx9H8462Zjjkykf",
+   "ip": "198.13.141.173",
+   "slot": 460689844
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "Ey3DkEVbfBxfWmkTsG7Hqj7jshYf5Zx9H8462Zjjkykf",
+   "ip": "198.13.141.173",
+   "slot": 460696484
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "8AkVj5aAtJ27tYXeq89cnSf68V43NarFHMx2iSDjZv7c",
+   "ip": "208.91.109.115",
+   "slot": 460733412
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "8AkVj5aAtJ27tYXeq89cnSf68V43NarFHMx2iSDjZv7c",
+   "ip": "208.91.109.115",
+   "slot": 460736252
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "74Xkp2iLXm315h69sFRiCFjmKnaWkMV8W2LgJwPRSgN5",
+   "ip": "88.216.192.50",
+   "slot": 460716728
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "74Xkp2iLXm315h69sFRiCFjmKnaWkMV8W2LgJwPRSgN5",
+   "ip": "88.216.192.50",
+   "slot": 460735488
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "PRGNnb8DxVcP2WjSHfVRGgc8SkA5u6dbMwoTVV1BGKN",
+   "ip": "103.70.2.244",
+   "slot": 460710216
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "PRGNnb8DxVcP2WjSHfVRGgc8SkA5u6dbMwoTVV1BGKN",
+   "ip": "103.70.2.244",
+   "slot": 460718624
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "9pBHfuE19q7PRbupJf8CZAMwv6RHjasdyMN9U9du7Nx2",
+   "ip": "198.13.141.173",
+   "slot": 460728844
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "9pBHfuE19q7PRbupJf8CZAMwv6RHjasdyMN9U9du7Nx2",
+   "ip": "198.13.141.173",
+   "slot": 460729100
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "SSmBEooM7RkmyuXxuKgAhTvhQZ36Z3G2WsmLGJKoQLY",
+   "ip": "64.130.51.255",
+   "slot": 460719720
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "SSmBEooM7RkmyuXxuKgAhTvhQZ36Z3G2WsmLGJKoQLY",
+   "ip": "64.130.51.255",
+   "slot": 460721876
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "DEU4agzdUCA5oZ1QSLxCyZb1smvdu5j1NXXsK2r823Uu",
+   "ip": "64.130.46.11",
+   "slot": 460712652
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "DEU4agzdUCA5oZ1QSLxCyZb1smvdu5j1NXXsK2r823Uu",
+   "ip": "64.130.46.11",
+   "slot": 460717096
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "11AMA4mnNbsrPQeuoNN7uiZVJZtqEzQHrTfa5vnbcjk",
+   "ip": "198.13.141.173",
+   "slot": 460732420
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "11AMA4mnNbsrPQeuoNN7uiZVJZtqEzQHrTfa5vnbcjk",
+   "ip": "198.13.141.173",
+   "slot": 460734916
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "ECZx4Dfyn2o55KTYbM9r3Dt4VZRcrdfdrst7sUbWgrdU",
+   "ip": "64.130.51.255",
+   "slot": 460724260
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "ECZx4Dfyn2o55KTYbM9r3Dt4VZRcrdfdrst7sUbWgrdU",
+   "ip": "64.130.51.255",
+   "slot": 460734164
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "idCE5k2BtTpwXdwAC7Var1enT9reut9fWECcxQP7LY7",
+   "ip": "64.130.51.255",
+   "slot": 460728856
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "idCE5k2BtTpwXdwAC7Var1enT9reut9fWECcxQP7LY7",
+   "ip": "64.130.51.255",
+   "slot": 460737204
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "svsD6T44XJnuXQWB15sy1pBxxruzrFy8rR7gXy8Jsj3",
+   "ip": "63.254.167.199",
+   "slot": 460723468
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "svsD6T44XJnuXQWB15sy1pBxxruzrFy8rR7gXy8Jsj3",
+   "ip": "63.254.167.199",
+   "slot": 460724764
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "R2D2imoV8nXk1ngT9v4dEK65We4uLNyUarTBdWbFruq",
+   "ip": "64.130.51.255",
+   "slot": 460681244
+  },
+  {
+   "group": "FireBAM 26.10.4",
+   "identity": "R2D2imoV8nXk1ngT9v4dEK65We4uLNyUarTBdWbFruq",
+   "ip": "64.130.51.255",
+   "slot": 460724268
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH",
+   "ip": "67.213.112.229",
+   "slot": 460720040
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "dxa6QFqLcByyHykLCAW5tv1VYNVQFV3v6oovM2h8inH",
+   "ip": "67.213.112.229",
+   "slot": 460738560
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "9hQqNe3DQTiwhspatewA8EXhz12e6sq5UJVJ2qNRwnTf",
+   "ip": "177.54.155.251",
+   "slot": 460703312
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "9hQqNe3DQTiwhspatewA8EXhz12e6sq5UJVJ2qNRwnTf",
+   "ip": "177.54.155.251",
+   "slot": 460733432
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "scs1NCSTafrUX6RBx113B9YDCepo1QdEzU8WwEkf25i",
+   "ip": "109.94.99.167",
+   "slot": 460692984
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "scs1NCSTafrUX6RBx113B9YDCepo1QdEzU8WwEkf25i",
+   "ip": "109.94.99.167",
+   "slot": 460702600
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "dzBhD4wikyy7xqwiJvT49gdrKqWVjfs9M6cTssmRX8Y",
+   "ip": "45.76.239.188",
+   "slot": 460646252
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "dzBhD4wikyy7xqwiJvT49gdrKqWVjfs9M6cTssmRX8Y",
+   "ip": "45.76.239.188",
+   "slot": 460670712
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "rsbp8zMHbGCpLoRktmsjspYv77VcjxAzH1KxPCD9BiU",
+   "ip": "209.250.251.15",
+   "slot": 460734128
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "rsbp8zMHbGCpLoRktmsjspYv77VcjxAzH1KxPCD9BiU",
+   "ip": "209.250.251.15",
+   "slot": 460734652
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "9D3o3EYeknhTrRvXS1PnD2euGXnMFa3HwpYBq5gPZJDA",
+   "ip": "50.115.47.106",
+   "slot": 460621176
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "9D3o3EYeknhTrRvXS1PnD2euGXnMFa3HwpYBq5gPZJDA",
+   "ip": "50.115.47.106",
+   "slot": 460692640
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "DiFeTctQSaNczJNmZ5121kYqLaBe9wDpM9sjCzTELJLE",
+   "ip": "109.248.222.157",
+   "slot": 460574076
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "DiFeTctQSaNczJNmZ5121kYqLaBe9wDpM9sjCzTELJLE",
+   "ip": "109.248.222.157",
+   "slot": 460610480
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "scs2Ra91pMbvqFAP7uitrN5U25SoyBTqZgBbhpVMJko",
+   "ip": "67.213.118.73",
+   "slot": 460734200
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "scs2Ra91pMbvqFAP7uitrN5U25SoyBTqZgBbhpVMJko",
+   "ip": "67.213.118.73",
+   "slot": 460735364
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "mds4GEuiSgQRqveGyktWpETBFCb4AS2wDnhqwLHcT6Z",
+   "ip": "189.1.164.35",
+   "slot": 460733108
+  },
+  {
+   "group": "Agave 4.3.2",
+   "identity": "mds4GEuiSgQRqveGyktWpETBFCb4AS2wDnhqwLHcT6Z",
+   "ip": "189.1.164.35",
+   "slot": 460739484
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "2dfgsiSaZ51QYPsECMYMG247PXxyKdwkV9wTHoQb8YEC",
+   "ip": "64.130.42.87",
+   "slot": 460721028
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "2dfgsiSaZ51QYPsECMYMG247PXxyKdwkV9wTHoQb8YEC",
+   "ip": "64.130.42.87",
+   "slot": 460739364
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "3B2mGaZoFwzAnWCoZ4EAKdps4FbYbDKQ48jo8u1XWynU",
+   "ip": "77.81.119.170",
+   "slot": 460718612
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "3B2mGaZoFwzAnWCoZ4EAKdps4FbYbDKQ48jo8u1XWynU",
+   "ip": "77.81.119.170",
+   "slot": 460731196
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "gUvo3g5LfH4Pd8qnG7T6MPEFa5bPr8LhDdxDahwYqis",
+   "ip": "162.19.94.48",
+   "slot": 460737512
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "gUvo3g5LfH4Pd8qnG7T6MPEFa5bPr8LhDdxDahwYqis",
+   "ip": "162.19.94.48",
+   "slot": 460739156
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "7PdKhpKz7T39vZHFL1UfcYNDsLvay6hp4KPQq1aUckFf",
+   "ip": "64.130.41.180",
+   "slot": 460736716
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "7PdKhpKz7T39vZHFL1UfcYNDsLvay6hp4KPQq1aUckFf",
+   "ip": "64.130.41.180",
+   "slot": 460739856
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "BCeczqpTRPigndHVJu1KEzno1Uhb4hjrE7ttmAndrV1p",
+   "ip": "165.254.143.125",
+   "slot": 460693832
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "BCeczqpTRPigndHVJu1KEzno1Uhb4hjrE7ttmAndrV1p",
+   "ip": "165.254.143.125",
+   "slot": 460709892
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "SLAY6uN1zZpXBTfbuDDCesNmM5D288xrz8uYvfS3n41",
+   "ip": "65.19.161.132",
+   "slot": 460695192
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "SLAY6uN1zZpXBTfbuDDCesNmM5D288xrz8uYvfS3n41",
+   "ip": "65.19.161.132",
+   "slot": 460708252
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "Ed9WjPnZfAXsPttcqxMwj94qsuXVRyBsyXnDkxFva2Zv",
+   "ip": "185.191.117.155",
+   "slot": 460721132
+  },
+  {
+   "group": "Rakurai 4.3.2",
+   "identity": "Ed9WjPnZfAXsPttcqxMwj94qsuXVRyBsyXnDkxFva2Zv",
+   "ip": "185.191.117.155",
+   "slot": 460735424
+  }
+ ]
+}

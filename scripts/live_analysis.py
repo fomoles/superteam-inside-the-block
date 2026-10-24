@@ -117,13 +117,23 @@ table("B1. Overtake rate (2nd probe placed before the 1st) by arm, all clients p
 
 
 print("\n### B2. Fee-priority index (overtake DISC - overtake EQ), pooled and by gap\n")
-print("| subset | usable DISC / EQ | FPI [95 % CI] | same, non-conflicting (DISC_SEP - EQ_SEP) |\n|---|---|---|---|")
+# exploratory (not pre-registered): EQ - CONC asks the mirror question -- does a cheaper tx sent *after* a pricier
+# one stay behind it more often than an equal-fee one does? Both arms share one payer, so locks are the same.
+print("| subset | usable DISC / EQ / CONC | FPI [95 % CI] | same, non-conflicting (DISC_SEP - EQ_SEP) | "
+      "mirror: EQ - CONC (exploratory) |\n|---|---|---|---|---|")
 for k, d in [("all", U)] + [(f"dt = {v} ms", x) for v, x in U.groupby("dt_ms")] + \
         [(f"phase {v}", x) for v, x in U.groupby("phase")] + [(g, x) for g, x in U.groupby("group")]:
-    n = f"{(d.arm == 'DISC').sum()} / {(d.arm == 'EQ').sum()}"
-    print(f"| {k} | {n} | {fmt(*boot(d, 'overtake', 'DISC', 'EQ'), pct=False)} | {fmt(*boot(d, 'overtake', 'DISC_SEP', 'EQ_SEP'), pct=False)} |")
+    n = f"{(d.arm == 'DISC').sum()} / {(d.arm == 'EQ').sum()} / {(d.arm == 'CONC').sum()}"
+    print(f"| {k} | {n} | {fmt(*boot(d, 'overtake', 'DISC', 'EQ'), pct=False)} | "
+          f"{fmt(*boot(d, 'overtake', 'DISC_SEP', 'EQ_SEP'), pct=False)} | {fmt(*boot(d, 'overtake', 'EQ', 'CONC'), pct=False)} |")
 table("B3. FIFO check: overtake rate of equal-fee pairs (EQ + EQ_SEP) by gap", U[U.arm.isin(["EQ", "EQ_SEP"])],
       "dt_ms", "overtake", "usable pairs")
+table("B3b. Tie-breaking: overtake rate of equal-fee pairs (EQ + EQ_SEP) by client group (50 % = coin flip, "
+      "< 50 % = arrival order kept, > 50 % = later arrival placed first)", U[U.arm.isin(["EQ", "EQ_SEP"])],
+      "group", "overtake", "usable pairs")
+table("B3c. Ratio arms by client group: share of pairs where RB (higher total fee, lower price per CU) is placed "
+      "before RA", U[U.arm.isin(["RATIO_AB", "RATIO_BA"])].assign(
+          rb_first=lambda x: np.where(x.arm == "RATIO_AB", x.overtake, 1 - x.overtake)), "group", "rb_first", "usable pairs")
 D["window_key"] = D.run + ":" + D.window_slot.astype(str)
 table("B4. Both probes of a pair in the same block, by gap (TPU pairs)", D[D.path == "TPU"], "dt_ms", "same_block", "pairs")
 

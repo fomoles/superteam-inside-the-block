@@ -1,0 +1,4 @@
+{"t_ns": 1792807048423047000, "mono_ns": 52424879168291, "event": "rpc", "method": "getMultipleAccounts", "url": "https://solana-rpc.publicnode.com", "ms": 150.9}
+{"t_ns": 1792807048535236000, "mono_ns": 52424991357083, "event": "rpc", "method": "getMultipleAccounts", "url": "https://api.mainnet-beta.solana.com", "ms": 111.9}
+{"t_ns": 1792807048608055000, "mono_ns": 52425064175750, "event": "rpc", "method": "getLatestBlockhash", "url": "https://solana-rpc.publicnode.com", "ms": 63.3}
+{"t_ns": 1792807048644687000, "mono_ns": 52425100807333, "event": "rpc", "method": "simulateTransaction", "url": "https://api.mainnet-beta.solana.com", "ms": 33.3}

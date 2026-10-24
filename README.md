@@ -68,7 +68,8 @@ Safety rules enforced in code:
 - **Cost estimate:** the mean fee per pair is ~15,400 lamports, so 350 windows × 3 pairs ≈ **0.016 SOL**.
   Txs that never land cost nothing. On top of that, 12 sub-payer deposits of 0.0014 SOL each
   (≈ 0.017 SOL) are needed because accounts must hold the rent minimum. They are returned by `sweep`.
-  Fund the keypair with **≈ 0.07 SOL**.
+  Fund the keypair with **≈ 0.07 SOL**. Measured: the default `scripts/live.sh` run (1100 windows, 6600
+  probes, cap 0.08 SOL) spent **0.0389 SOL** on 24.10.2026.
 - No Jito bundles or tips are used.
 
 ## Design
