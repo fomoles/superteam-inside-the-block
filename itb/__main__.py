@@ -99,6 +99,14 @@ async def cmd_sweep(a) -> None:
     await rpc_close(rpc, sweep(rpc, a.keypair, dry=not a.yes))
 
 
+async def cmd_preflight(a) -> None:
+    from .preflight import preflight
+    a.keypair = a.keypair or os.environ.get("ITB_KEYPAIR")
+    rpc = _rpc(a)
+    if not await rpc_close(rpc, preflight(rpc, a.keypair, a.ledger, a.cap_sol, a.max_windows)):
+        sys.exit(1)
+
+
 async def cmd_all(a) -> None:
     """Reproduce: fresh survey + passive blocks + a short mainnet dry-run + collect + analyze + verify.
 
@@ -163,6 +171,13 @@ def main() -> None:
     w.add_argument("--keypair", default=None)
     w.add_argument("--yes", action="store_true", help="really send the sweep transfers")
     w.set_defaults(func=cmd_sweep)
+
+    pf = sp.add_parser("preflight", help="read-only check of key, balances, cap and a simulated probe (sends nothing)")
+    pf.add_argument("--keypair", default=None)
+    pf.add_argument("--cap-sol", type=float, default=float(os.environ.get("ITB_CAP_SOL", "0.05")))
+    pf.add_argument("--ledger", default=os.environ.get("ITB_LEDGER", str(DATA / "spend-ledger.json")))
+    pf.add_argument("--max-windows", type=int, default=int(os.environ.get("ITB_MAX_WINDOWS", "350")))
+    pf.set_defaults(func=cmd_preflight)
 
     al = sp.add_parser("all", help="survey + passive + dry-run + collect + analyze + verify")
     al.add_argument("--per-client", type=int, default=2)

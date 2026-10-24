@@ -54,6 +54,14 @@ class Rpc:
     async def close(self) -> None:
         await self.client.aclose()
 
+    async def balances(self, keys: list[str]) -> list[int]:
+        """Lamports per account; chunked because public RPCs cap getMultipleAccounts at 10 keys."""
+        out = []
+        for i in range(0, len(keys), 10):
+            r = await self.call("getMultipleAccounts", [keys[i:i + 10], {"commitment": "confirmed", "encoding": "base64"}])
+            out += [acc["lamports"] if acc else 0 for acc in r["value"]]
+        return out
+
     async def call(self, method: str, params: list | None = None, *, quiet: bool = False):
         last: Exception | None = None
         retry_after = 0.0

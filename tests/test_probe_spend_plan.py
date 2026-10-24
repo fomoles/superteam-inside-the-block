@@ -84,3 +84,22 @@ def test_plan_deterministic_and_payers_in_group():
 def test_plan_covers_all_arms():
     arms = {p.arm for w in range(0, 4 * 400, 4) for p in P.plan_window(3, w, "X", 0, 0)}
     assert arms == set(P.ARMS)
+
+
+def test_balances_chunked_to_public_rpc_limit():
+    import asyncio
+    from itb.rpc import Rpc
+
+    calls = []
+
+    async def fake_call(method, params, quiet=False):
+        assert method == "getMultipleAccounts" and len(params[0]) <= 10  # public RPC limit
+        calls.append(len(params[0]))
+        return {"value": [None if k == "k0" else {"lamports": int(k[1:])} for k in params[0]]}
+
+    rpc = Rpc(["http://unused"])
+    rpc.call = fake_call
+    keys = [f"k{i}" for i in range(13)]
+    assert asyncio.run(rpc.balances(keys)) == list(range(13))
+    assert calls == [10, 3]
+    asyncio.run(rpc.close())

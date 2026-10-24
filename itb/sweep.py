@@ -18,11 +18,10 @@ from .run import GROUPS, load_keypair
 async def sweep(rpc: Rpc, keypair_path: str, dry: bool = True) -> None:
     master = load_keypair(keypair_path)
     payers = [derive_payer(master, i) for i in range(GROUPS * 2 * PAIRS_PER_WINDOW)]
-    r = await rpc.call("getMultipleAccounts", [[str(p.pubkey()) for p in payers], {"encoding": "base64"}])
+    lamports = await rpc.balances([str(p.pubkey()) for p in payers])
     bh = (await rpc.call("getLatestBlockhash", [{"commitment": "confirmed"}]))["value"]["blockhash"]
     total = 0
-    for p, acc in zip(payers, r["value"]):
-        lam = acc["lamports"] if acc else 0
+    for p, lam in zip(payers, lamports):
         if lam <= BASE_FEE:
             continue
         amount = lam - BASE_FEE  # closes the account to 0 (allowed for system accounts)

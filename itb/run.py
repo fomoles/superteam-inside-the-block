@@ -115,8 +115,7 @@ class Runner:
     # ---------- money (live only)
     async def balances(self) -> dict[str, int]:
         keys = [str(self.master.pubkey())] + [str(p.pubkey()) for p in self.payers]
-        r = await self.rpc.call("getMultipleAccounts", [keys, {"commitment": "confirmed", "encoding": "base64"}])
-        return {k: (acc["lamports"] if acc else 0) for k, acc in zip(keys, r["value"])}
+        return dict(zip(keys, await self.rpc.balances(keys)))
 
     async def send_and_confirm(self, tx: Transaction, what: str) -> bool:
         wire = base64.b64encode(bytes(tx)).decode()

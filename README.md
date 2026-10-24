@@ -50,6 +50,13 @@ docker compose run --rm itb analyze
 docker compose run --rm itb sweep --keypair /run/secrets/itb_keypair --yes   # return deposits
 ```
 
+Without Docker, the same in one script, with a read-only check first (`itb preflight`: balances, cap,
+a `simulateTransaction` of a probe; sends nothing):
+
+```bash
+ITB_KEYPAIR=/abs/path/outside/repo/keypair.json scripts/live.sh
+```
+
 Safety rules enforced in code:
 
 - **Dry-run is the default.** Sending needs `--live` **and** `--yes-spend` **and** a keypair passed through
