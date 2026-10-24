@@ -2,7 +2,8 @@
 
 Mainnet-beta, 24.10.2026, epoch 1066, three days after Alpenglow was activated (epoch 1064). solana-core 4.3.2
 on the RPC side; slots are 210.7 ms; leader windows are 4 slots (≈ 840 ms).
-Generated tables and figures: [results.md](results.md). Code and one-command reproduction: [../README.md](../README.md).
+Generated tables and figures: [results_run1.md](results_run1.md) (run 1, quoted in sections 3.1–3.3) and
+[results.md](results.md) (all runs pooled, rebuilt by `itb analyze`). Code and one-command reproduction: [../README.md](../README.md).
 
 ## TL;DR
 
@@ -11,9 +12,11 @@ Generated tables and figures: [results.md](results.md). Code and one-command rep
 - **Data.** A panel of **20 validators in 10 client/version groups** (Agave, Agave 4.5 alpha, Jito, Agave-BAM,
   Harmonic-Agave, Rakurai, Firedancer 26.10.3 and 26.10.4, Harmonic-Firedancer, FireBAM), plus 110 other
   validators for a cross-section check. **6600 self-sent probes** in 1100 of the panel's leader windows
-  (0.039 SOL spent), **5008 landed**; ≈ 6200 real blocks read.
-- **Controlled probes** (section 3.3). Probes are sent in pairs straight to the leader's TPU, with a fixed send
-  gap. Pooled over all clients:
+  (0.039 SOL spent), **5008 landed**; ≈ 6200 real blocks read. **Run 2**, pre-registered, the same day: a panel
+  of 47 validators (44 reached, 24 of them new), 6438 probes sent in another 1100 windows (≈ 0.036 SOL),
+  4687 landed.
+- **Controlled probes, run 1** (section 3.3). Probes are sent in pairs straight to the leader's TPU, with a
+  fixed send gap. Pooled over all clients:
   - when the cheaper tx is sent first, the pricier one gets ahead of it in **61 %** of pairs;
   - with equal fees, the second-sent one is ahead in **41 %**;
   - when the pricier tx is sent first, the cheaper one gets ahead in only **4 %**.
@@ -29,12 +32,22 @@ Generated tables and figures: [results.md](results.md). Code and one-command rep
   - **what "fee" means.** The tx with the higher total fee but the lower `cu_price` goes first in 85 % of
     pairs, so `cu_price` is not the sort key.
 
-  These are **exploratory**: the model was found after looking at the data. The pre-registered test (FPI =
-  DISC − EQ, +0.20 [+0.12, +0.28] pooled) gives no client a clean "fee priority" or "FIFO" verdict: 5 are
-  "mixed / weak" and 5 have too few pairs. FPI turned out to mix the two numbers above (section 5).
-- **Run 2 is pre-registered and ready, not yet run** (section 3.4). It tests the model's claims as seven
-  fixed checks on new data: 47 validators, including 27 new ones, and probes that fix the ratio arm's
-  confound. On run 1, five of the seven hold, one cannot hold by design, and one has no data yet.
+  On run 1 these are **exploratory**: the model was found after looking at the data, and run 2 tests it
+  (next bullet). The pre-registered v1 test (FPI = DISC − EQ, +0.20 [+0.12, +0.28] pooled) gives no client a
+  clean "fee priority" or "FIFO" verdict on run 1: 5 are "mixed / weak" and 5 have too few pairs. On run 2
+  alone, Harmonic-Agave gets "fee priority". FPI turned out to mix the two numbers above (section 5).
+- **Run 2 confirms the model on new data: all seven pre-registered checks hold** (section 3.4,
+  [figure](figures/sort_model_run2.png)). The checks were committed before the first run-2 probe. On 1240
+  new usable pairs:
+  - the fee decides +0.52 [+0.45, +0.59] pooled, and +0.56 [+0.44, +0.69] on the 24 validators that run 1
+    never probed;
+  - a cheaper later tx passes a pricier one in 5 % of pairs;
+  - Jito again sorts by fee less often: −0.45 [−0.72, −0.20] below the four fee-sorters pooled;
+  - Firedancer 26.10.4 again gives fee ties to the later arrival: TAU 1.00 [0.68, 1.00].
+  - **The sharpest check flipped as predicted.** Run-2 probes add one instruction that changes only the
+    scheduler's cost estimate. The same two probes went from "higher total fee first" (85 %) to "higher fee
+    per estimated cost first" (79 % [74, 84]). So the sort key is **fee per estimated cost unit**: not the
+    total fee, and not the `cu_price` field.
 - **Real blocks** (section 3.1). At the **start of a leader's window**, BAM front-ends put higher-fee txs
   first:
   - Agave-BAM: ρ −0.48 on 17 other validators, −0.49 in 179 live-run windows;
@@ -208,7 +221,7 @@ the leader that built the block. Pooled tables and CIs come from
 [data/results/live_analysis.txt](../data/results/live_analysis.txt) (`scripts/live_analysis.py`). The CIs use a
 bootstrap over leader windows.
 
-**Pre-registered per-client verdicts** ([results.md](results.md)). No client gets "fee priority" or "FIFO".
+**Pre-registered per-client verdicts** ([results_run1.md](results_run1.md)). No client gets "fee priority" or "FIFO".
 AgaveBam, Firedancer 26.10.4, HarmonicAgave, HarmonicFiredancer and Jito are **"mixed / weak"**. Four of them
 have an FPI of about +0.2, below the pre-registered bar: a lower CI bound above 0.2. Their Holm-adjusted p is
 0.036 for HarmonicAgave and 0.06–0.08 for the others. Firedancer 26.10.4 has an FPI of about 0. Agave, Agave 4.5, FireBAM, Firedancer 26.10.3 and Rakurai have **"insufficient data"**:
@@ -301,32 +314,61 @@ by QoS rather than by the scheduler. The model assumes the "sorted together" sha
 DISC, CONC and EQ arms; that holds by design (the arms differ only in fee levels and are randomised within a
 window), but it is an assumption.
 
-### 3.4 Run 2: pre-registered, ready, not yet run
+### 3.4 Run 2: the model tested on new data
 
 The model above was found after looking at run 1, so on run 1 it is a hypothesis, not a result.
 [notes/preregistration-v2.md](../notes/preregistration-v2.md) (commit 3b49c8c, before any run-2 probe) turns it
-into seven checks for a new run. `scripts/live2.sh` runs it; it spends ≈ 0.04 SOL, and the owner of the key
-starts it.
+into seven checks for a new run. The owner of the key ran `scripts/live2.sh` on 24.10.2026, 13:30–15:26 UTC.
 
-- **Panel v2**: 47 validators, the top 5 by stake in each group. That is 27 more than run 1, from a fresh
-  survey (`data/panel-v2.json`).
+- **Panel v2**: 47 validators, the top 5 by stake in each group, from a fresh survey (`data/panel-v2.json`).
+  44 had leader windows during the run; 24 of them were never probed in run 1.
 - **Probes** add `SetLoadedAccountsDataSizeLimit(32768)` as the first instruction. Their estimated cost is then
   ≈ 1,630 CU for RA and ≈ 7,030 CU for RB. RA wins on `cu_price` and on fee per estimated cost; RB wins only on
   total fee. Simulated on mainnet: 4 instructions, 600 CU, within the 600-CU limit.
-- Everything else is unchanged.
+- Everything else is unchanged: up to 1100 windows, the same arms, gaps, phases, seed and analysis code.
+- **Size.** 6438 probes sent (162 more found no reachable TPU), 4687 landed, 1240 usable pairs; ≈ 0.036 SOL.
 
-| id | claim | holds if | run 1 (exploratory) |
-|---|---|---|---|
-| C1 | the fee decides most pairs | pooled FDS lower CI > 0.30 | holds: +0.57 [+0.51, +0.62] |
-| C2 | a cheaper later tx almost never passes | CONC upper CI ≤ 0.10 | holds |
-| C3 | Jito sorts by fee less often | FDS(Jito) − FDS(4 fee-sorters pooled) upper CI < 0 | holds: −0.28 [−0.44, −0.11] |
-| C4 | Firedancer 26.10.4 gives ties to the later arrival | TAU lower CI > 0.5 | holds: 1.00 [0.72, 1.00] |
-| C5 | … more than the other clients | TAU difference lower CI > 0 | holds: +0.42 [+0.11, +0.54] |
-| C6 | with the cap, fee per cost beats total fee | RB-first share upper CI < −0.2 | fails, as the uncapped design predicts (+0.69) |
-| C7 | not a property of the 20 run-1 validators | FDS on new validators lower CI > 0.30 | no new validators yet |
+| id | claim | holds if | run 1 (exploratory) | **run 2 (confirmatory)** |
+|---|---|---|---|---|
+| C1 | the fee decides most pairs | pooled FDS lower CI > 0.30 | +0.57 [+0.51, +0.62] | **holds**: +0.52 [+0.45, +0.59] |
+| C2 | a cheaper later tx almost never passes | CONC upper CI ≤ 0.10 | holds | **holds**: 0.05 [0.02, 0.09] |
+| C3 | Jito sorts by fee less often | FDS(Jito) − FDS(4 fee-sorters pooled) upper CI < 0 | −0.28 [−0.44, −0.11] | **holds**: −0.45 [−0.72, −0.20] |
+| C4 | Firedancer 26.10.4 gives ties to the later arrival | TAU lower CI > 0.5 | 1.00 [0.72, 1.00] | **holds**: 1.00 [0.68, 1.00] |
+| C5 | … more than the other clients | TAU difference lower CI > 0 | +0.42 [+0.11, +0.54] | **holds**: +0.49 [+0.13, +0.62] |
+| C6 | with the cap, fee per cost beats total fee | RB-first share upper CI < −0.2 | +0.69: uncapped design, cannot hold | **holds**: −0.61 [−0.70, −0.52] |
+| C7 | not a property of the 20 run-1 validators | FDS on new validators lower CI > 0.30 | no new validators | **holds**: +0.56 [+0.44, +0.69] |
 
-C6 is the sharpest test. The same two probes, plus one instruction that changes only the cost estimate,
-should flip from "RB first in 85 %" to "RA first". If the scheduler sorted by total fee, they would not flip.
+![Run 2: fee-decides share and tie rule per client](figures/sort_model_run2.png)
+
+**C6 is the sharpest test, and it flipped.** In run 1 the higher-total-fee probe RB went first in 85 % of ratio
+pairs. In run 2 the same two probes carry one more instruction, which changes only the scheduler's cost
+estimate, and RA went first in 79 % [74, 84] of 252 usable pairs (59–100 % per client). The RB-first share is negative in every client with ratio pairs (from
+−0.20 for Jito, whose interval reaches 0, to −1.00 for FireBAM) and at every gap: −0.71 at 0 ms, −0.60 at
+30 ms, −0.36 at 150 ms. A scheduler that
+sorts by total fee would not flip; one that sorts by `cu_price` would have put RA first in run 1 too. What is
+left is the rule in both Agave's and Firedancer's scheduler source ([notes/research.md](../notes/research.md)):
+**reward per estimated cost unit**, where the cost includes the loaded-data allowance.
+
+**Per client, run 2** (full table: [data/results/sort_model_run2.txt](../data/results/sort_model_run2.txt)).
+Fee decides: Agave-BAM +0.72, Harmonic-Agave +0.68, FireBAM +0.57, Firedancer 26.10.4 +0.55, Agave +0.50,
+Firedancer 26.10.3 +0.50, Harmonic-Firedancer +0.49, Rakurai +0.40, **Jito +0.16 [−0.10, +0.40]**. Jito is the
+only client whose interval reaches 0; it is below Harmonic-Agave (−0.52), Agave-BAM (−0.56) and Firedancer 26.10.4
+(−0.39), each with an interval that excludes 0. Tie rule: Firedancer 26.10.4 1.00, Harmonic-Firedancer 0.32,
+Harmonic-Agave 0.31; Firedancer 26.10.4 − Harmonic-Firedancer +0.68 [+0.19, +1.00], so the two Firedancer
+builds behind and not behind Harmonic break ties differently.
+
+**The v1 test on run 2.** The pre-registration also asks for the v1 verdicts (FPI = DISC − EQ, Holm) on run 2
+alone ([data/results/v1_run2.txt](../data/results/v1_run2.txt), `scripts/v1_by_run.py`). Harmonic-Agave gets
+"fee priority" (FPI +0.47 [+0.27, +0.65], Holm p 0.0008); Agave-BAM, Firedancer 26.10.4 and Harmonic-Firedancer
+are "mixed / weak"; six groups have fewer than 20 usable pairs in an arm the test needs. Pooled over both runs
+([results.md](results.md), which `itb analyze` now builds from both), 7 groups are "mixed / weak" and 3 have
+too few pairs. As section 5 explains, FPI mixes the fee-decides share with the tie rule, so a client that gives
+ties to the later arrival (Firedancer 26.10.4) scores ≈ 0 however strictly it sorts by fee. The pooled ratio
+rows in results.md mix the uncapped and capped designs and should not be read.
+
+**What run 2 does not settle.** The checks share run 1's assumptions (section 3.3): the "sorted together" share
+is the same across arms, and probes that never landed were not dropped selectively by QoS. Jito's interval is
+wide (74 pairs). Thin groups (Agave 4.5 alpha, Firedancer 26.10.3, FireBAM) have 10–45 usable pairs in run 2.
 
 ## 4. Deviations from pre-registration
 
@@ -339,6 +381,12 @@ should flip from "RB first in 85 %" to "RA first". If the scheduler sorted by to
 - **Exploratory live tables**, added after seeing the live data: the mirror index EQ − CONC, tie-breaking per
   client, RB-first per client, the arm × gap breakdown, and the FDS / TAU model with its client contrasts
   (`scripts/sort_model.py`). No run-1 verdict rests on them; they are the hypotheses of run 2 (section 3.4).
+- **Run 2** followed its pre-registration, with three procedural notes. The terminal running `scripts/live2.sh`
+  restarted during the collect step, after all probes were sent; collect, analyze and `sort_model.py` were
+  re-run by hand with the script's own arguments, and nothing else changed. 27 of 1100 windows were still in
+  flight when the run stopped sending (`run_end`: 1100 started, 1073 done); their probes are analysed like
+  any other. The v1 per-run table needed a small script (`scripts/v1_by_run.py`), because `itb analyze` pools
+  every run in `data/`; it calls the same v1 functions.
 - **Cross-section** (section 3.1) has its own pre-registration, committed before its fetch. It is reported in
   full, including the failed H1.
 
@@ -356,7 +404,8 @@ should flip from "RB first in 85 %" to "RA first". If the scheduler sorted by to
   and without an explicit loaded-accounts-data limit, the default 64 MiB allowance alone is 16,384 CU. With
   that, RB has both the higher total fee and the higher fee per estimated cost unit. The arm still shows that
   the `cu_price` field is not the sort key (RB first in 85 %). Separating the two rules needs probes that set
-  `SetLoadedAccountsDataSizeLimit`, so `cu_limit` dominates the cost. Run 2 does (section 3.4).
+  `SetLoadedAccountsDataSizeLimit`, so `cu_limit` dominates the cost. Run 2 did, and the order flipped
+  (section 3.4). An arm is only as good as its model of the cost the scheduler computes.
 - **FPI assumes that ties keep arrival order.** It subtracts the equal-fee overtake rate as "noise". A client
   that breaks ties for the later arrival (Firedancer 26.10.4: 73 %) gets FPI ≈ 0 even though it never lets a
   cheaper later tx pass a pricier one (CONC 0 %). The pre-registration should have used CONC as well. A
@@ -374,15 +423,18 @@ should flip from "RB first in 85 %" to "RA first". If the scheduler sorted by to
 
 ## 6. What is missing, and what it would take
 
-- **Run 2** (section 3.4) is the next step: designed, pre-registered and dry-run tested, not yet run. It adds
-  pairs for the thin groups (FireBAM, Agave, Rakurai), new validators per client, and the repaired ratio arm.
-  One run of 1100 windows costs ≈ 0.04 SOL at these fees.
+- **Thin groups.** After two runs, Agave 4.5 alpha has 16 usable pairs, FireBAM 93 and Firedancer 26.10.3 123,
+  spread over seven arms; that is too few per arm for firm per-client claims. Jito's fee-decides share also has
+  a wide interval. FireBAM landed only 28 % of
+  direct probes in run 1. A third run aimed only at them costs ≈ 0.04 SOL per 1100 windows at these fees.
+- **Why Jito sorts less.** Run 2 confirms that it does, not why. A block-engine stage that holds txs would
+  leave fewer of our pairs waiting together; testing that needs probes with a known hold time.
 - **Admission vs ordering.** Unstaked senders get a small QUIC quota; a probe that never lands may have been
   dropped by QoS. Landing rates are reported per client, but the cause of a drop cannot be seen. A staked
   sender would remove that doubt.
 - **Client vs operator.** The cross-section separates them for the block-head order: it is BAM's, on every BAM
-  node, for Agave and Firedancer behind it alike. For the active layer, probes reached only two validators per
-  client.
+  node, for Agave and Firedancer behind it alike. For the active layer, run 2 reached up to 5 validators per
+  client (44 in all), and the model held on the 24 new ones; per-operator estimates need more pairs.
 
 ## 7. Reproduce and check
 
@@ -390,7 +442,8 @@ should flip from "RB first in 85 %" to "RA first". If the scheduler sorted by to
 docker compose up          # survey, passive blocks, dry-run, analysis, verify; spends nothing
 ```
 
-Every number in [results.md](results.md) is computed from files in `data/`. Every probe and every block is
+Every number in [results.md](results.md) is computed from files in `data/`; [results_run1.md](results_run1.md)
+is the same file frozen before run 2. Every probe and every block is
 keyed by signature and slot; `itb verify` re-fetches blocks from the chain and checks stored positions. The
-live run's raw blocks (≈ 520 MB) are not in git: `landed.jsonl` keeps each probe's slot, position and block
+live runs' raw blocks (520–590 MB per run) are not in git: `landed.jsonl` keeps each probe's slot, position and block
 leader, `passive_blocks.csv` keeps the per-block statistics, and `itb collect` fetches the blocks again.

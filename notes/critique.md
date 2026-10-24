@@ -244,3 +244,32 @@ Full run: 1100 windows, 6600 probes, 5008 landed, 1410 usable pairs, 0.0389 SOL.
 
 ### Not done, and why
 - Run 2 itself. It spends real SOL; only the key owner starts it (`scripts/live2.sh`, ≈ 0.04 SOL).
+
+## Round 7: run 2 is in; a skeptic reads the confirmatory result (2026-10-24, evening)
+
+Run 2 (`scripts/live2.sh`, 13:30–15:26 UTC): 44 of 47 panel-v2 validators reached, 6438 probes, 4687 landed,
+1240 usable pairs, ≈ 0.036 SOL. All seven checks of notes/preregistration-v2.md hold (REPORT 3.4).
+
+### What a judge would attack
+1. **"All seven held. Were the bars set low?"** They were set before the run (3b49c8c) from run-1 values, and
+   C6 had never held on any data: it predicts that one instruction which changes only the cost estimate flips
+   the ratio pair. It flipped, from RB first in 85 % to RA first in 79 % [74, 84], negative in every client and
+   at every gap. A total-fee scheduler cannot produce that. **Applied:** REPORT TL;DR and 3.4 lead with C6.
+2. **"C3 could be one Jito operator."** Run 2 has five Jito validators; Jito's own FDS interval reaches 0
+   (+0.16 [−0.10, +0.40]), but it is below each of three other clients separately (−0.39 to −0.56, intervals
+   excluding 0). The cause is not tested. **Applied:** REPORT 6 says "confirms that it does, not why".
+3. **"The new validators are the same operators as the old ones."** 24 of 44 reached validators were never
+   probed in run 1; on them alone FDS is +0.56 [+0.44, +0.69] (C7). Many sit behind the same BAM or Harmonic
+   front-ends, so "new validator" is not always "new scheduler". Stated in REPORT 6 (client vs operator).
+4. **"The v1 verdicts still say 'mixed'."** Reported, not hidden: on run 2 alone Harmonic-Agave gets "fee
+   priority", three groups "mixed / weak", six too few pairs; pooled, 7 "mixed / weak". FPI's flaw (ties) is
+   section 5's; the pre-registered C4/C5 measure it directly.
+5. **"The script stopped mid-collect; did you re-run until it looked good?"** All probes were sent before the
+   stop; collect and the analysis were re-run once with the script's own arguments, and the logs are in
+   `data/logs/` (collect-20261024T152713Z, collect-20261024T170854Z, analyze-20261024T173412Z). REPORT 4 lists it.
+
+### Still assumed, not shown
+- The "sorted together" share *s* is the same across arms (true by design, untested).
+- Unlanded probes were dropped by QoS at random with respect to arm. Per-arm landing (results.md, both runs)
+  differs by ≤ 0.10 within Agave-BAM, Jito, both Harmonic groups and both Firedancer builds, but by 0.14–0.19 in Agave, FireBAM and Rakurai and
+  0.5 in Agave 4.5 alpha (16 pairs).

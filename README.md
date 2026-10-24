@@ -12,7 +12,7 @@ dataset of real blocks from the same validators.
   HarmonicFiredancer 26.10.4, FireBAM 26.10.4. Clients are taken from gossip `clientId` + `version` and frozen
   in [data/panel.json](data/panel.json).
 - Results: [report/REPORT.md](report/REPORT.md) (the write-up) and [report/results.md](report/results.md)
-  (generated tables and figures).
+  (generated tables and figures, both live runs pooled; [run 1 alone](report/results_run1.md)).
 - Design and analysis rules were fixed in [notes/preregistration.md](notes/preregistration.md) before any
   live data existed. The critique log is in [notes/critique.md](notes/critique.md).
 
@@ -59,7 +59,7 @@ ITB_KEYPAIR=/abs/path/outside/repo/keypair.json scripts/live.sh
 
 Run 2, the confirmatory run fixed in [notes/preregistration-v2.md](notes/preregistration-v2.md) (47-validator
 panel, probes that cap their loaded account data, its own ledger and a 0.06 SOL cap), is one script; it ends by
-printing the pre-registered checks C1–C7:
+printing the pre-registered checks C1–C7. It ran on 24.10.2026 and all seven held (report section 3.4):
 
 ```bash
 ITB_KEYPAIR=/abs/path/outside/repo/keypair.json scripts/live2.sh
@@ -127,7 +127,7 @@ leader, so the leader is checked from the block itself.
 - 95 % confidence intervals use a **cluster bootstrap over leader windows**, because pairs in one block are
   not independent.
 - The fee-priority test (H1) is corrected for multiple groups with the **Holm** method.
-- Found in run 1 and pre-registered for run 2: `FDS = overtake(DISC) − overtake(CONC)`, the share of pairs
+- Found in run 1, pre-registered for run 2 and confirmed by it: `FDS = overtake(DISC) − overtake(CONC)`, the share of pairs
   where the fee decides, and `TAU = (EQ − CONC) / FDS`, how a fee tie is broken (`scripts/sort_model.py`).
 - A group gets a verdict only with at least 20 usable pairs per arm; otherwise it is reported as
   "insufficient data".
@@ -183,9 +183,9 @@ itb/            survey, schedule (leader windows + slot clock), probe, spend (ca
                 run (dry-run/live), collect, analyze, verify, sweep, __main__ (CLI)
 data/           panel.json, survey/ (raw gossip+stake snapshots), passive/blocks/, runs/<stamp>/ (pairs,
                 txs with signatures + slots, landed, events log, blocks), results/*.csv, logs/
-report/         REPORT.md (write-up), results.md + figures/ (generated)
+report/         REPORT.md (write-up), results.md + figures/ (generated), results_run1.md + figures/run1/ (run-1 snapshot)
 notes/          listing, v0 default answer, research, critique log, preregistration (v1, cross-section, v2)
-scripts/        live.sh / live2.sh (owner's live runs), sort_model.py, live_analysis.py, passive follow-ups
+scripts/        live.sh / live2.sh (owner's live runs), sort_model.py, v1_by_run.py, live_analysis.py, passive follow-ups
 tests/          spend cap, fee formula, tags, plan, block parsing, analysis on synthetic data
 ```
 

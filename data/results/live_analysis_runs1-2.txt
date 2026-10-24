@@ -1,0 +1,171 @@
+# Live layer, pooled (20261024T015728Z-mainnet-live, 20261024T133021Z-mainnet-live)
+
+13038 probes sent in 2173 leader windows of 44 validators (10 client groups); 9695 landed.
+
+### A1. Landing by path
+
+| path | probes | windows | estimate [95 % CI] |
+|---|---|---|---|
+| RPC | 1974 | 329 | 100 % [100 %, 100 %] |
+| TPU | 11064 | 1844 | 70 % [68 %, 72 %] |
+| **all** | 13038 | 2173 | 74 % [73 %, 76 %] |
+
+### A2. Landing by client group (direct TPU only)
+
+| group | probes | windows | estimate [95 % CI] |
+|---|---|---|---|
+| Agave 4.3.2 | 642 | 107 | 55 % [46 %, 63 %] |
+| Agave 4.5.0-alpha.2 | 42 | 7 | 93 % [83 %, 100 %] |
+| AgaveBam 4.3.2 | 1608 | 268 | 56 % [50 %, 61 %] |
+| FireBAM 26.10.4 | 954 | 159 | 27 % [20 %, 34 %] |
+| Firedancer 26.10.3 | 402 | 67 | 71 % [60 %, 81 %] |
+| Firedancer 26.10.4 | 1746 | 291 | 75 % [70 %, 79 %] |
+| HarmonicAgave 4.3.2 | 1722 | 287 | 97 % [96 %, 99 %] |
+| HarmonicFiredancer 26.10.4 | 1692 | 282 | 98 % [96 %, 99 %] |
+| JitoLabs 4.3.2 | 1710 | 285 | 54 % [48 %, 59 %] |
+| Rakurai 4.3.2 | 546 | 91 | 61 % [51 %, 70 %] |
+| **all** | 11064 | 1844 | 70 % [68 %, 72 %] |
+
+### A3. Landing by phase (TPU): PRE = sent before the window starts, IN = inside it
+
+| phase | probes | windows | estimate [95 % CI] |
+|---|---|---|---|
+| IN | 5604 | 1634 | 67 % [64 %, 69 %] |
+| PRE | 5460 | 1601 | 73 % [71 %, 75 %] |
+| **all** | 11064 | 1844 | 70 % [68 %, 72 %] |
+
+### A4. Landing by fee level (TPU)
+
+| level | probes | windows | estimate [95 % CI] |
+|---|---|---|---|
+| HIGH | 2981 | 1669 | 69 % [66 %, 71 %] |
+| LOW | 2981 | 1669 | 69 % [67 %, 72 %] |
+| MID | 2852 | 1090 | 72 % [69 %, 75 %] |
+| RA | 1125 | 933 | 69 % [66 %, 72 %] |
+| RB | 1125 | 933 | 69 % [66 %, 72 %] |
+| **all** | 11064 | 1844 | 70 % [68 %, 72 %] |
+
+### A5. Landing by gap between the two probes of a pair (TPU)
+
+| dt_ms | probes | windows | estimate [95 % CI] |
+|---|---|---|---|
+| 0 | 3686 | 1289 | 71 % [68 %, 74 %] |
+| 30 | 3710 | 1294 | 69 % [66 %, 72 %] |
+| 150 | 3668 | 1285 | 70 % [67 %, 72 %] |
+| **all** | 11064 | 1844 | 70 % [68 %, 72 %] |
+
+### A6. Landing by role in the pair (TPU)
+
+| role | probes | windows | estimate [95 % CI] |
+|---|---|---|---|
+| 1 | 5532 | 1844 | 70 % [68 %, 72 %] |
+| 2 | 5532 | 1844 | 69 % [67 %, 71 %] |
+| **all** | 11064 | 1844 | 70 % [68 %, 72 %] |
+
+### A7. Landing by send punctuality (TPU)
+
+| late | probes | windows | estimate [95 % CI] |
+|---|---|---|---|
+| on time | 9729 | 1661 | 71 % [69 %, 73 %] |
+| sent > 50 ms late | 1335 | 268 | 58 % [51 %, 64 %] |
+| **all** | 11064 | 1844 | 70 % [68 %, 72 %] |
+
+Landed in a block of a different leader than the target: 2361 of 9695 (by target group: {'HarmonicFiredancer 26.10.4': 847, 'HarmonicAgave 4.3.2': 646, 'AgaveBam 4.3.2': 193, 'FireBAM 26.10.4': 170, 'Firedancer 26.10.4': 166, 'JitoLabs 4.3.2': 161, 'Firedancer 26.10.3': 61, 'Rakurai 4.3.2': 60, 'Agave 4.3.2': 57}; by path: {'TPU': 1228, 'RPC': 1133}).
+Of the 1228 direct-TPU probes among them, 1207 landed with a leader that advertises the same tpuQuic IP as the target (shared front-end, see scripts/shared_tpu.py).
+
+## B. Order inside a block
+
+6600 live pairs, 3800 with both probes in the same block, 2650 usable (same block, on target, sent <= 50 ms late).
+
+### B1. Overtake rate (2nd probe placed before the 1st) by arm, all clients pooled
+
+| arm | usable pairs | windows | estimate [95 % CI] |
+|---|---|---|---|
+| CONC | 369 | 335 | 5 % [3 %, 7 %] |
+| DISC | 621 | 507 | 59 % [55 %, 63 %] |
+| DISC_SEP | 412 | 365 | 55 % [50 %, 60 %] |
+| EQ | 431 | 375 | 39 % [35 %, 44 %] |
+| EQ_SEP | 296 | 275 | 40 % [34 %, 45 %] |
+| RATIO_AB | 247 | 235 | 41 % [35 %, 47 %] |
+| RATIO_BA | 274 | 258 | 35 % [29 %, 40 %] |
+| **all** | 2650 | 1206 | 41 % [39 %, 43 %] |
+
+### B2. Fee-priority index (overtake DISC - overtake EQ), pooled and by gap
+
+| subset | usable DISC / EQ / CONC | FPI [95 % CI] | same, non-conflicting (DISC_SEP - EQ_SEP) | mirror: EQ - CONC (exploratory) |
+|---|---|---|---|---|
+| all | 621 / 431 / 369 | +0.20 [+0.14, +0.26] | +0.15 [+0.07, +0.22] | +0.35 [+0.30, +0.40] |
+| dt = 0 ms | 233 / 186 / 155 | +0.27 [+0.18, +0.36] | +0.22 [+0.10, +0.34] | +0.40 [+0.31, +0.48] |
+| dt = 30 ms | 236 / 160 / 134 | +0.14 [+0.04, +0.24] | +0.13 [+0.01, +0.25] | +0.35 [+0.27, +0.42] |
+| dt = 150 ms | 152 / 85 / 80 | +0.23 [+0.10, +0.34] | +0.07 [-0.07, +0.22] | +0.23 [+0.14, +0.34] |
+| phase IN | 283 / 200 / 183 | +0.15 [+0.07, +0.24] | +0.19 [+0.08, +0.30] | +0.29 [+0.21, +0.37] |
+| phase PRE | 338 / 231 / 186 | +0.24 [+0.16, +0.32] | +0.12 [+0.02, +0.22] | +0.40 [+0.33, +0.47] |
+| Agave 4.3.2 | 21 / 37 / 24 | +0.13 [-0.14, +0.38] | +0.19 [-0.16, +0.51] | +0.26 [+0.09, +0.43] |
+| Agave 4.5.0-alpha.2 | 2 / 4 / 1 | +0.50 [+0.00, +1.00] | +0.40 [+0.00, +1.00] | +0.00 [+0.00, +0.00] |
+| AgaveBam 4.3.2 | 87 / 66 / 48 | +0.22 [+0.05, +0.37] | +0.47 [+0.31, +0.62] | +0.44 [+0.31, +0.58] |
+| FireBAM 26.10.4 | 21 / 22 / 13 | +0.39 [+0.08, +0.66] | +0.44 [-0.02, +0.86] | +0.20 [-0.04, +0.43] |
+| Firedancer 26.10.3 | 30 / 18 / 23 | -0.02 [-0.32, +0.26] | +0.04 [-0.33, +0.37] | +0.43 [+0.14, +0.67] |
+| Firedancer 26.10.4 | 126 / 73 / 62 | -0.01 [-0.16, +0.15] | -0.10 [-0.25, +0.05] | +0.61 [+0.49, +0.73] |
+| HarmonicAgave 4.3.2 | 114 / 75 / 66 | +0.33 [+0.20, +0.47] | +0.09 [-0.08, +0.26] | +0.34 [+0.23, +0.45] |
+| HarmonicFiredancer 26.10.4 | 97 / 67 / 56 | +0.29 [+0.13, +0.43] | +0.25 [+0.05, +0.46] | +0.31 [+0.18, +0.43] |
+| JitoLabs 4.3.2 | 91 / 50 / 54 | +0.14 [-0.02, +0.30] | +0.13 [-0.07, +0.31] | +0.15 [+0.00, +0.29] |
+| Rakurai 4.3.2 | 32 / 19 / 22 | +0.28 [+0.03, +0.50] | +0.22 [-0.08, +0.52] | +0.11 [-0.07, +0.33] |
+
+### B3. FIFO check: overtake rate of equal-fee pairs (EQ + EQ_SEP) by gap
+
+| dt_ms | usable pairs | windows | estimate [95 % CI] |
+|---|---|---|---|
+| 0 | 298 | 278 | 48 % [42 %, 54 %] |
+| 30 | 282 | 265 | 37 % [31 %, 42 %] |
+| 150 | 147 | 144 | 29 % [22 %, 36 %] |
+| **all** | 727 | 601 | 39 % [36 %, 43 %] |
+
+### B3b. Tie-breaking: overtake rate of equal-fee pairs (EQ + EQ_SEP) by client group (50 % = coin flip, < 50 % = arrival order kept, > 50 % = later arrival placed first)
+
+| group | usable pairs | windows | estimate [95 % CI] |
+|---|---|---|---|
+| Agave 4.3.2 | 58 | 45 | 29 % [18 %, 41 %] |
+| Agave 4.5.0-alpha.2 | 5 | 5 | 0 % [0 %, 0 %] |
+| AgaveBam 4.3.2 | 111 | 90 | 40 % [30 %, 49 %] |
+| FireBAM 26.10.4 | 31 | 23 | 29 % [15 %, 48 %] |
+| Firedancer 26.10.3 | 32 | 26 | 50 % [31 %, 68 %] |
+| Firedancer 26.10.4 | 136 | 114 | 69 % [61 %, 77 %] |
+| HarmonicAgave 4.3.2 | 124 | 100 | 34 % [26 %, 42 %] |
+| HarmonicFiredancer 26.10.4 | 110 | 96 | 32 % [23 %, 41 %] |
+| JitoLabs 4.3.2 | 83 | 71 | 25 % [16 %, 35 %] |
+| Rakurai 4.3.2 | 37 | 31 | 24 % [11 %, 38 %] |
+| **all** | 727 | 601 | 39 % [36 %, 43 %] |
+
+### B3c. Ratio arms by client group: share of pairs where RB (higher total fee, lower price per CU) is placed before RA
+
+| group | usable pairs | windows | estimate [95 % CI] |
+|---|---|---|---|
+| Agave 4.3.2 | 24 | 23 | 46 % [26 %, 65 %] |
+| Agave 4.5.0-alpha.2 | 3 | 3 | 0 % [0 %, 0 %] |
+| AgaveBam 4.3.2 | 71 | 62 | 51 % [37 %, 64 %] |
+| FireBAM 26.10.4 | 19 | 16 | 47 % [22 %, 74 %] |
+| Firedancer 26.10.3 | 23 | 21 | 70 % [50 %, 87 %] |
+| Firedancer 26.10.4 | 114 | 99 | 51 % [41 %, 60 %] |
+| HarmonicAgave 4.3.2 | 108 | 98 | 54 % [45 %, 64 %] |
+| HarmonicFiredancer 26.10.4 | 78 | 69 | 62 % [50 %, 73 %] |
+| JitoLabs 4.3.2 | 53 | 45 | 57 % [43 %, 71 %] |
+| Rakurai 4.3.2 | 28 | 27 | 50 % [30 %, 69 %] |
+| **all** | 521 | 463 | 54 % [49 %, 58 %] |
+
+### B4. Both probes of a pair in the same block, by gap (TPU pairs)
+
+| dt_ms | pairs | windows | estimate [95 % CI] |
+|---|---|---|---|
+| 0 | 1862 | 1304 | 70 % [67 %, 72 %] |
+| 30 | 1882 | 1309 | 63 % [61 %, 66 %] |
+| 150 | 1869 | 1301 | 42 % [39 %, 45 %] |
+| **all** | 5613 | 1871 | 58 % [57 %, 60 %] |
+
+## C. Slot of the window the probe landed in (slot 1 = window's first block; target leader only)
+
+| phase | later window | slot -1 | slot 1 | slot 2 | slot 3 | slot 4 |
+|---|---|---|---|---|---|---|
+| IN | 417 | 0 | 595 | 651 | 920 | 880 |
+| PRE | 304 | 2 | 2137 | 758 | 426 | 244 |
+
+721 probes landed in a later window of the same leader (gap 4-152 slots, blockhash still valid); by group: {'Firedancer 26.10.4': 270, 'HarmonicAgave 4.3.2': 185, 'JitoLabs 4.3.2': 90, 'AgaveBam 4.3.2': 65, 'HarmonicFiredancer 26.10.4': 47, 'Firedancer 26.10.3': 37, 'FireBAM 26.10.4': 27}.
